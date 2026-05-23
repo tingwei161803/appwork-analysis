@@ -46,7 +46,12 @@
     <nav class="hero__nav" aria-label="Page navigation">
       <a href="#chapters"><span class="material-symbols-rounded">menu_book</span><span data-i18n="navChapters">10 面向分析</span></a>
       <a href="#viz"><span class="material-symbols-rounded">monitoring</span><span data-i18n="navViz">統計圖表</span></a>
+      <a href="#demo-day"><span class="material-symbols-rounded">event</span><span data-i18n="navDemoDay">Demo Day</span></a>
+      <a href="#why-invested"><span class="material-symbols-rounded">lightbulb</span><span data-i18n="navWhy">Why Invested</span></a>
+      <a href="#competitors"><span class="material-symbols-rounded">leaderboard</span><span data-i18n="navComp">競爭對手</span></a>
+      <a href="#quotes"><span class="material-symbols-rounded">format_quote</span><span data-i18n="navQuotes">名言錄</span></a>
       <a href="#portfolio"><span class="material-symbols-rounded">grid_view</span><span data-i18n="navPortfolio">投資組合</span></a>
+      <a href="#glossary"><span class="material-symbols-rounded">menu_book</span><span data-i18n="navGlossary">名詞表</span></a>
     </nav>
   </section>
 
@@ -79,10 +84,46 @@
     </div>
   </section>
 
+  <section class="demo-day" id="demo-day" aria-labelledby="demo-day-heading">
+    <header class="section-head">
+      <h2 id="demo-day-heading" data-i18n="demoDayTitle">Demo Day 全紀錄</h2>
+      <p data-i18n="demoDaySub">AW#1 到 AW#33 每屆主題、規模與代表案例。</p>
+    </header>
+    <div class="demo-day-intro" id="demo-day-intro"></div>
+    <div class="demo-day-grid" id="demo-day-grid"></div>
+  </section>
+
+  <section class="why-invested" id="why-invested" aria-labelledby="why-invested-heading">
+    <header class="section-head">
+      <h2 id="why-invested-heading" data-i18n="whyInvestedTitle">Why We Invested</h2>
+      <p data-i18n="whyInvestedSub">AppWorks 自家「Why We Invested」系列：22 篇深度說明押注每家公司的真正原因。</p>
+    </header>
+    <div class="why-grid" id="why-grid"></div>
+  </section>
+
+  <section class="competitors" id="competitors" aria-labelledby="competitors-heading">
+    <header class="section-head">
+      <h2 id="competitors-heading" data-i18n="competitorsTitle">競爭對手深度檔</h2>
+      <p data-i18n="competitorsSub">把 AppWorks 放在 SEA VC 同業裡看：5 家最常被對比的玩家。</p>
+    </header>
+    <div class="competitors-grid" id="competitors-grid"></div>
+  </section>
+
+  <section class="quotes" id="quotes" aria-labelledby="quotes-heading">
+    <header class="section-head">
+      <h2 id="quotes-heading" data-i18n="quotesTitle">Jamie Lin 名言錄</h2>
+      <p data-i18n="quotesSub">從 mrjamie.cc、AppWorks Blog、媒體訪談整理的 25 句代表性引言。</p>
+    </header>
+    <div class="quotes-grid" id="quotes-grid"></div>
+  </section>
+
   <section id="portfolio" aria-labelledby="portfolio-heading">
     <header class="section-head">
       <h2 id="portfolio-heading" data-i18n="portfolioTitle">投資組合圖鑑</h2>
       <p data-i18n="portfolioSub">每家公司可開啟詳細卡片；支援雙語切換、3 軸 + AW 屆數篩選與搜尋。</p>
+      <button class="export-btn ripple-host" id="export-csv" type="button" title="Export filtered as CSV">
+        <span class="material-symbols-rounded">download</span><span data-i18n="exportCSV">匯出 CSV</span>
+      </button>
     </header>
   </section>
 
@@ -129,6 +170,14 @@
   <main class="grid" id="grid" aria-live="polite"></main>
   <div class="load-sentinel" id="load-sentinel" hidden></div>
 
+  <section class="glossary" id="glossary" aria-labelledby="glossary-heading">
+    <header class="section-head">
+      <h2 id="glossary-heading" data-i18n="glossaryTitle">名詞表 Glossary</h2>
+      <p data-i18n="glossarySub">頁面上反覆出現的縮寫與專有名詞。</p>
+    </header>
+    <dl class="glossary-list" id="glossary-list"></dl>
+  </section>
+
   <footer class="site-foot">
     <p data-i18n-html="footer">資料整理自 <a href="https://appworks.tw/investments/" target="_blank" rel="noopener">AppWorks Investments</a>、Crunchbase 與公開新聞。非官方整理，內容僅供研究參考。</p>
   </footer>
@@ -139,7 +188,12 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="data/portfolio.js"></script>
+  <script src="data/portfolio-details.js"></script>
   <script src="data/chapters.js"></script>
+  <script src="data/demo-day.js"></script>
+  <script src="data/why-we-invested.js"></script>
+  <script src="data/competitors.js"></script>
+  <script src="data/jamie-quotes.js"></script>
   <script src="assets/app.js"></script>
 </body>
 </html>

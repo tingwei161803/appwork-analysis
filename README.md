@@ -33,9 +33,18 @@
 
 ## 收錄資料
 
-- **249 家公司**（涵蓋 AppWorks Fund I–IV 與 Accelerator AW#1–AW#33 alumni 的主要案例）
+- **342 家公司**（涵蓋 AppWorks Fund I–IV 與 Accelerator AW#1–AW#33 alumni 的主要案例）
 - **10 章節深度分析**（公司 / 基金 / 投資組合 / 加速器 / 論點 / 思想領導 / 團隊 / 生態系 / 市場定位 / 演進史，每章含 Claude 觀察）
-- **3 軸 + AW 屆數**篩選 + 全文搜尋；首頁附產業/地區/狀態三張圖表
+- **Demo Day 全紀錄**（AW#1 ~ AW#33 每屆主題、規模、代表案例）
+- **22 篇 Why We Invested** 系列摘要 + 金句
+- **5 家 SEA VC 競爭對手** 深度檔（500 Global / Peak XV / East Ventures / Monk's Hill / Vertex）
+- **25 句 Jamie Lin 名言錄**（橫跨 mrjamie.cc、AppWorks Blog、媒體訪談）
+- **Top 30 公司**附 founders + funding rounds 表
+- **4 軸**（產業 × 地區 × 狀態 × AW 屆數）篩選 + 全文搜尋
+- **3 張圖表**（產業 donut / 地區 donut / 狀態 bar）
+- **24 項名詞表 Glossary**（GSEA、A.B.S.、DPI、Hectocorn…）
+- **URL 可分享篩選狀態**（`?industry=web3&country=sg`）
+- **CSV 匯出**、**鍵盤快捷鍵**（按 `?` 查看）
 - **19 個產業類別**：Web3 / AI / FinTech / E-commerce / SaaS / Mobility / Logistics / Gaming /
   Travel / Social / HealthTech / EdTech / PropTech / AgriTech / ClimateTech / Food / AdTech /
   CyberSecurity / Hardware
@@ -104,10 +113,15 @@ dialog, mirroring the structure of
 [`real-world-genai-use-cases`](https://github.com/tingwei161803/real-world-genai-use-cases).
 
 - **Live demo:** <https://tingwei161803.github.io/appwork-analysis/>
-- **249 portfolio companies** drawn from AppWorks Funds I–IV and Accelerator batches AW#1–AW#33.
-- **10-chapter analytical narrative** (Company / Funds / Portfolio / Accelerator / Thesis / Thought Leadership / Team / Ecosystem / Positioning / Evolution) with Claude's observations.
-- **19 industries × 13 countries × 26 AW batches × 7 statuses.** Every entry has a bilingual summary.
-- **Three Chart.js visualizations** on the front page: industry donut, country donut, status bar.
+- **342 portfolio companies** drawn from AppWorks Funds I–IV and Accelerator batches AW#1–AW#33.
+- **10-chapter analytical narrative** with Claude's observations.
+- **Demo Day Chronicle** covering every batch AW#1–AW#33.
+- **22 "Why We Invested"** digests with thesis + signature quote.
+- **5 SEA VC competitor profiles** benchmarked against AppWorks.
+- **25 Jamie Lin quotes** from mrjamie.cc, AppWorks blog, and media interviews.
+- **Top 30 deep-dive** with founders + funding rounds inside each card.
+- **4-axis filter** (Industry × Country × Status × AW batch) plus full-text search.
+- **URL-shareable filter state**, CSV export, and keyboard shortcuts (press `?`).
 - **Source data:** [AppWorks Investments](https://appworks.tw/investments/) +
   [AppWorks Blog](https://appworks.tw/blog/) + Crunchbase + public news. Unofficial — verify
   before quoting.

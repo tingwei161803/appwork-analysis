@@ -41,6 +41,19 @@
       filterIndustry: '產業', filterCountry: '地區', filterStatus: '狀態', filterBatch: 'AW 屆數', all: '全部',
       axisIndustry: '產業', axisCountry: '地區', axisStatus: '狀態', axisBatch: '屆數',
       navChapters: '10 面向分析', navViz: '統計圖表', navPortfolio: '投資組合',
+      navDemoDay: 'Demo Day', navWhy: 'Why Invested', navComp: '競爭對手', navQuotes: '名言錄', navGlossary: '名詞表',
+      demoDayTitle: 'Demo Day 全紀錄', demoDaySub: 'AW#1 到 AW#33 每屆主題、規模與代表案例。',
+      whyInvestedTitle: 'Why We Invested', whyInvestedSub: 'AppWorks 自家「Why We Invested」系列：22 篇深度說明押注每家公司的真正原因。',
+      competitorsTitle: '競爭對手深度檔', competitorsSub: '把 AppWorks 放在 SEA VC 同業裡看：5 家最常被對比的玩家。',
+      quotesTitle: 'Jamie Lin 名言錄', quotesSub: '從 mrjamie.cc、AppWorks Blog、媒體訪談整理的 25 句代表性引言。',
+      glossaryTitle: '名詞表 Glossary', glossarySub: '頁面上反覆出現的縮寫與專有名詞。',
+      exportCSV: '匯出 CSV',
+      ddTeams: '團隊', ddLocation: '地點',
+      compFounded: '創立', compHQ: '總部', compAUM: 'AUM', compAccel: '加速器',
+      compYes: '有', compNo: '無', compPortfolio: '代表 portfolio',
+      dlgFounders: '創辦人', dlgRounds: '主要輪次',
+      roundCol: '輪次', amountCol: '金額', yearCol: '年份', leadCol: 'Lead investor',
+      readMore: '看 AppWorks 原文',
       chaptersTitle: '10 面向深度分析',
       chaptersSub: '從基金、團隊到主題演進，把 AppWorks 拆成可閱讀的章節。每章包含事實 + Claude 的觀察。',
       vizTitle: '投資組合統計', vizSub: '把資料集裡的產業、地區、狀態分布視覺化。',
@@ -69,6 +82,19 @@
       filterIndustry: 'Industry', filterCountry: 'Country', filterStatus: 'Status', filterBatch: 'AW batch', all: 'All',
       axisIndustry: 'Industry', axisCountry: 'Country', axisStatus: 'Status', axisBatch: 'Batch',
       navChapters: '10 chapters', navViz: 'Charts', navPortfolio: 'Portfolio',
+      navDemoDay: 'Demo Day', navWhy: 'Why Invested', navComp: 'Competitors', navQuotes: 'Quotes', navGlossary: 'Glossary',
+      demoDayTitle: 'Demo Day Chronicle', demoDaySub: 'Themes, sizes, and signature companies from AW#1 to AW#33.',
+      whyInvestedTitle: 'Why We Invested', whyInvestedSub: "AppWorks's own series: 22 deep-dives on why they backed each company.",
+      competitorsTitle: 'Competitor Profiles', competitorsSub: 'AppWorks benchmarked against the 5 most-compared SEA VC peers.',
+      quotesTitle: "Jamie Lin's Quotes", quotesSub: '25 representative quotes from mrjamie.cc, AppWorks blog, and media interviews.',
+      glossaryTitle: 'Glossary', glossarySub: 'Recurring abbreviations and terms used throughout this site.',
+      exportCSV: 'Export CSV',
+      ddTeams: 'teams', ddLocation: 'Location',
+      compFounded: 'Founded', compHQ: 'HQ', compAUM: 'AUM', compAccel: 'Accelerator',
+      compYes: 'Yes', compNo: 'No', compPortfolio: 'Notable portfolio',
+      dlgFounders: 'Founders', dlgRounds: 'Key rounds',
+      roundCol: 'Round', amountCol: 'Amount', yearCol: 'Year', leadCol: 'Lead investor',
+      readMore: 'Read on AppWorks',
       chaptersTitle: 'Ten-chapter deep dive',
       chaptersSub: 'Funds, team, thesis evolution—AppWorks broken down into readable chapters. Facts plus Claude\'s observations.',
       vizTitle: 'Portfolio statistics', vizSub: 'Industry, country, and status distribution across the dataset.',
@@ -87,17 +113,32 @@
     },
   };
 
+  /* ===== State (init from URL > localStorage > defaults) ===== */
+  const urlParams = new URLSearchParams(location.search);
+  const fromUrl = (k, fallback) => urlParams.has(k) ? urlParams.get(k) : fallback;
   const state = {
-    lang: localStorage.getItem('aw.lang') || 'zh',
+    lang: fromUrl('lang', localStorage.getItem('aw.lang') || 'zh'),
     theme: localStorage.getItem('aw.theme') ||
       (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
-    industry: 'all',
-    country: 'all',
-    status: 'all',
-    batch: 'all',
-    q: '',
+    industry: fromUrl('industry', 'all'),
+    country: fromUrl('country', 'all'),
+    status: fromUrl('status', 'all'),
+    batch: fromUrl('batch', 'all'),
+    q: fromUrl('q', ''),
     filtersOpen: false,
   };
+  function syncURL() {
+    const p = new URLSearchParams();
+    if (state.lang !== 'zh') p.set('lang', state.lang);
+    if (state.industry !== 'all') p.set('industry', state.industry);
+    if (state.country !== 'all') p.set('country', state.country);
+    if (state.status !== 'all') p.set('status', state.status);
+    if (state.batch !== 'all') p.set('batch', state.batch);
+    if (state.q) p.set('q', state.q);
+    const qs = p.toString();
+    const url = location.pathname + (qs ? '?' + qs : '') + location.hash;
+    history.replaceState(null, '', url);
+  }
   let filtered = DATA.slice();
   let shown = 0;
 
@@ -147,7 +188,9 @@
     localStorage.setItem('aw.lang', lang);
     applyStaticI18n();
     renderChips();
+    renderActiveFilters();
     renderCards();
+    syncURL();
     if (openIndex >= 0) renderDialog();
   }
   $('#lang-zh').addEventListener('click', () => setLang('zh'));
@@ -184,7 +227,7 @@
         count: countWith({ industry: c.key }).length,
         icon: c.icon
       })));
-    fillChips($('#chips-industry'), indItems, state.industry, (key) => { state.industry = key; renderChips(); renderCards(); renderActiveFilters(); });
+    fillChips($('#chips-industry'), indItems, state.industry, (key) => { state.industry = key; renderChips(); renderCards(); renderActiveFilters(); syncURL(); });
 
     // Country chips
     const ctyItems = [{ key: 'all', label: t('all'), count: countWith({ country: 'all' }).length, icon: 'public' }]
@@ -193,7 +236,7 @@
         count: countWith({ country: c.key }).length,
         icon: null
       })));
-    fillChips($('#chips-country'), ctyItems, state.country, (key) => { state.country = key; renderChips(); renderCards(); renderActiveFilters(); });
+    fillChips($('#chips-country'), ctyItems, state.country, (key) => { state.country = key; renderChips(); renderCards(); renderActiveFilters(); syncURL(); });
 
     // Status chips
     const stItems = [{ key: 'all', label: t('all'), count: countWith({ status: 'all' }).length, icon: 'apps' }]
@@ -203,7 +246,7 @@
         icon: null,
         accent: s.key
       })));
-    fillChips($('#chips-status'), stItems, state.status, (key) => { state.status = key; renderChips(); renderCards(); renderActiveFilters(); });
+    fillChips($('#chips-status'), stItems, state.status, (key) => { state.status = key; renderChips(); renderCards(); renderActiveFilters(); syncURL(); });
 
     // Batch chips (AW#1..AW#33)
     const batchItems = [{ key: 'all', label: t('all'), count: countWith({ batch: 'all' }).length, icon: 'apps' }]
@@ -212,7 +255,7 @@
         count: countWith({ batch: b.key }).length,
         icon: null
       })));
-    fillChips($('#chips-batch'), batchItems, state.batch, (key) => { state.batch = key; renderChips(); renderCards(); renderActiveFilters(); });
+    fillChips($('#chips-batch'), batchItems, state.batch, (key) => { state.batch = key; renderChips(); renderCards(); renderActiveFilters(); syncURL(); });
   }
 
   function renderActiveFilters() {
@@ -240,7 +283,7 @@
       b.addEventListener('click', (e) => {
         e.stopPropagation();
         state[b.dataset.axis] = 'all';
-        renderChips(); renderCards(); renderActiveFilters();
+        renderChips(); renderCards(); renderActiveFilters(); syncURL();
       });
     });
   }
@@ -343,10 +386,10 @@
   searchEl.addEventListener('input', () => {
     clearEl.classList.toggle('show', !!searchEl.value);
     clearTimeout(searchTimer);
-    searchTimer = setTimeout(() => { state.q = searchEl.value.trim(); renderChips(); renderCards(); }, 120);
+    searchTimer = setTimeout(() => { state.q = searchEl.value.trim(); renderChips(); renderCards(); syncURL(); }, 120);
   });
   clearEl.addEventListener('click', () => {
-    searchEl.value = ''; state.q = ''; clearEl.classList.remove('show'); renderChips(); renderCards(); searchEl.focus();
+    searchEl.value = ''; state.q = ''; clearEl.classList.remove('show'); renderChips(); renderCards(); syncURL(); searchEl.focus();
   });
 
   /* dialog */
@@ -405,6 +448,21 @@
             <dt>${t('metaStatus')}</dt><dd>${esc(stLabel(d.status, lang))}</dd>
           </dl>
         </section>
+        ${(window.PORTFOLIO_DETAILS && window.PORTFOLIO_DETAILS[d.id]) ? (() => {
+          const det = window.PORTFOLIO_DETAILS[d.id];
+          let html = '';
+          if (det.founders && det.founders.length) {
+            html += `<section><h4><span class="material-symbols-rounded">groups</span>${t('dlgFounders')}</h4><div class="dlg-founders">` +
+              det.founders.map((f) => `<div class="dlg-founder"><b>${esc(f.name)}</b><small>${esc(f.role || '')}</small>${f.linkedin ? `<a href="${esc(f.linkedin)}" target="_blank" rel="noopener">LinkedIn ↗</a>` : ''}</div>`).join('') +
+              `</div></section>`;
+          }
+          if (det.rounds && det.rounds.length) {
+            html += `<section><h4><span class="material-symbols-rounded">trending_up</span>${t('dlgRounds')}</h4><table class="dlg-rounds"><thead><tr><th>${t('roundCol')}</th><th>${t('amountCol')}</th><th>${t('yearCol')}</th><th>${t('leadCol')}</th></tr></thead><tbody>` +
+              det.rounds.map((r) => `<tr><td>${esc(r.round)}</td><td>${esc(r.amount || '—')}</td><td>${esc(r.year || '—')}</td><td>${esc(r.lead || '—')}</td></tr>`).join('') +
+              `</tbody></table></section>`;
+          }
+          return html;
+        })() : ''}
         ${(d.sources && d.sources.length) ? `<section>
           <h4><span class="material-symbols-rounded">menu_book</span>${t('secSources')}</h4>
           <ul class="sources">${sourceItems(d.sources)}</ul>
@@ -466,6 +524,45 @@
     if (e.key === 'ArrowLeft') openDialog((openIndex - 1 + filtered.length) % filtered.length);
     else if (e.key === 'ArrowRight') openDialog((openIndex + 1) % filtered.length);
   });
+
+  /* ===== Glossary ===== */
+  const GLOSSARY = [
+    { term: 'AppWorks', def: { zh: '2009 年由 Jamie Lin 創立，總部台北的創投兼加速器，聚焦大東南亞 (GSEA)。', en: 'A Taipei-headquartered VC + accelerator founded by Jamie Lin in 2009, focused on Greater Southeast Asia.' } },
+    { term: 'GSEA', def: { zh: 'Greater Southeast Asia，AppWorks 自定義地理框架：ASEAN + 台灣 + 香港 + 澳門 + 東帝汶，共 9 個市場、約 7 億人口。', en: 'Greater Southeast Asia—AppWorks\' regional frame: ASEAN + Taiwan + HK + Macau + East Timor, 9 markets and ~700M people.' } },
+    { term: 'A.B.S.', def: { zh: 'AI + Blockchain + Southeast Asia，AppWorks 自 2018 年起確立的三軸主題框架。', en: 'AI + Blockchain + Southeast Asia—the three-axis thesis framework AppWorks formalized from 2018.' } },
+    { term: 'AUM', def: { zh: 'Assets Under Management，基金管理資產總額。', en: 'Assets Under Management—total capital managed across all funds.' } },
+    { term: 'DPI', def: { zh: 'Distributions to Paid-In，已分配給 LP 的現金 / LP 已繳資本，是 VC 退出績效最硬指標。', en: 'Distributions to Paid-In capital—cash returned to LPs over their commitments, the hardest exit metric.' } },
+    { term: 'LP', def: { zh: 'Limited Partner，基金的有限合夥人 / 出資人。', en: 'Limited Partner—a fund\'s capital provider (sovereign, corporate, family office, etc.).' } },
+    { term: 'GP', def: { zh: 'General Partner，基金管理人 / 普通合夥人。', en: 'General Partner—the fund manager who makes investment decisions.' } },
+    { term: 'Vintage', def: { zh: '基金成立年份，影響回報週期與市場時點。', en: 'A fund\'s formation year, affecting return profile and market timing.' } },
+    { term: 'Hectocorn', def: { zh: '估值 ≥ $100B 的私人公司，極罕見等級。', en: 'A private company valued at $100B+ — an exceptionally rare tier.' } },
+    { term: 'Decacorn', def: { zh: '估值 ≥ $10B 的私人公司。', en: 'A private company valued at $10B+.' } },
+    { term: 'Unicorn', def: { zh: '估值 ≥ $1B 的私人公司。', en: 'A private company valued at $1B+.' } },
+    { term: 'IPO', def: { zh: 'Initial Public Offering，公開發行股票上市。', en: 'Initial Public Offering — the moment a company first lists shares publicly.' } },
+    { term: 'IEO', def: { zh: 'Initial Exchange Offering，加密代幣首次在交易所發行的退出形式。', en: 'Initial Exchange Offering — a token-based exit through a crypto exchange.' } },
+    { term: 'Accelerator', def: { zh: '為期數月的早期創業計畫，AppWorks 模式為 6 個月、不收 equity / token / fees。', en: 'An early-stage program; AppWorks runs a 6-month no-equity, no-token, no-fee model.' } },
+    { term: 'AW#', def: { zh: 'AppWorks Accelerator 屆數編號，從 AW#1 (2010) 至 AW#33 (2026)。', en: 'AppWorks Accelerator batch number, from AW#1 (2010) to AW#33 (2026).' } },
+    { term: 'Web3', def: { zh: '以區塊鏈為基礎的「擁有權網路」，含 DeFi、NFT、DAO 等。', en: 'Blockchain-based "ownership internet" — encompassing DeFi, NFTs, and DAOs.' } },
+    { term: 'PMF', def: { zh: 'Product-Market Fit，產品與市場契合度，創業早期最關鍵指標。', en: 'Product-Market Fit — the earliest critical signal a startup must prove.' } },
+    { term: 'PQC', def: { zh: 'Post-Quantum Cryptography，後量子密碼學，AW#33 新主題之一。', en: 'Post-Quantum Cryptography — one of AW#33\'s new thematic verticals.' } },
+    { term: 'LST', def: { zh: 'Liquid Staking Token，去中心化質押的流動性代幣，AppWorks 在 Sanctum 上的主要押注標的。', en: 'Liquid Staking Token — tokenized representations of staked crypto, AppWorks\' Sanctum bet.' } },
+    { term: 'NDF', def: { zh: 'Taiwan National Development Fund，國家發展基金，AppWorks 自 Fund II 起的長期 LP。', en: 'Taiwan National Development Fund — a long-term AppWorks LP since Fund II.' } },
+    { term: 'KVIC', def: { zh: 'Korea Venture Investment Corporation，韓國創投振興公社，Fund IV 新進主權 LP。', en: 'Korea Venture Investment Corporation — a sovereign LP that joined Fund IV.' } },
+    { term: 'Khazanah', def: { zh: '馬來西亞主權基金，旗下 Jelawang Capital 是 Fund IV 主權 LP。', en: 'Malaysia\'s sovereign wealth fund; its Jelawang Capital arm is a Fund IV LP.' } },
+    { term: 'Aiworks', def: { zh: 'AppWorks School 於 2025 起 rebrand 後的 AI 顧問品牌，OpenAI Services Partner。', en: 'Rebranded AppWorks School (since 2025) — AI enterprise advisory and OpenAI Services Partner.' } },
+    { term: 'Demo Day', def: { zh: 'AppWorks 每年兩次的 Pitch Day，巡迴 Taipei / Singapore / KL / Jakarta 四地。', en: 'Twice-yearly AppWorks pitch event rotating across Taipei, Singapore, KL, and Jakarta.' } },
+  ];
+  function renderGlossary() {
+    const wrap = $('#glossary-list');
+    if (!wrap) return;
+    const lang = state.lang;
+    wrap.innerHTML = GLOSSARY.map((g) => `
+      <div class="gloss-item">
+        <dt>${esc(g.term)}</dt>
+        <dd>${esc(g.def[lang])}</dd>
+      </div>
+    `).join('');
+  }
 
   /* ===== Chapters ===== */
   const CHAPTERS = window.CHAPTERS || [];
@@ -584,6 +681,102 @@
   $('#stat-countries').textContent = COUNTRIES.length;
   $('#stat-ipos').textContent = DATA.filter((d) => d.status === 'ipo' || d.status === 'hectocorn' || d.status === 'decacorn').length;
 
+  // Pre-fill search input from URL
+  if (state.q) {
+    searchEl.value = state.q;
+    clearEl.classList.add('show');
+  }
+  // Auto-expand filters if any non-default filter active
+  if (state.industry !== 'all' || state.country !== 'all' || state.status !== 'all' || state.batch !== 'all') {
+    state.filtersOpen = true;
+  }
+  syncURL();
+
+  /* ===== New section render functions ===== */
+  const DEMO_DAY = window.DEMO_DAY_CHRONICLE;
+  const WHY = window.WHY_WE_INVESTED || [];
+  const COMP = window.COMPETITORS || [];
+  const QUOTES = window.JAMIE_QUOTES || [];
+  const PD = window.PORTFOLIO_DETAILS || {};
+
+  function renderDemoDay() {
+    const wrap = $('#demo-day-grid');
+    const intro = $('#demo-day-intro');
+    if (!wrap || !DEMO_DAY) return;
+    const lang = state.lang;
+    intro.textContent = DEMO_DAY.intro[lang];
+    wrap.innerHTML = DEMO_DAY.batches.map((b) => `
+      <div class="dd-card">
+        <div class="dd-card__head">
+          <span class="dd-card__batch">${esc(b.batch)}</span>
+          <span class="dd-card__year">${esc(b.year)}</span>
+        </div>
+        <div class="dd-card__theme">${esc(b.theme[lang])}</div>
+        <div class="dd-card__meta">${b.teams ? esc(b.teams) + ' ' + t('ddTeams') + ' · ' : ''}${esc(b.location || '')}</div>
+        ${b.highlights.length ? `<div class="dd-card__highlights">${b.highlights.map((h) => `<div class="dd-card__hl"><b>${esc(h.name)}</b> — ${esc(h.note[lang])}</div>`).join('')}</div>` : ''}
+      </div>
+    `).join('');
+  }
+
+  function renderWhyInvested() {
+    const wrap = $('#why-grid');
+    if (!wrap) return;
+    const lang = state.lang;
+    wrap.innerHTML = WHY.map((w) => `
+      <div class="why-card">
+        <div class="why-card__head">
+          <h3>${esc(w.company)}</h3>
+          <span class="why-year">${esc(w.year)}</span>
+        </div>
+        <p class="why-card__founder">${esc(w.founder)}</p>
+        <p class="why-card__thesis">${esc(w.thesis[lang])}</p>
+        <div class="why-card__quote">${esc(w.quote[lang])}</div>
+        <a class="why-card__link" href="${esc(w.url)}" target="_blank" rel="noopener">${t('readMore')} <span class="material-symbols-rounded">open_in_new</span></a>
+      </div>
+    `).join('');
+  }
+
+  function renderCompetitors() {
+    const wrap = $('#competitors-grid');
+    if (!wrap) return;
+    const lang = state.lang;
+    wrap.innerHTML = COMP.map((c) => `
+      <div class="comp-card">
+        <h3><span class="flag">${esc(c.flag)}</span>${esc(c.name)}</h3>
+        <div class="comp-card__meta">
+          <span>${t('compFounded')} <b>${esc(c.founded)}</b></span>
+          <span>${t('compHQ')} <b>${esc(c.hq)}</b></span>
+          <span>${t('compAUM')} <b>${esc(c.aum)}</b></span>
+          <span>${t('compAccel')} <b>${c.has_accelerator ? t('compYes') : t('compNo')}</b></span>
+        </div>
+        <p class="comp-card__thesis">${esc(c.thesis[lang])}</p>
+        <div>
+          <span style="font-size:.72rem;color:var(--on-surface-variant);text-transform:uppercase;letter-spacing:.04em">${t('compPortfolio')}</span>
+          <div class="comp-card__portfolio" style="margin-top:4px">${c.notable_portfolio.map((p) => `<span>${esc(p)}</span>`).join('')}</div>
+        </div>
+        <div class="comp-card__vs">${esc(c.vs_appworks[lang])}</div>
+      </div>
+    `).join('');
+  }
+
+  function renderQuotes() {
+    const wrap = $('#quotes-grid');
+    if (!wrap) return;
+    const lang = state.lang;
+    wrap.innerHTML = QUOTES.map((q) => `
+      <article class="quote-card" data-topic="${esc(q.topic)}">
+        <span class="quote-card__topic">${esc(q.topic_label[lang])}</span>
+        <p class="quote-card__quote">${esc(q.quote[lang])}</p>
+        <p class="quote-card__context">${esc(q.context[lang])}</p>
+        <div class="quote-card__source">
+          <span class="material-symbols-rounded">link</span>
+          <a href="${esc(q.source.url)}" target="_blank" rel="noopener">${esc(q.source.title)}</a>
+          ${q.source.date ? `<span> · ${esc(q.source.date)}</span>` : ''}
+        </div>
+      </article>
+    `).join('');
+  }
+
   applyStaticI18n();
   applyFiltersOpen();
   renderChips();
@@ -591,11 +784,81 @@
   renderCards();
   renderChapters();
   renderCharts();
+  renderGlossary();
+  renderDemoDay();
+  renderWhyInvested();
+  renderCompetitors();
+  renderQuotes();
+
+  /* ===== Keyboard shortcuts ===== */
+  document.addEventListener('keydown', (e) => {
+    // Don't intercept if user is typing in an input
+    const tag = (document.activeElement?.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    if (openIndex >= 0) return;  // dialog handles its own keys
+
+    if (e.key === '/' || e.key === 's') {
+      e.preventDefault(); searchEl.focus();
+    } else if (e.key === 'd') {
+      $('#theme-toggle').click();
+    } else if (e.key === 'l') {
+      setLang(state.lang === 'zh' ? 'en' : 'zh');
+    } else if (e.key === 'f') {
+      $('#filters-toggle').click();
+    } else if (e.key === 'r') {
+      // random discover
+      if (filtered.length > 0) openDialog(Math.floor(Math.random() * filtered.length));
+    } else if (e.key === '?') {
+      alert(state.lang === 'zh'
+        ? '快捷鍵：\n  /  或 s — 聚焦搜尋\n  d — 切換深色\n  l — 切換語言\n  f — 開關篩選\n  r — 隨機開一張卡\n  Esc — 關閉對話框'
+        : 'Shortcuts:\n  /  or  s  — focus search\n  d — toggle dark\n  l — toggle language\n  f — toggle filters\n  r — random card\n  Esc — close dialog');
+    }
+  });
+
+  /* ===== CSV export ===== */
+  function downloadCSV() {
+    const lang = state.lang;
+    const rows = [
+      ['#', 'Name', 'Industry', 'Country', 'Status', 'Batch', 'Year', 'Stage', 'Summary']
+    ];
+    filtered.forEach((d, i) => {
+      rows.push([
+        i + 1,
+        d.name,
+        indLabel(d.industry, lang),
+        ctyLabel(d.country, lang),
+        stLabel(d.status, lang),
+        d.batch || '',
+        d.year || '',
+        d.stage || '',
+        (d.summary?.[lang] || '').replace(/\s+/g, ' '),
+      ]);
+    });
+    const csv = '﻿' + rows.map((r) => r.map((c) => `"${String(c).replace(/"/g, '""')}"`).join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `appworks-portfolio-${Date.now()}.csv`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }
+  const csvBtn = $('#export-csv');
+  if (csvBtn) csvBtn.addEventListener('click', downloadCSV);
 
   /* Re-render chapters + charts when language or theme changes (charts depend on CSS vars). */
   const origSetLang = setLang;
   // Note: setLang already calls renderChips/renderCards; hook chapters + charts via observer on attributes.
-  new MutationObserver(() => { renderChapters(); renderCharts(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-theme'] });
+  new MutationObserver(() => {
+    renderChapters();
+    renderCharts();
+    renderGlossary();
+    renderDemoDay();
+    renderWhyInvested();
+    renderCompetitors();
+    renderQuotes();
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-theme'] });
 
   function openFromHash() {
     let id;
