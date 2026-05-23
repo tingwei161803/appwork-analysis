@@ -43,8 +43,16 @@
 - **4 軸**（產業 × 地區 × 狀態 × AW 屆數）篩選 + 全文搜尋
 - **3 張圖表**（產業 donut / 地區 donut / 狀態 bar）
 - **24 項名詞表 Glossary**（GSEA、A.B.S.、DPI、Hectocorn…）
+- **主題演進時間軸**（6 個 Phase，含 turning points + signature deals）
+- **GSEA 地理 bubble map**（亞洲 13 地區，泡泡大小 = 投資家數）
+- **AW 屆數 × 產業熱力圖**
+- **退出漏斗**（Accelerator → 基金投資 → Unicorn → IPO/併購）
+- **Compare 並排比較**（最多 4 家公司）
+- **★ Favorites 收藏**（localStorage 持久化）
 - **URL 可分享篩選狀態**（`?industry=web3&country=sg`）
 - **CSV 匯出**、**鍵盤快捷鍵**（按 `?` 查看）
+- **PWA 離線可用**（service worker 預快取）
+- **完整 SEO**（OG image、Twitter card、JSON-LD schema.org）
 - **19 個產業類別**：Web3 / AI / FinTech / E-commerce / SaaS / Mobility / Logistics / Gaming /
   Travel / Social / HealthTech / EdTech / PropTech / AgriTech / ClimateTech / Food / AdTech /
   CyberSecurity / Hardware

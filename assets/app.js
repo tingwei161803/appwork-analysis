@@ -58,6 +58,19 @@
       chaptersSub: '從基金、團隊到主題演進，把 AppWorks 拆成可閱讀的章節。每章包含事實 + Claude 的觀察。',
       vizTitle: '投資組合統計', vizSub: '把資料集裡的產業、地區、狀態分布視覺化。',
       vizIndustry: '產業分布', vizCountry: '地區分布', vizStatus: '狀態分布',
+      vizFunnel: '退出漏斗', vizHeatmap: 'AW 屆數 × 產業熱力圖',
+      phasesTitle: '主題演進時間軸', phasesSub: '2010 ~ 2026 的 6 個 Phase。',
+      geomapTitle: '地理 Bubble Map', geomapSub: '每個泡泡大小代表該地區的投資家數。',
+      navPhases: '時間軸', navGeomap: '地圖',
+      turningPoints: '關鍵轉折', signatureDeals: '代表投資',
+      funnelAlumni: 'Accelerator 校友',
+      funnelInvested: '基金直接投資',
+      funnelUnicornPlus: 'Unicorn 以上',
+      funnelExitedPlus: 'IPO / 併購',
+      compareOpen: '比較', compareClear: '清除', compareLimit: '最多比較 4 家',
+      addCompare: '加入比較', removeCompare: '移除比較',
+      favOn: '★ 收藏', favOff: '☆ 收藏',
+      compareTitle: '並排比較',
       portfolioTitle: '投資組合圖鑑',
       portfolioSub: '每家公司可開啟詳細卡片；支援雙語切換、3 軸 + AW 屆數篩選與搜尋。',
       cardCta: '查看詳情',
@@ -99,6 +112,19 @@
       chaptersSub: 'Funds, team, thesis evolution—AppWorks broken down into readable chapters. Facts plus Claude\'s observations.',
       vizTitle: 'Portfolio statistics', vizSub: 'Industry, country, and status distribution across the dataset.',
       vizIndustry: 'By industry', vizCountry: 'By country', vizStatus: 'By status',
+      vizFunnel: 'Exit funnel', vizHeatmap: 'AW batch × industry heatmap',
+      phasesTitle: 'Thesis Evolution Timeline', phasesSub: 'Six phases from 2010 to 2026.',
+      geomapTitle: 'Geographic Bubble Map', geomapSub: 'Bubble size = number of portfolio companies per market.',
+      navPhases: 'Timeline', navGeomap: 'Map',
+      turningPoints: 'Turning points', signatureDeals: 'Signature deals',
+      funnelAlumni: 'Accelerator alumni',
+      funnelInvested: 'Fund-invested',
+      funnelUnicornPlus: 'Unicorn or above',
+      funnelExitedPlus: 'IPO / Acquired',
+      compareOpen: 'Compare', compareClear: 'Clear', compareLimit: 'Max 4 companies',
+      addCompare: 'Add to compare', removeCompare: 'Remove from compare',
+      favOn: '★ Favorited', favOff: '☆ Favorite',
+      compareTitle: 'Side-by-side comparison',
       portfolioTitle: 'Portfolio Atlas',
       portfolioSub: 'Open any card for details; bilingual switch with 3-axis + AW batch filtering and search.',
       cardCta: 'View details',
@@ -325,25 +351,35 @@
     const lang = state.lang;
     const summary = d.summary?.[lang] || d.summary?.zh || d.summary?.en || '';
     const stColor = `var(--c-${esc(d.status)})`;
+    const isFav = favorites.has(d.id);
+    const isInCmp = compareSet.has(d.id);
     return `
-      <button class="card" data-id="${esc(d.id)}" style="animation-delay:${Math.min(i, 12) * 28}ms">
-        <div class="card__top">
-          <span class="cat-pill" style="--cat:var(--c-${esc(d.industry)})">
-            <span class="ic"></span>
-            <span class="material-symbols-rounded" style="font-size:14px">${esc(indIcon(d.industry))}</span>
-            ${esc(indLabel(d.industry, lang))}
-          </span>
-          <span class="status-pill" style="--cat:${stColor}">${esc(stLabel(d.status, lang))}</span>
-        </div>
-        <h3>${esc(d.name)}</h3>
-        <p>${esc(summary)}</p>
-        <div class="card__meta">
-          <span><span class="material-symbols-rounded">place</span>${esc(ctyLabel(d.country, lang))}</span>
-          ${d.batch ? `<span><span class="material-symbols-rounded">rocket_launch</span>${esc(d.batch)}</span>` : ''}
-          ${d.year ? `<span><span class="material-symbols-rounded">event</span>${esc(d.year)}</span>` : ''}
-        </div>
-        <span class="card__cta">${t('cardCta')}<span class="material-symbols-rounded">arrow_forward</span></span>
-      </button>`;
+      <div class="card" data-id="${esc(d.id)}" style="animation-delay:${Math.min(i, 12) * 28}ms">
+        <button type="button" class="card__fav-btn" aria-pressed="${isFav}" title="${esc(isFav ? t('favOn') : t('favOff'))}" data-action="fav">
+          <span class="material-symbols-rounded">${isFav ? 'star' : 'star_border'}</span>
+        </button>
+        <button type="button" class="card__compare-btn" aria-pressed="${isInCmp}" title="${esc(isInCmp ? t('removeCompare') : t('addCompare'))}" data-action="compare">
+          <span class="material-symbols-rounded">${isInCmp ? 'check' : 'add'}</span>
+        </button>
+        <button type="button" class="card__body" data-action="open" aria-label="${esc(d.name)}">
+          <div class="card__top">
+            <span class="cat-pill" style="--cat:var(--c-${esc(d.industry)})">
+              <span class="ic"></span>
+              <span class="material-symbols-rounded" style="font-size:14px">${esc(indIcon(d.industry))}</span>
+              ${esc(indLabel(d.industry, lang))}
+            </span>
+            <span class="status-pill" style="--cat:${stColor}">${esc(stLabel(d.status, lang))}</span>
+          </div>
+          <h3>${esc(d.name)}</h3>
+          <p>${esc(summary)}</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">place</span>${esc(ctyLabel(d.country, lang))}</span>
+            ${d.batch ? `<span><span class="material-symbols-rounded">rocket_launch</span>${esc(d.batch)}</span>` : ''}
+            ${d.year ? `<span><span class="material-symbols-rounded">event</span>${esc(d.year)}</span>` : ''}
+          </div>
+          <span class="card__cta">${t('cardCta')}<span class="material-symbols-rounded">arrow_forward</span></span>
+        </button>
+      </div>`;
   }
 
   function renderCards() {
@@ -367,7 +403,27 @@
     const frag = document.createElement('div');
     frag.innerHTML = slice.map((d, i) => cardHTML(d, shown + i)).join('');
     Array.from(frag.children).forEach((c) => {
-      c.addEventListener('click', () => openDialog(filtered.findIndex((d) => d.id === c.dataset.id)));
+      const id = c.dataset.id;
+      $('.card__body', c)?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openDialog(filtered.findIndex((d) => d.id === id));
+      });
+      $('.card__fav-btn', c)?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleFav(id);
+        const pressed = favorites.has(id);
+        e.currentTarget.setAttribute('aria-pressed', String(pressed));
+        e.currentTarget.querySelector('.material-symbols-rounded').textContent = pressed ? 'star' : 'star_border';
+        renderChips();
+        if (state.favOnly) renderCards();
+      });
+      $('.card__compare-btn', c)?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleCompare(id);
+        const pressed = compareSet.has(id);
+        e.currentTarget.setAttribute('aria-pressed', String(pressed));
+        e.currentTarget.querySelector('.material-symbols-rounded').textContent = pressed ? 'check' : 'add';
+      });
       grid.appendChild(c);
     });
     shown += slice.length;
@@ -524,6 +580,223 @@
     if (e.key === 'ArrowLeft') openDialog((openIndex - 1 + filtered.length) % filtered.length);
     else if (e.key === 'ArrowRight') openDialog((openIndex + 1) % filtered.length);
   });
+
+  /* ===== Favorites & Compare ===== */
+  const favorites = new Set(JSON.parse(localStorage.getItem('aw.favorites') || '[]'));
+  const compareSet = new Set();
+  const MAX_COMPARE = 4;
+
+  function saveFavorites() {
+    localStorage.setItem('aw.favorites', JSON.stringify([...favorites]));
+  }
+  function toggleFav(id) {
+    if (favorites.has(id)) favorites.delete(id);
+    else favorites.add(id);
+    saveFavorites();
+  }
+  function toggleCompare(id) {
+    if (compareSet.has(id)) compareSet.delete(id);
+    else if (compareSet.size < MAX_COMPARE) compareSet.add(id);
+    else { alert(t('compareLimit')); return; }
+    renderCompareBar();
+  }
+  function renderCompareBar() {
+    const bar = $('#compare-bar');
+    const list = $('#compare-list');
+    if (!compareSet.size) { bar.hidden = true; return; }
+    bar.hidden = false;
+    list.innerHTML = [...compareSet].map((id) => {
+      const d = DATA.find((x) => x.id === id);
+      if (!d) return '';
+      return `<span class="compare-chip">${esc(d.name)}<button data-id="${esc(id)}" aria-label="Remove"><span class="material-symbols-rounded">close</span></button></span>`;
+    }).join('');
+    $$('button', list).forEach((b) => {
+      b.addEventListener('click', () => {
+        compareSet.delete(b.dataset.id);
+        renderCompareBar();
+        // re-sync card UI by re-rendering visible cards
+        document.querySelectorAll(`.card[data-id="${b.dataset.id}"] .card__compare-btn`).forEach((btn) => {
+          btn.setAttribute('aria-pressed', 'false');
+          btn.querySelector('.material-symbols-rounded').textContent = 'add';
+        });
+      });
+    });
+  }
+  function openCompareModal() {
+    if (!compareSet.size) return;
+    const lang = state.lang;
+    const companies = [...compareSet].map((id) => DATA.find((x) => x.id === id)).filter(Boolean);
+    const fields = [
+      { label: t('metaCountry'), get: (d) => ctyLabel(d.country, lang) },
+      { label: t('metaIndustry'), get: (d) => indLabel(d.industry, lang) },
+      { label: t('metaStatus'), get: (d) => stLabel(d.status, lang) },
+      { label: t('metaBatch'), get: (d) => d.batch || '—' },
+      { label: t('metaYear'), get: (d) => d.year || '—' },
+      { label: t('metaStage'), get: (d) => d.stage || '—' },
+      { label: t('secOverview'), get: (d) => d.summary?.[lang] || d.summary?.zh || d.summary?.en || '—' },
+    ];
+    const headRow = `<div class="compare-grid__label"></div>` + companies.map((d) => `<div class="compare-grid__cell compare-grid__cell--head">${esc(d.name)}</div>`).join('');
+    const rows = fields.map((f) => `<div class="compare-grid__label">${esc(f.label)}</div>` + companies.map((d) => `<div class="compare-grid__cell">${esc(f.get(d))}</div>`).join('')).join('');
+    const modal = $('#compare-modal');
+    modal.innerHTML = `
+      <div class="compare-modal__head">
+        <h2 id="compare-title">${t('compareTitle')}</h2>
+        <button class="icon-btn ripple-host" id="cmp-close" aria-label="Close"><span class="material-symbols-rounded">close</span></button>
+      </div>
+      <div class="compare-grid" style="--cols:${companies.length}">${headRow}${rows}</div>
+    `;
+    const sc = $('#compare-scrim');
+    sc.hidden = false;
+    requestAnimationFrame(() => sc.classList.add('open'));
+    document.body.style.overflow = 'hidden';
+    $('#cmp-close').addEventListener('click', closeCompareModal);
+    sc.addEventListener('click', (e) => { if (e.target === sc) closeCompareModal(); });
+  }
+  function closeCompareModal() {
+    const sc = $('#compare-scrim');
+    sc.classList.remove('open');
+    setTimeout(() => { sc.hidden = true; }, 280);
+    document.body.style.overflow = '';
+  }
+  $('#compare-clear').addEventListener('click', () => {
+    compareSet.clear();
+    renderCompareBar();
+    document.querySelectorAll('.card__compare-btn[aria-pressed="true"]').forEach((btn) => {
+      btn.setAttribute('aria-pressed', 'false');
+      btn.querySelector('.material-symbols-rounded').textContent = 'add';
+    });
+  });
+  $('#compare-open').addEventListener('click', openCompareModal);
+
+  /* ===== Phase Timeline ===== */
+  const PHASES = window.PHASES || [];
+  function renderPhases() {
+    const wrap = $('#phase-timeline');
+    if (!wrap) return;
+    const lang = state.lang;
+    wrap.innerHTML = PHASES.map((p) => `
+      <article class="phase-card" style="--cat:${p.color}">
+        <div class="phase-card__head">
+          <span class="phase-card__num">${p.num}</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">${esc(p.icon)}</span>${esc(p.theme[lang])}</div>
+            <span class="phase-card__years">${esc(p.years)}</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">${esc(p.tagline[lang])}</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>${t('turningPoints')}</h5>
+            <ul>${p.turningPoints.map((tp) => `<li><b>${esc(tp.year)}</b> ${esc(tp.note[lang])}</li>`).join('')}</ul>
+          </div>
+          <div>
+            <h5>${t('signatureDeals')}</h5>
+            <ul>${p.signatureDeals.map((d) => `<li><b>${esc(d.name)}</b> ${esc(d.note[lang])}</li>`).join('')}</ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">${esc(p.observation[lang])}</div>
+      </article>
+    `).join('');
+  }
+
+  /* ===== Geo Bubble Map ===== */
+  // Hand-picked positions on a stylized SEA + East Asia canvas (viewBox 1000x520).
+  const GEO_POS = {
+    jp:     { x: 870, y: 110, label: 'JP' },
+    kr:     { x: 770, y: 150, label: 'KR' },
+    tw:     { x: 690, y: 230, label: 'TW' },
+    hk:     { x: 600, y: 220, label: 'HK' },
+    vn:     { x: 540, y: 260, label: 'VN' },
+    ph:     { x: 730, y: 330, label: 'PH' },
+    my:     { x: 470, y: 360, label: 'MY' },
+    sg:     { x: 500, y: 420, label: 'SG' },
+    id:     { x: 590, y: 460, label: 'ID' },
+    us:     { x: 110, y: 140, label: 'US' },
+    ca:     { x: 110, y: 70,  label: 'CA' },
+    web3:   { x: 190, y: 410, label: 'Web3' },
+    global: { x: 320, y: 480, label: 'Global' }
+  };
+  function renderGeoMap() {
+    const svg = document.getElementById('geomap-svg');
+    if (!svg) return;
+    const lang = state.lang;
+    const counts = {};
+    DATA.forEach((d) => { counts[d.country] = (counts[d.country] || 0) + 1; });
+    const max = Math.max(...Object.values(counts));
+    const minR = 14, maxR = 60;
+    const items = Object.entries(counts).map(([key, n]) => ({
+      key, n,
+      r: Math.max(minR, Math.round(minR + Math.sqrt(n / max) * (maxR - minR))),
+      label: ctyLabel(key, lang),
+      pos: GEO_POS[key] || { x: 60, y: 60, label: key }
+    }));
+    const inkColor = getComputedStyle(document.documentElement).getPropertyValue('--on-surface').trim();
+    const variantColor = getComputedStyle(document.documentElement).getPropertyValue('--outline-variant').trim();
+    svg.innerHTML = `
+      <text x="500" y="40" text-anchor="middle" fill="${inkColor}" opacity=".55" font-size="13" font-family="Roboto, sans-serif" letter-spacing="2">GREATER SOUTHEAST ASIA × AppWorks</text>
+      ${items.map((it, i) => `
+        <g class="geomap-bubble" transform="translate(${it.pos.x}, ${it.pos.y})">
+          <circle r="${it.r}" fill="var(--primary)" fill-opacity="${0.25 + 0.6 * (it.n / max)}" stroke="var(--primary)" stroke-opacity=".55" stroke-width="1.5"/>
+          <text class="geomap-bubble-count" text-anchor="middle" y="3" font-size="${Math.max(11, it.r * 0.35)}">${it.n}</text>
+          <text class="geomap-bubble-label" text-anchor="middle" y="${it.r + 14}">${esc(it.label)}</text>
+        </g>
+      `).join('')}
+    `;
+  }
+
+  /* ===== Heatmap (AW batches × industries) ===== */
+  function renderHeatmap() {
+    const root = $('#heatmap');
+    if (!root) return;
+    const lang = state.lang;
+    const cols = INDUSTRIES;
+    const rows = BATCHES;
+    const counts = {};
+    let maxC = 0;
+    DATA.forEach((d) => {
+      if (!d.batch) return;
+      const k = `${d.batch}__${d.industry}`;
+      counts[k] = (counts[k] || 0) + 1;
+      if (counts[k] > maxC) maxC = counts[k];
+    });
+    const ncols = cols.length + 1;
+    root.style.gridTemplateColumns = `60px repeat(${cols.length}, minmax(36px, 1fr))`;
+    const cells = [];
+    cells.push(`<div class="hm-cell hm-cell--head"></div>`);
+    cols.forEach((c) => cells.push(`<div class="hm-cell hm-cell--head" title="${esc(c[lang])}">${esc(c[lang].split(/[\s\/]/)[0])}</div>`));
+    rows.forEach((r) => {
+      cells.push(`<div class="hm-cell hm-cell--row-head">${esc(r.key)}</div>`);
+      cols.forEach((c) => {
+        const n = counts[`${r.key}__${c.key}`] || 0;
+        const opacity = n === 0 ? 0 : 0.18 + 0.72 * (n / maxC);
+        cells.push(`<div class="hm-cell" data-count="${n}" style="background:color-mix(in srgb, var(--primary) ${(opacity * 100).toFixed(0)}%, transparent); color:${opacity > 0.5 ? 'white' : 'var(--on-surface)'}" title="${esc(r.key)} × ${esc(c[lang])}: ${n}">${n || ''}</div>`);
+      });
+    });
+    root.innerHTML = cells.join('');
+  }
+
+  /* ===== Exit funnel ===== */
+  function renderFunnel() {
+    const wrap = $('#funnel-wrap');
+    if (!wrap) return;
+    // Stage counts derived from current dataset.
+    const total = DATA.length;
+    const exited = DATA.filter((d) => d.status === 'ipo' || d.status === 'acquired' || d.status === 'hectocorn' || d.status === 'decacorn' || d.status === 'unicorn').length;
+    const unicornPlus = DATA.filter((d) => d.status === 'hectocorn' || d.status === 'decacorn' || d.status === 'unicorn').length;
+    const ipoOrAcquired = DATA.filter((d) => d.status === 'ipo' || d.status === 'acquired' || d.status === 'hectocorn' || d.status === 'decacorn').length;
+    const stages = [
+      { label: t('funnelAlumni'), count: 2029, color: '#0b57d0', widthPct: 100 },
+      { label: t('funnelInvested'), count: total, color: '#1a73e8', widthPct: 85 },
+      { label: t('funnelUnicornPlus'), count: unicornPlus, color: '#8430ce', widthPct: 50 },
+      { label: t('funnelExitedPlus'), count: ipoOrAcquired, color: '#12a150', widthPct: 32 },
+    ];
+    wrap.innerHTML = stages.map((s) => `
+      <div class="funnel-stage" style="background:${s.color};width:${s.widthPct}%;margin-left:${(100 - s.widthPct) / 2}%">
+        <span class="funnel-stage__label">${esc(s.label)}</span>
+        <span class="funnel-stage__count">${s.count}</span>
+      </div>
+    `).join('');
+  }
 
   /* ===== Glossary ===== */
   const GLOSSARY = [
@@ -789,6 +1062,11 @@
   renderWhyInvested();
   renderCompetitors();
   renderQuotes();
+  renderPhases();
+  renderGeoMap();
+  renderHeatmap();
+  renderFunnel();
+  renderCompareBar();
 
   /* ===== Keyboard shortcuts ===== */
   document.addEventListener('keydown', (e) => {
@@ -858,6 +1136,11 @@
     renderWhyInvested();
     renderCompetitors();
     renderQuotes();
+    renderPhases();
+    renderGeoMap();
+    renderHeatmap();
+    renderFunnel();
+    renderCompareBar();
   }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-theme'] });
 
   function openFromHash() {

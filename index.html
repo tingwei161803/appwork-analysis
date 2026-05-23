@@ -4,7 +4,47 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>AppWorks 投資組合圖鑑 · AppWorks Portfolio Atlas</title>
-  <meta name="description" content="AppWorks 在台灣與大東南亞的投資組合互動圖鑑，支援中英切換、產業/地區/狀態多軸篩選與全文搜尋。An interactive bilingual atlas of AppWorks' portfolio across Taiwan & Greater Southeast Asia." />
+  <meta name="description" content="342 家 AppWorks portfolio + 10 章節分析 + Demo Day 全紀錄 + Why We Invested + 競爭對手對比 + Jamie 名言錄。中英雙語互動圖鑑。" />
+  <meta name="keywords" content="AppWorks, Jamie Lin, 林之晨, 創投, Venture Capital, GSEA, Greater Southeast Asia, Taiwan startups, 台灣新創, Web3, AI, A.B.S., Accelerator, Demo Day" />
+  <meta name="author" content="Unofficial study companion" />
+  <meta name="theme-color" content="#0b57d0" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="AppWorks 投資組合圖鑑 · AppWorks Portfolio Atlas" />
+  <meta property="og:description" content="342 portfolio companies · 10-chapter deep dive · Demo Day chronicle · Why We Invested · 25 Jamie Lin quotes." />
+  <meta property="og:image" content="./og-image.svg" />
+  <meta property="og:url" content="https://tingwei161803.github.io/appwork-analysis/" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AppWorks Portfolio Atlas" />
+  <meta name="twitter:description" content="342 portfolio companies, 10-chapter deep dive, bilingual." />
+  <meta name="twitter:image" content="./og-image.svg" />
+
+  <link rel="canonical" href="https://tingwei161803.github.io/appwork-analysis/" />
+  <link rel="manifest" href="./site.webmanifest" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%230b57d0'/><text x='90' y='122' font-size='84' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>AW</text></svg>" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "AppWorks Portfolio Atlas",
+    "alternateName": "AppWorks 投資組合圖鑑",
+    "url": "https://tingwei161803.github.io/appwork-analysis/",
+    "description": "Unofficial interactive bilingual atlas of AppWorks' portfolio across Taiwan and Greater Southeast Asia.",
+    "inLanguage": ["zh-Hant", "en"],
+    "about": {
+      "@type": "Organization",
+      "name": "AppWorks",
+      "url": "https://appworks.tw",
+      "founder": "Jamie Lin",
+      "foundingDate": "2009",
+      "location": "Taipei, Taiwan"
+    }
+  }
+  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,7 +85,9 @@
     </div>
     <nav class="hero__nav" aria-label="Page navigation">
       <a href="#chapters"><span class="material-symbols-rounded">menu_book</span><span data-i18n="navChapters">10 面向分析</span></a>
+      <a href="#phases"><span class="material-symbols-rounded">timeline</span><span data-i18n="navPhases">演進時間軸</span></a>
       <a href="#viz"><span class="material-symbols-rounded">monitoring</span><span data-i18n="navViz">統計圖表</span></a>
+      <a href="#geomap"><span class="material-symbols-rounded">public</span><span data-i18n="navGeomap">地圖</span></a>
       <a href="#demo-day"><span class="material-symbols-rounded">event</span><span data-i18n="navDemoDay">Demo Day</span></a>
       <a href="#why-invested"><span class="material-symbols-rounded">lightbulb</span><span data-i18n="navWhy">Why Invested</span></a>
       <a href="#competitors"><span class="material-symbols-rounded">leaderboard</span><span data-i18n="navComp">競爭對手</span></a>
@@ -66,7 +108,7 @@
   <section class="viz" id="viz" aria-labelledby="viz-heading">
     <header class="section-head">
       <h2 id="viz-heading" data-i18n="vizTitle">投資組合統計</h2>
-      <p data-i18n="vizSub">把 249 家公司的產業 / 地區 / 狀態分布視覺化。</p>
+      <p data-i18n="vizSub">把 342 家公司的產業 / 地區 / 狀態分布視覺化。</p>
     </header>
     <div class="viz-grid">
       <figure class="viz-card">
@@ -81,7 +123,31 @@
         <figcaption data-i18n="vizStatus">狀態分布</figcaption>
         <div class="chart-wrap"><canvas id="chart-status"></canvas></div>
       </figure>
+      <figure class="viz-card viz-card--wide">
+        <figcaption data-i18n="vizFunnel">退出漏斗</figcaption>
+        <div id="funnel-wrap"></div>
+      </figure>
+      <figure class="viz-card viz-card--wide">
+        <figcaption data-i18n="vizHeatmap">AW 屆數 × 產業熱力圖</figcaption>
+        <div class="heatmap-wrap"><div id="heatmap"></div></div>
+      </figure>
     </div>
+  </section>
+
+  <section class="phases" id="phases" aria-labelledby="phases-heading">
+    <header class="section-head">
+      <h2 id="phases-heading" data-i18n="phasesTitle">主題演進時間軸</h2>
+      <p data-i18n="phasesSub">2010 ~ 2026 的 6 個 Phase：從 Internet → Mobile → GSEA → A.B.S. → Web3 → Agentic AI + 硬科技。</p>
+    </header>
+    <div class="phase-timeline" id="phase-timeline"></div>
+  </section>
+
+  <section class="geomap" id="geomap" aria-labelledby="geomap-heading">
+    <header class="section-head">
+      <h2 id="geomap-heading" data-i18n="geomapTitle">地理 Bubble Map</h2>
+      <p data-i18n="geomapSub">每個泡泡大小代表該地區的投資家數，覆蓋大東南亞 9 個市場與全球 4 個跨域。</p>
+    </header>
+    <div class="geomap-wrap"><svg id="geomap-svg" viewBox="0 0 1000 520" aria-label="Greater Southeast Asia bubble map"></svg></div>
   </section>
 
   <section class="demo-day" id="demo-day" aria-labelledby="demo-day-heading">
@@ -186,6 +252,20 @@
     <div class="dialog" id="dialog"></div>
   </div>
 
+  <div class="compare-bar" id="compare-bar" hidden aria-live="polite">
+    <div class="compare-bar__inner">
+      <div class="compare-bar__list" id="compare-list"></div>
+      <div class="compare-bar__actions">
+        <button class="btn-text" id="compare-clear" type="button"><span class="material-symbols-rounded">close</span><span data-i18n="compareClear">清除</span></button>
+        <button class="btn-filled" id="compare-open" type="button"><span class="material-symbols-rounded">compare_arrows</span><span data-i18n="compareOpen">比較</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrim" id="compare-scrim" role="dialog" aria-modal="true" aria-labelledby="compare-title" hidden>
+    <div class="compare-modal" id="compare-modal"></div>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
   <script src="data/portfolio.js"></script>
   <script src="data/portfolio-details.js"></script>
@@ -194,6 +274,15 @@
   <script src="data/why-we-invested.js"></script>
   <script src="data/competitors.js"></script>
   <script src="data/jamie-quotes.js"></script>
+  <script src="data/phases.js"></script>
   <script src="assets/app.js"></script>
+  <script>
+    // Register service worker (PWA, offline-capable). Only when served over HTTP(S).
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(() => { /* ignore in dev */ });
+      });
+    }
+  </script>
 </body>
 </html>

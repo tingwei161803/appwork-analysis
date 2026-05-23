@@ -1,0 +1,26 @@
+{
+  "name": "AppWorks Portfolio Atlas",
+  "short_name": "AppWorks Atlas",
+  "description": "AppWorks 投資組合互動圖鑑 — 342 家公司、10 章節分析、Demo Day 全紀錄、Why We Invested、競爭對手對比、Jamie 名言錄。",
+  "lang": "zh-Hant",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#faf9fd",
+  "theme_color": "#0b57d0",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='42' fill='%230b57d0'/><text x='96' y='130' font-size='90' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>AW</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='112' fill='%230b57d0'/><text x='256' y='350' font-size='240' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>AW</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
