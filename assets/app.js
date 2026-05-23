@@ -10,6 +10,19 @@
   const BATCH = 60;
   const APPWORKS_URL = 'https://appworks.tw/investments/';
 
+  /* Derive AW batches from data (e.g. "AW#13", "AW#20", ...) */
+  const BATCHES = (() => {
+    const set = new Set();
+    DATA.forEach((d) => { if (d.batch) set.add(d.batch); });
+    const arr = Array.from(set);
+    arr.sort((a, b) => {
+      const na = parseInt(a.replace(/[^\d]/g, ''), 10) || 0;
+      const nb = parseInt(b.replace(/[^\d]/g, ''), 10) || 0;
+      return na - nb;
+    });
+    return arr.map((k) => ({ key: k, zh: k, en: k }));
+  })();
+
   const indLabel = (k, lang) => (INDUSTRIES.find((x) => x.key === k) || {})[lang] || k;
   const indIcon  = (k) => (INDUSTRIES.find((x) => x.key === k) || {}).icon || 'label';
   const ctyLabel = (k, lang) => (COUNTRIES.find((x) => x.key === k) || {})[lang] || k;
@@ -24,7 +37,16 @@
       heroDesc: '把 AppWorks 在台灣與大東南亞（GSEA）的投資組合整理成一份可搜尋、可篩選、可雙語切換的互動圖鑑。每家公司附上產業、地區、階段與目前狀態。',
       statCompanies: '收錄公司', statIndustries: '產業類別', statCountries: '涵蓋地區', statIPOs: '已上市',
       searchPlaceholder: '搜尋公司、產業、加速器屆數或關鍵字…',
-      filterIndustry: '產業', filterCountry: '地區', filterStatus: '狀態', all: '全部',
+      filtersBtn: '篩選',
+      filterIndustry: '產業', filterCountry: '地區', filterStatus: '狀態', filterBatch: 'AW 屆數', all: '全部',
+      axisIndustry: '產業', axisCountry: '地區', axisStatus: '狀態', axisBatch: '屆數',
+      navChapters: '10 面向分析', navViz: '統計圖表', navPortfolio: '投資組合',
+      chaptersTitle: '10 面向深度分析',
+      chaptersSub: '從基金、團隊到主題演進，把 AppWorks 拆成可閱讀的章節。每章包含事實 + Claude 的觀察。',
+      vizTitle: '投資組合統計', vizSub: '把資料集裡的產業、地區、狀態分布視覺化。',
+      vizIndustry: '產業分布', vizCountry: '地區分布', vizStatus: '狀態分布',
+      portfolioTitle: '投資組合圖鑑',
+      portfolioSub: '每家公司可開啟詳細卡片；支援雙語切換、3 軸 + AW 屆數篩選與搜尋。',
       cardCta: '查看詳情',
       secOverview: '公司概述', secHighlights: '重點觀察', secMeta: '基本資料', secSources: '資料來源',
       metaCountry: '地區', metaIndustry: '產業', metaStage: '投資階段', metaBatch: 'AW 加速器', metaYear: '投資年份', metaStatus: '目前狀態',
@@ -43,7 +65,16 @@
       heroDesc: "An interactive, searchable, bilingual atlas of AppWorks' portfolio across Taiwan and Greater Southeast Asia. Each company is tagged with industry, country, stage and current status.",
       statCompanies: 'Companies', statIndustries: 'Industries', statCountries: 'Countries', statIPOs: 'IPOs',
       searchPlaceholder: 'Search company, industry, AW batch, or keyword…',
-      filterIndustry: 'Industry', filterCountry: 'Country', filterStatus: 'Status', all: 'All',
+      filtersBtn: 'Filters',
+      filterIndustry: 'Industry', filterCountry: 'Country', filterStatus: 'Status', filterBatch: 'AW batch', all: 'All',
+      axisIndustry: 'Industry', axisCountry: 'Country', axisStatus: 'Status', axisBatch: 'Batch',
+      navChapters: '10 chapters', navViz: 'Charts', navPortfolio: 'Portfolio',
+      chaptersTitle: 'Ten-chapter deep dive',
+      chaptersSub: 'Funds, team, thesis evolution—AppWorks broken down into readable chapters. Facts plus Claude\'s observations.',
+      vizTitle: 'Portfolio statistics', vizSub: 'Industry, country, and status distribution across the dataset.',
+      vizIndustry: 'By industry', vizCountry: 'By country', vizStatus: 'By status',
+      portfolioTitle: 'Portfolio Atlas',
+      portfolioSub: 'Open any card for details; bilingual switch with 3-axis + AW batch filtering and search.',
       cardCta: 'View details',
       secOverview: 'Overview', secHighlights: 'Notes', secMeta: 'Profile', secSources: 'Sources',
       metaCountry: 'Country', metaIndustry: 'Industry', metaStage: 'Stage', metaBatch: 'AW batch', metaYear: 'Invested', metaStatus: 'Status',
@@ -63,7 +94,9 @@
     industry: 'all',
     country: 'all',
     status: 'all',
+    batch: 'all',
     q: '',
+    filtersOpen: false,
   };
   let filtered = DATA.slice();
   let shown = 0;
@@ -134,42 +167,96 @@
     });
   }
   function countWith(extra) {
+    const o = { industry: state.industry, country: state.country, status: state.status, batch: state.batch, ...extra };
     return DATA.filter((d) =>
-      (extra.industry === 'all' || d.industry === extra.industry) &&
-      (extra.country === 'all' || d.country === extra.country) &&
-      (extra.status === 'all' || d.status === extra.status) &&
+      (o.industry === 'all' || d.industry === o.industry) &&
+      (o.country === 'all' || d.country === o.country) &&
+      (o.status === 'all' || d.status === o.status) &&
+      (o.batch === 'all' || d.batch === o.batch) &&
       matches(d, state.q)
     );
   }
   function renderChips() {
     // Industry chips
-    const indItems = [{ key: 'all', label: t('all'), count: countWith({ industry: 'all', country: state.country, status: state.status }).length, icon: 'apps' }]
+    const indItems = [{ key: 'all', label: t('all'), count: countWith({ industry: 'all' }).length, icon: 'apps' }]
       .concat(INDUSTRIES.map((c) => ({
         key: c.key, label: c[state.lang],
-        count: countWith({ industry: c.key, country: state.country, status: state.status }).length,
+        count: countWith({ industry: c.key }).length,
         icon: c.icon
       })));
-    fillChips($('#chips-industry'), indItems, state.industry, (key) => { state.industry = key; renderChips(); renderCards(); });
+    fillChips($('#chips-industry'), indItems, state.industry, (key) => { state.industry = key; renderChips(); renderCards(); renderActiveFilters(); });
 
     // Country chips
-    const ctyItems = [{ key: 'all', label: t('all'), count: countWith({ industry: state.industry, country: 'all', status: state.status }).length, icon: 'public' }]
+    const ctyItems = [{ key: 'all', label: t('all'), count: countWith({ country: 'all' }).length, icon: 'public' }]
       .concat(COUNTRIES.map((c) => ({
         key: c.key, label: c[state.lang],
-        count: countWith({ industry: state.industry, country: c.key, status: state.status }).length,
+        count: countWith({ country: c.key }).length,
         icon: null
       })));
-    fillChips($('#chips-country'), ctyItems, state.country, (key) => { state.country = key; renderChips(); renderCards(); });
+    fillChips($('#chips-country'), ctyItems, state.country, (key) => { state.country = key; renderChips(); renderCards(); renderActiveFilters(); });
 
     // Status chips
-    const stItems = [{ key: 'all', label: t('all'), count: countWith({ industry: state.industry, country: state.country, status: 'all' }).length, icon: 'apps' }]
+    const stItems = [{ key: 'all', label: t('all'), count: countWith({ status: 'all' }).length, icon: 'apps' }]
       .concat(STATUSES.map((s) => ({
         key: s.key, label: s[state.lang],
-        count: countWith({ industry: state.industry, country: state.country, status: s.key }).length,
+        count: countWith({ status: s.key }).length,
         icon: null,
         accent: s.key
       })));
-    fillChips($('#chips-status'), stItems, state.status, (key) => { state.status = key; renderChips(); renderCards(); });
+    fillChips($('#chips-status'), stItems, state.status, (key) => { state.status = key; renderChips(); renderCards(); renderActiveFilters(); });
+
+    // Batch chips (AW#1..AW#33)
+    const batchItems = [{ key: 'all', label: t('all'), count: countWith({ batch: 'all' }).length, icon: 'apps' }]
+      .concat(BATCHES.map((b) => ({
+        key: b.key, label: b[state.lang],
+        count: countWith({ batch: b.key }).length,
+        icon: null
+      })));
+    fillChips($('#chips-batch'), batchItems, state.batch, (key) => { state.batch = key; renderChips(); renderCards(); renderActiveFilters(); });
   }
+
+  function renderActiveFilters() {
+    const items = [];
+    if (state.industry !== 'all') items.push({ axis: 'industry', axisLabel: t('axisIndustry'), key: state.industry, label: indLabel(state.industry, state.lang) });
+    if (state.country  !== 'all') items.push({ axis: 'country',  axisLabel: t('axisCountry'),  key: state.country,  label: ctyLabel(state.country,  state.lang) });
+    if (state.status   !== 'all') items.push({ axis: 'status',   axisLabel: t('axisStatus'),   key: state.status,   label: stLabel(state.status,   state.lang) });
+    if (state.batch    !== 'all') items.push({ axis: 'batch',    axisLabel: t('axisBatch'),    key: state.batch,    label: state.batch });
+
+    const badge = $('#filter-badge');
+    badge.textContent = items.length ? String(items.length) : '';
+    badge.classList.toggle('has-active', items.length > 0);
+
+    const wrap = $('#active-filters');
+    wrap.innerHTML = items.map((it) => `
+      <span class="active-filter-pill">
+        <span class="active-filter-pill__axis">${esc(it.axisLabel)}</span>
+        ${esc(it.label)}
+        <button data-axis="${esc(it.axis)}" aria-label="Remove ${esc(it.label)}">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </span>
+    `).join('');
+    $$('.active-filter-pill button', wrap).forEach((b) => {
+      b.addEventListener('click', (e) => {
+        e.stopPropagation();
+        state[b.dataset.axis] = 'all';
+        renderChips(); renderCards(); renderActiveFilters();
+      });
+    });
+  }
+
+  function applyFiltersOpen() {
+    const btn = $('#filters-toggle');
+    const panel = $('#filters-panel');
+    btn.setAttribute('aria-expanded', String(state.filtersOpen));
+    panel.hidden = !state.filtersOpen;
+  }
+  $('#filters-toggle').addEventListener('click', () => {
+    state.filtersOpen = !state.filtersOpen;
+    localStorage.setItem('aw.filtersOpen', state.filtersOpen ? '1' : '0');
+    applyFiltersOpen();
+  });
+  state.filtersOpen = localStorage.getItem('aw.filtersOpen') === '1';
 
   function matches(d, q) {
     if (!q) return true;
@@ -187,6 +274,7 @@
       (state.industry === 'all' || d.industry === state.industry) &&
       (state.country === 'all' || d.country === state.country) &&
       (state.status === 'all' || d.status === state.status) &&
+      (state.batch === 'all' || d.batch === state.batch) &&
       matches(d, state.q));
   }
 
@@ -379,6 +467,115 @@
     else if (e.key === 'ArrowRight') openDialog((openIndex + 1) % filtered.length);
   });
 
+  /* ===== Chapters ===== */
+  const CHAPTERS = window.CHAPTERS || [];
+  function renderChapters() {
+    const wrap = $('#chapter-list');
+    if (!wrap) return;
+    const lang = state.lang;
+    wrap.innerHTML = CHAPTERS.map((c, idx) => {
+      const sectionsHtml = c.sections.map((s) => `
+        <div class="chapter__section">
+          <h4>${esc(s.heading[lang])}</h4>
+          ${s.paragraphs[lang].map((p) => `<p>${esc(p)}</p>`).join('')}
+        </div>
+      `).join('');
+      return `
+        <article class="chapter" data-id="${esc(c.id)}" aria-expanded="false" style="--cat:var(--c-${esc(c.accent)})">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-${esc(c.id)}">
+            <span class="chapter__icon"><span class="material-symbols-rounded">${esc(c.icon)}</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH ${String(idx + 1).padStart(2, '0')}</span>
+              <h3>${esc(c.title[lang])}</h3>
+              <p>${esc(c.lede[lang])}</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-${esc(c.id)}">
+            ${sectionsHtml}
+            <div class="chapter__observation">${esc(c.observation[lang])}</div>
+          </div>
+        </article>
+      `;
+    }).join('');
+    $$('.chapter', wrap).forEach((el) => {
+      const head = $('.chapter__head', el);
+      attachRipple(head);
+      head.addEventListener('click', () => {
+        const open = el.getAttribute('aria-expanded') === 'true';
+        el.setAttribute('aria-expanded', String(!open));
+      });
+    });
+  }
+
+  /* ===== Charts ===== */
+  let charts = { industry: null, country: null, status: null };
+  function chartColors(keys, mapper) {
+    return keys.map((k) => {
+      const v = getComputedStyle(document.documentElement).getPropertyValue(mapper(k)).trim();
+      return v || '#888';
+    });
+  }
+  function renderCharts() {
+    if (typeof Chart === 'undefined') return;
+    Object.values(charts).forEach((c) => c && c.destroy());
+    const lang = state.lang;
+    const ind = INDUSTRIES.map((i) => ({ key: i.key, label: i[lang], count: DATA.filter((d) => d.industry === i.key).length })).filter((x) => x.count > 0).sort((a, b) => b.count - a.count);
+    const cty = COUNTRIES.map((c) => ({ key: c.key, label: c[lang], count: DATA.filter((d) => d.country === c.key).length })).filter((x) => x.count > 0).sort((a, b) => b.count - a.count);
+    const st  = STATUSES.map((s) => ({ key: s.key, label: s[lang], count: DATA.filter((d) => d.status === s.key).length, color: s.color })).filter((x) => x.count > 0);
+
+    const onSurface = getComputedStyle(document.documentElement).getPropertyValue('--on-surface').trim();
+    const onSurfVar = getComputedStyle(document.documentElement).getPropertyValue('--on-surface-variant').trim();
+    const gridLine = getComputedStyle(document.documentElement).getPropertyValue('--outline-variant').trim();
+
+    const donutOpts = {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'right', labels: { color: onSurface, font: { size: 11 }, boxWidth: 10, padding: 8 } },
+        tooltip: { callbacks: { label: (ctx) => `${ctx.label}: ${ctx.parsed}` } }
+      },
+      cutout: '55%',
+    };
+
+    charts.industry = new Chart($('#chart-industry'), {
+      type: 'doughnut',
+      data: { labels: ind.map((x) => x.label), datasets: [{
+        data: ind.map((x) => x.count),
+        backgroundColor: chartColors(ind.map((x) => x.key), (k) => `--c-${k}`),
+        borderWidth: 0,
+      }] },
+      options: donutOpts,
+    });
+
+    charts.country = new Chart($('#chart-country'), {
+      type: 'doughnut',
+      data: { labels: cty.map((x) => x.label), datasets: [{
+        data: cty.map((x) => x.count),
+        backgroundColor: ['#0b57d0','#1a73e8','#8430ce','#d93025','#12a150','#e8710a','#00838f','#c2185b','#5e35b1','#455a64','#689f38','#f59e0b','#74777f'],
+        borderWidth: 0,
+      }] },
+      options: donutOpts,
+    });
+
+    charts.status = new Chart($('#chart-status'), {
+      type: 'bar',
+      data: { labels: st.map((x) => x.label), datasets: [{
+        label: 'Count',
+        data: st.map((x) => x.count),
+        backgroundColor: st.map((x) => x.color),
+        borderRadius: 6,
+      }] },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: onSurfVar, font: { size: 11 } }, grid: { display: false } },
+          y: { ticks: { color: onSurfVar, font: { size: 11 } }, grid: { color: gridLine } },
+        }
+      },
+    });
+  }
+
   /* init */
   $$('.ripple-host').forEach(attachRipple);
 
@@ -388,8 +585,17 @@
   $('#stat-ipos').textContent = DATA.filter((d) => d.status === 'ipo' || d.status === 'hectocorn' || d.status === 'decacorn').length;
 
   applyStaticI18n();
+  applyFiltersOpen();
   renderChips();
+  renderActiveFilters();
   renderCards();
+  renderChapters();
+  renderCharts();
+
+  /* Re-render chapters + charts when language or theme changes (charts depend on CSS vars). */
+  const origSetLang = setLang;
+  // Note: setLang already calls renderChips/renderCards; hook chapters + charts via observer on attributes.
+  new MutationObserver(() => { renderChapters(); renderCharts(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-theme'] });
 
   function openFromHash() {
     let id;

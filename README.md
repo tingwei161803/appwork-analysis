@@ -33,12 +33,15 @@
 
 ## 收錄資料
 
-- **111 家公司**（涵蓋 AppWorks Fund I–IV 與 Accelerator AW#1–AW#33 alumni 的主要案例）
+- **249 家公司**（涵蓋 AppWorks Fund I–IV 與 Accelerator AW#1–AW#33 alumni 的主要案例）
+- **10 章節深度分析**（公司 / 基金 / 投資組合 / 加速器 / 論點 / 思想領導 / 團隊 / 生態系 / 市場定位 / 演進史，每章含 Claude 觀察）
+- **3 軸 + AW 屆數**篩選 + 全文搜尋；首頁附產業/地區/狀態三張圖表
 - **19 個產業類別**：Web3 / AI / FinTech / E-commerce / SaaS / Mobility / Logistics / Gaming /
   Travel / Social / HealthTech / EdTech / PropTech / AgriTech / ClimateTech / Food / AdTech /
   CyberSecurity / Hardware
 - **13 個地區**：Taiwan / Singapore / Indonesia / Vietnam / Hong Kong / Malaysia / Philippines /
   Korea / Japan / United States / Canada / Web3 (cross-chain) / Global
+- **26 個 AW 屆數**（AW#1 ~ AW#31，含 AW#32 / AW#33 持續更新中）
 - **7 種狀態**：Hectocorn ($100B+) / Decacorn ($10B+) / Unicorn ($1B+) / IPO / Acquired / Active /
   Shutdown
 - 每家公司皆有 **中英雙語** 概述與重點觀察。
@@ -81,9 +84,10 @@ uv run --no-project python -m http.server 8765
 ├── index.html                 # 🌐 單頁入口（中英共用，i18n 動態切換）
 ├── assets/
 │   ├── styles.css             # Material Design 3 風格 stylesheet
-│   └── app.js                 # 互動邏輯：i18n、3 軸 filter、搜尋、Dialog、漸進載入
+│   └── app.js                 # 互動邏輯：i18n、3 軸 + AW 屆數 filter、搜尋、Dialog、Chapters、Charts
 └── data/
-    └── portfolio.js           # 111 家公司 + 產業 / 地區 / 狀態 字典
+    ├── portfolio.js           # 249 家公司 + 產業 / 地區 / 狀態 / 屆數字典
+    └── chapters.js            # 10 章節深度分析（中英雙語）
 ```
 
 純 HTML + CSS + Vanilla JS — 沒有打包、沒有框架，丟到任何靜態空間（GitHub Pages / Vercel /
@@ -100,8 +104,10 @@ dialog, mirroring the structure of
 [`real-world-genai-use-cases`](https://github.com/tingwei161803/real-world-genai-use-cases).
 
 - **Live demo:** <https://tingwei161803.github.io/appwork-analysis/>
-- **111 portfolio companies** drawn from AppWorks Funds I–IV and Accelerator batches AW#1–AW#33.
-- **19 industries × 13 countries × 7 status categories.** Every entry has a bilingual summary.
+- **249 portfolio companies** drawn from AppWorks Funds I–IV and Accelerator batches AW#1–AW#33.
+- **10-chapter analytical narrative** (Company / Funds / Portfolio / Accelerator / Thesis / Thought Leadership / Team / Ecosystem / Positioning / Evolution) with Claude's observations.
+- **19 industries × 13 countries × 26 AW batches × 7 statuses.** Every entry has a bilingual summary.
+- **Three Chart.js visualizations** on the front page: industry donut, country donut, status bar.
 - **Source data:** [AppWorks Investments](https://appworks.tw/investments/) +
   [AppWorks Blog](https://appworks.tw/blog/) + Crunchbase + public news. Unofficial — verify
   before quoting.
