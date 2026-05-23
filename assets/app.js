@@ -949,6 +949,18 @@
   /* init */
   $$('.ripple-host').forEach(attachRipple);
 
+  // GitHub star count (graceful no-op on failure)
+  fetch('https://api.github.com/repos/tingwei161803/appwork-analysis')
+    .then((r) => (r.ok ? r.json() : null))
+    .then((j) => {
+      if (!j || typeof j.stargazers_count !== 'number') return;
+      const el = $('#gh-count');
+      if (!el) return;
+      el.textContent = j.stargazers_count >= 1000 ? (j.stargazers_count / 1000).toFixed(1) + 'k' : j.stargazers_count;
+      el.hidden = false;
+    })
+    .catch(() => {});
+
   $('#stat-companies').textContent = DATA.length;
   $('#stat-industries').textContent = INDUSTRIES.length;
   $('#stat-countries').textContent = COUNTRIES.length;
