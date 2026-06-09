@@ -14,7 +14,7 @@
 
 | 入口 | URL |
 | --- | --- |
-| 🌐 互動圖鑑 | <https://tingwei161803.github.io/appwork-analysis/> |
+| 🌐 互動圖鑑 | <https://appwork-analysis.peteraim.com/> |
 
 直接打開即可使用：
 
@@ -120,7 +120,7 @@ filter axes (industry × country × status), full-text search and a Material Des
 dialog, mirroring the structure of
 [`real-world-genai-use-cases`](https://github.com/tingwei161803/real-world-genai-use-cases).
 
-- **Live demo:** <https://tingwei161803.github.io/appwork-analysis/>
+- **Live demo:** <https://appwork-analysis.peteraim.com/>
 - **342 portfolio companies** drawn from AppWorks Funds I–IV and Accelerator batches AW#1–AW#33.
 - **10-chapter analytical narrative** with Claude's observations.
 - **Demo Day Chronicle** covering every batch AW#1–AW#33.
