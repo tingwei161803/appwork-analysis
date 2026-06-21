@@ -32,6 +32,13 @@
     zh: {
       brand: 'AppWorks 投資組合圖鑑',
       brandSub: '台灣 × 大東南亞 創投與加速器',
+      pgHome: '首頁', pgPortfolio: '投資組合', pgAnalysis: '深度分析', pgInsights: '數據地圖', pgEcosystem: '生態系',
+      hubTitle: '想從哪一塊看起？', hubSub: '把整份圖鑑拆成五個獨立區塊,各自專注、載入更快。點卡片進入。',
+      hubEnter: '進入',
+      hubPortfolioDesc: '342 家公司圖鑑 · 產業 × 地區 × 狀態 × 屆數 篩選 · 全文搜尋 · 並排比較 · 名詞表',
+      hubAnalysisDesc: '10 面向深度分析（含 Claude 觀察）+ 6 段主題演進時間軸',
+      hubInsightsDesc: '產業 / 地區 / 狀態 圖表 · 退出漏斗 · 屆數×產業熱力圖 · GSEA 泡泡地圖',
+      hubEcosystemDesc: 'Demo Day 全紀錄 · 22 篇 Why We Invested · 5 家 SEA VC 競爭對手 · Jamie 名言錄',
       eyebrow: '整理自 AppWorks 官方資料與公開報導',
       heroTitle: 'AppWorks 投了哪些 <span class="grad">公司</span>？',
       heroDesc: '把 AppWorks 在台灣與大東南亞（GSEA）的投資組合整理成一份可搜尋、可篩選、可雙語切換的互動圖鑑。每家公司附上產業、地區、階段與目前狀態。',
@@ -86,6 +93,13 @@
     en: {
       brand: 'AppWorks Portfolio Atlas',
       brandSub: 'A Taiwan × Greater SEA VC + Accelerator',
+      pgHome: 'Home', pgPortfolio: 'Portfolio', pgAnalysis: 'Analysis', pgInsights: 'Data & Map', pgEcosystem: 'Ecosystem',
+      hubTitle: 'Where do you want to start?', hubSub: 'The full atlas, split into five focused sections that load faster. Tap a card to enter.',
+      hubEnter: 'Enter',
+      hubPortfolioDesc: '342-company atlas · industry × region × status × batch filters · full-text search · compare · glossary',
+      hubAnalysisDesc: '10-dimension deep dive (with Claude observations) + a 6-phase evolution timeline',
+      hubInsightsDesc: 'Industry / region / status charts · exit funnel · batch×industry heatmap · GSEA bubble map',
+      hubEcosystemDesc: 'Demo Day chronicle · 22 Why-We-Invested · 5 SEA-VC competitors · Jamie Lin quotes',
       eyebrow: 'Curated from AppWorks official site + public coverage',
       heroTitle: 'Every company <span class="grad">AppWorks</span> has backed',
       heroDesc: "An interactive, searchable, bilingual atlas of AppWorks' portfolio across Taiwan and Greater Southeast Asia. Each company is tagged with industry, country, stage and current status.",
@@ -203,7 +217,7 @@
     document.documentElement.lang = state.lang === 'zh' ? 'zh-Hant' : 'en';
     $$('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
     $$('[data-i18n-html]').forEach((el) => { el.innerHTML = t(el.dataset.i18nHtml); });
-    $('#search').placeholder = t('searchPlaceholder');
+    const _se = $('#search'); if (_se) _se.placeholder = t('searchPlaceholder');
     $('#lang-zh').setAttribute('aria-pressed', String(state.lang === 'zh'));
     $('#lang-en').setAttribute('aria-pressed', String(state.lang === 'en'));
     applyTheme();
@@ -223,6 +237,7 @@
   $('#lang-en').addEventListener('click', () => setLang('en'));
 
   function fillChips(wrap, items, active, onPick) {
+    if (!wrap) return;
     wrap.innerHTML = items.map((it) => `
       <button class="chip ripple-host" data-key="${esc(it.key)}" aria-pressed="${active === it.key}"
         ${it.accent ? `style="--cat:var(--c-${esc(it.accent)})"` : ''}>
@@ -285,6 +300,7 @@
   }
 
   function renderActiveFilters() {
+    if (!$('#active-filters')) return;
     const items = [];
     if (state.industry !== 'all') items.push({ axis: 'industry', axisLabel: t('axisIndustry'), key: state.industry, label: indLabel(state.industry, state.lang) });
     if (state.country  !== 'all') items.push({ axis: 'country',  axisLabel: t('axisCountry'),  key: state.country,  label: ctyLabel(state.country,  state.lang) });
@@ -317,10 +333,11 @@
   function applyFiltersOpen() {
     const btn = $('#filters-toggle');
     const panel = $('#filters-panel');
+    if (!btn || !panel) return;
     btn.setAttribute('aria-expanded', String(state.filtersOpen));
     panel.hidden = !state.filtersOpen;
   }
-  $('#filters-toggle').addEventListener('click', () => {
+  $('#filters-toggle')?.addEventListener('click', () => {
     state.filtersOpen = !state.filtersOpen;
     localStorage.setItem('aw.filtersOpen', state.filtersOpen ? '1' : '0');
     applyFiltersOpen();
@@ -384,9 +401,10 @@
 
   function renderCards() {
     computeFiltered();
-    shown = 0;
     const grid = $('#grid');
-    $('#result-count').textContent = t('results')(filtered.length);
+    if (!grid) return;
+    shown = 0;
+    const rc = $('#result-count'); if (rc) rc.textContent = t('results')(filtered.length);
     if (!filtered.length) {
       grid.innerHTML = `<div class="empty">
         <span class="material-symbols-rounded">search_off</span>
@@ -433,20 +451,22 @@
   const io = new IntersectionObserver((entries) => {
     if (entries.some((e) => e.isIntersecting) && shown < filtered.length) appendBatch();
   }, { rootMargin: '600px' });
-  io.observe($('#load-sentinel'));
+  { const _ls = $('#load-sentinel'); if (_ls) io.observe(_ls); }
 
   /* search */
   const searchEl = $('#search');
   const clearEl = $('#search-clear');
   let searchTimer;
-  searchEl.addEventListener('input', () => {
-    clearEl.classList.toggle('show', !!searchEl.value);
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(() => { state.q = searchEl.value.trim(); renderChips(); renderCards(); syncURL(); }, 120);
-  });
-  clearEl.addEventListener('click', () => {
-    searchEl.value = ''; state.q = ''; clearEl.classList.remove('show'); renderChips(); renderCards(); syncURL(); searchEl.focus();
-  });
+  if (searchEl && clearEl) {
+    searchEl.addEventListener('input', () => {
+      clearEl.classList.toggle('show', !!searchEl.value);
+      clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => { state.q = searchEl.value.trim(); renderChips(); renderCards(); syncURL(); }, 120);
+    });
+    clearEl.addEventListener('click', () => {
+      searchEl.value = ''; state.q = ''; clearEl.classList.remove('show'); renderChips(); renderCards(); syncURL(); searchEl.focus();
+    });
+  }
 
   /* dialog */
   const scrim = $('#scrim');
@@ -563,7 +583,7 @@
     setTimeout(() => { scrim.hidden = true; }, 280);
     if (lastFocus) lastFocus.focus();
   }
-  scrim.addEventListener('click', (e) => { if (e.target === scrim) closeDialog(); });
+  scrim?.addEventListener('click', (e) => { if (e.target === scrim) closeDialog(); });
   document.addEventListener('keydown', (e) => {
     if (openIndex < 0) return;
     if (e.key === 'Escape') { closeDialog(); return; }
@@ -603,6 +623,7 @@
   function renderCompareBar() {
     const bar = $('#compare-bar');
     const list = $('#compare-list');
+    if (!bar || !list) return;
     if (!compareSet.size) { bar.hidden = true; return; }
     bar.hidden = false;
     list.innerHTML = [...compareSet].map((id) => {
@@ -658,7 +679,7 @@
     setTimeout(() => { sc.hidden = true; }, 280);
     document.body.style.overflow = '';
   }
-  $('#compare-clear').addEventListener('click', () => {
+  $('#compare-clear')?.addEventListener('click', () => {
     compareSet.clear();
     renderCompareBar();
     document.querySelectorAll('.card__compare-btn[aria-pressed="true"]').forEach((btn) => {
@@ -666,7 +687,7 @@
       btn.querySelector('.material-symbols-rounded').textContent = 'add';
     });
   });
-  $('#compare-open').addEventListener('click', openCompareModal);
+  $('#compare-open')?.addEventListener('click', openCompareModal);
 
   /* ===== Phase Timeline ===== */
   const PHASES = window.PHASES || [];
@@ -887,7 +908,7 @@
     });
   }
   function renderCharts() {
-    if (typeof Chart === 'undefined') return;
+    if (typeof Chart === 'undefined' || !$('#chart-industry')) return;
     Object.values(charts).forEach((c) => c && c.destroy());
     const lang = state.lang;
     const ind = INDUSTRIES.map((i) => ({ key: i.key, label: i[lang], count: DATA.filter((d) => d.industry === i.key).length })).filter((x) => x.count > 0).sort((a, b) => b.count - a.count);
@@ -961,13 +982,13 @@
     })
     .catch(() => {});
 
-  $('#stat-companies').textContent = DATA.length;
-  $('#stat-industries').textContent = INDUSTRIES.length;
-  $('#stat-countries').textContent = COUNTRIES.length;
-  $('#stat-ipos').textContent = DATA.filter((d) => d.status === 'ipo' || d.status === 'hectocorn' || d.status === 'decacorn').length;
+  { const e = $('#stat-companies'); if (e) e.textContent = DATA.length; }
+  { const e = $('#stat-industries'); if (e) e.textContent = INDUSTRIES.length; }
+  { const e = $('#stat-countries'); if (e) e.textContent = COUNTRIES.length; }
+  { const e = $('#stat-ipos'); if (e) e.textContent = DATA.filter((d) => d.status === 'ipo' || d.status === 'hectocorn' || d.status === 'decacorn').length; }
 
   // Pre-fill search input from URL
-  if (state.q) {
+  if (state.q && searchEl && clearEl) {
     searchEl.value = state.q;
     clearEl.classList.add('show');
   }
@@ -1089,13 +1110,13 @@
     if (openIndex >= 0) return;  // dialog handles its own keys
 
     if (e.key === '/' || e.key === 's') {
-      e.preventDefault(); searchEl.focus();
+      if (searchEl) { e.preventDefault(); searchEl.focus(); }
     } else if (e.key === 'd') {
-      $('#theme-toggle').click();
+      $('#theme-toggle')?.click();
     } else if (e.key === 'l') {
       setLang(state.lang === 'zh' ? 'en' : 'zh');
     } else if (e.key === 'f') {
-      $('#filters-toggle').click();
+      $('#filters-toggle')?.click();
     } else if (e.key === 'r') {
       // random discover
       if (filtered.length > 0) openDialog(Math.floor(Math.random() * filtered.length));

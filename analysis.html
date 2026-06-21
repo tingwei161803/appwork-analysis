@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="zh-Hant" data-theme="light">
 <head>
-  <!-- ==== Google Analytics 4 (Measurement ID: G-WN17V7GL48) ==== -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN17V7GL48"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -12,48 +11,20 @@
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>AppWorks 投資組合圖鑑 · AppWorks Portfolio Atlas</title>
-  <meta name="description" content="342 家 AppWorks portfolio 拆成五個區塊：投資組合圖鑑、10 面向深度分析、數據圖表與地圖、Demo Day 生態系。中英雙語互動圖鑑。" />
-  <meta name="keywords" content="AppWorks, Jamie Lin, 林之晨, 創投, Venture Capital, GSEA, Greater Southeast Asia, Taiwan startups, 台灣新創, Web3, AI, A.B.S., Accelerator, Demo Day" />
+  <title>深度分析 · AppWorks Portfolio Atlas</title>
+  <meta name="description" content="AppWorks 10 面向深度分析（基金、團隊、投資組合、加速器、論點、思想領導、生態系、市場定位、演進史，每章含 Claude 觀察）+ 6 段主題演進時間軸。中英雙語。" />
   <meta name="author" content="Unofficial study companion" />
   <meta name="theme-color" content="#0b57d0" />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="AppWorks 投資組合圖鑑 · AppWorks Portfolio Atlas" />
-  <meta property="og:description" content="342 portfolio companies across five sections · deep dive · data & maps · Demo Day ecosystem. Bilingual." />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="深度分析 · AppWorks Portfolio Atlas" />
+  <meta property="og:description" content="10-dimension deep dive (with Claude observations) + a 6-phase evolution timeline." />
   <meta property="og:image" content="./og-image.svg" />
-  <meta property="og:url" content="https://tingwei161803.github.io/appwork-analysis/" />
-  <meta property="og:locale" content="zh_TW" />
-  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:url" content="https://tingwei161803.github.io/appwork-analysis/analysis.html" />
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="AppWorks Portfolio Atlas" />
-  <meta name="twitter:description" content="342 portfolio companies across five focused sections, bilingual." />
-  <meta name="twitter:image" content="./og-image.svg" />
-
-  <link rel="canonical" href="https://tingwei161803.github.io/appwork-analysis/" />
+  <link rel="canonical" href="https://tingwei161803.github.io/appwork-analysis/analysis.html" />
   <link rel="manifest" href="./site.webmanifest" />
   <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%230b57d0'/><text x='90' y='122' font-size='84' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>AW</text></svg>" />
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "AppWorks Portfolio Atlas",
-    "alternateName": "AppWorks 投資組合圖鑑",
-    "url": "https://tingwei161803.github.io/appwork-analysis/",
-    "description": "Unofficial interactive bilingual atlas of AppWorks' portfolio across Taiwan and Greater Southeast Asia.",
-    "inLanguage": ["zh-Hant", "en"],
-    "about": {
-      "@type": "Organization",
-      "name": "AppWorks",
-      "url": "https://appworks.tw",
-      "founder": "Jamie Lin",
-      "foundingDate": "2009",
-      "location": "Taipei, Taiwan"
-    }
-  }
-  </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -73,14 +44,12 @@
         <span class="brand-sub" data-i18n="brandSub">台灣 × 大東南亞 創投與加速器</span>
       </span>
     </div>
-
     <a class="ghstar ripple-host" href="https://github.com/tingwei161803/appwork-analysis" target="_blank" rel="noopener" aria-label="Star this project on GitHub">
       <svg class="ghstar__logo" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
       <span class="ghstar__star" aria-hidden="true">★</span>
       <span class="ghstar__text">Star</span>
       <span class="ghstar__count" id="gh-count" hidden></span>
     </a>
-
     <div class="seg" role="group" aria-label="Language">
       <button id="lang-zh" data-lang="zh" aria-pressed="true"><span class="lbl">中文</span></button>
       <button id="lang-en" data-lang="en" aria-pressed="false"><span class="lbl">EN</span></button>
@@ -92,57 +61,28 @@
 
   <nav class="appnav" aria-label="Sections">
     <div class="appnav__inner">
-      <a href="index.html" aria-current="page"><span class="material-symbols-rounded">home</span><span data-i18n="pgHome">首頁</span></a>
+      <a href="index.html"><span class="material-symbols-rounded">home</span><span data-i18n="pgHome">首頁</span></a>
       <a href="portfolio.html"><span class="material-symbols-rounded">grid_view</span><span data-i18n="pgPortfolio">投資組合</span></a>
-      <a href="analysis.html"><span class="material-symbols-rounded">menu_book</span><span data-i18n="pgAnalysis">深度分析</span></a>
+      <a href="analysis.html" aria-current="page"><span class="material-symbols-rounded">menu_book</span><span data-i18n="pgAnalysis">深度分析</span></a>
       <a href="insights.html"><span class="material-symbols-rounded">monitoring</span><span data-i18n="pgInsights">數據地圖</span></a>
       <a href="ecosystem.html"><span class="material-symbols-rounded">hub</span><span data-i18n="pgEcosystem">生態系</span></a>
     </div>
   </nav>
 
-  <section class="hero">
-    <span class="hero__eyebrow"><span class="dot"></span><span data-i18n="eyebrow">整理自 AppWorks 官方資料與公開報導</span></span>
-    <h1 data-i18n-html="heroTitle">AppWorks 投了哪些 <span class="grad">公司</span>？</h1>
-    <p data-i18n="heroDesc">把 AppWorks 在台灣與大東南亞（GSEA）的投資組合整理成一份可搜尋、可篩選、可雙語切換的互動圖鑑。每家公司附上產業、地區、階段與目前狀態。</p>
-    <div class="hero__stats">
-      <div class="hero__stat"><b id="stat-companies">0</b><span data-i18n="statCompanies">收錄公司</span></div>
-      <div class="hero__stat"><b id="stat-industries">0</b><span data-i18n="statIndustries">產業類別</span></div>
-      <div class="hero__stat"><b id="stat-countries">0</b><span data-i18n="statCountries">涵蓋地區</span></div>
-      <div class="hero__stat"><b id="stat-ipos">0</b><span data-i18n="statIPOs">已上市</span></div>
-    </div>
+  <section class="chapters" id="chapters" aria-labelledby="chapters-heading">
+    <header class="section-head">
+      <h2 id="chapters-heading" data-i18n="chaptersTitle">10 面向深度分析</h2>
+      <p data-i18n="chaptersSub">從基金、團隊到主題演進，把 AppWorks 拆成可閱讀的章節。每章包含事實 + Claude 的觀察。</p>
+    </header>
+    <div class="chapter-list" id="chapter-list"></div>
   </section>
 
-  <section class="hub" aria-label="Sections">
+  <section class="phases" id="phases" aria-labelledby="phases-heading">
     <header class="section-head">
-      <h2 data-i18n="hubTitle">想從哪一塊看起？</h2>
-      <p data-i18n="hubSub">把整份圖鑑拆成五個獨立區塊，各自專注、載入更快。點卡片進入。</p>
+      <h2 id="phases-heading" data-i18n="phasesTitle">主題演進時間軸</h2>
+      <p data-i18n="phasesSub">2010 ~ 2026 的 6 個 Phase：從 Internet → Mobile → GSEA → A.B.S. → Web3 → Agentic AI + 硬科技。</p>
     </header>
-    <div class="hub-grid">
-      <a class="hub-card" href="portfolio.html" style="--cat:#0b57d0">
-        <span class="hub-card__ic"><span class="material-symbols-rounded">grid_view</span></span>
-        <h3 data-i18n="pgPortfolio">投資組合</h3>
-        <p data-i18n="hubPortfolioDesc">342 家公司圖鑑 · 產業 × 地區 × 狀態 × 屆數 篩選 · 全文搜尋 · 並排比較 · 名詞表</p>
-        <span class="hub-card__cta"><span data-i18n="hubEnter">進入</span><span class="material-symbols-rounded">arrow_forward</span></span>
-      </a>
-      <a class="hub-card" href="analysis.html" style="--cat:#8430ce">
-        <span class="hub-card__ic"><span class="material-symbols-rounded">menu_book</span></span>
-        <h3 data-i18n="pgAnalysis">深度分析</h3>
-        <p data-i18n="hubAnalysisDesc">10 面向深度分析（含 Claude 觀察）+ 6 段主題演進時間軸</p>
-        <span class="hub-card__cta"><span data-i18n="hubEnter">進入</span><span class="material-symbols-rounded">arrow_forward</span></span>
-      </a>
-      <a class="hub-card" href="insights.html" style="--cat:#12a150">
-        <span class="hub-card__ic"><span class="material-symbols-rounded">monitoring</span></span>
-        <h3 data-i18n="pgInsights">數據地圖</h3>
-        <p data-i18n="hubInsightsDesc">產業 / 地區 / 狀態 圖表 · 退出漏斗 · 屆數×產業熱力圖 · GSEA 泡泡地圖</p>
-        <span class="hub-card__cta"><span data-i18n="hubEnter">進入</span><span class="material-symbols-rounded">arrow_forward</span></span>
-      </a>
-      <a class="hub-card" href="ecosystem.html" style="--cat:#e8710a">
-        <span class="hub-card__ic"><span class="material-symbols-rounded">hub</span></span>
-        <h3 data-i18n="pgEcosystem">生態系</h3>
-        <p data-i18n="hubEcosystemDesc">Demo Day 全紀錄 · 22 篇 Why We Invested · 5 家 SEA VC 競爭對手 · Jamie 名言錄</p>
-        <span class="hub-card__cta"><span data-i18n="hubEnter">進入</span><span class="material-symbols-rounded">arrow_forward</span></span>
-      </a>
-    </div>
+    <div class="phase-timeline" id="phase-timeline"></div>
   </section>
 
   <footer class="site-foot">
@@ -153,7 +93,8 @@
     </div>
   </footer>
 
-  <script src="data/portfolio.js"></script>
+  <script src="data/chapters.js"></script>
+  <script src="data/phases.js"></script>
   <script src="assets/app.js"></script>
   <script>
     if ('serviceWorker' in navigator && location.protocol !== 'file:') {
