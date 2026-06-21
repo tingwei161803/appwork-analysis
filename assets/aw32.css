@@ -229,8 +229,8 @@
 .scorebars { display: grid; gap: 10px; }
 .scorebar { display: grid; grid-template-columns: 96px 1fr 26px; align-items: center; gap: 10px; }
 .scorebar__label { font-size: .8rem; color: var(--on-surface-variant); }
-.scorebar__track { height: 8px; border-radius: 4px; background: var(--surface-container-highest); overflow: hidden; }
-.scorebar__fill { height: 100%; border-radius: 4px; background: var(--cat, var(--primary)); }
+.scorebar__track { display: block; height: 8px; border-radius: 4px; background: var(--surface-container-highest); overflow: hidden; }
+.scorebar__fill { display: block; height: 100%; border-radius: 4px; background: var(--cat, var(--primary)); transition: width var(--dur-med) var(--ease-emph); }
 .scorebar__val { font-size: .8rem; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
 
 /* moat strength */
@@ -285,8 +285,57 @@
 
 .conv-bars { display: grid; gap: 10px; margin-top: 4px; }
 .conv-bar { display: grid; grid-template-columns: 70px 1fr 28px; align-items: center; gap: 10px; font-size: .82rem; }
-.conv-bar__track { height: 14px; border-radius: 7px; background: var(--surface-container-highest); overflow: hidden; }
-.conv-bar__fill { height: 100%; border-radius: 7px; }
+.conv-bar__track { display: block; height: 14px; border-radius: 7px; background: var(--surface-container-highest); overflow: hidden; }
+.conv-bar__fill { display: block; height: 100%; border-radius: 7px; }
+
+/* ---------- Charts dashboard ---------- */
+.charts { padding: 44px clamp(16px, 4vw, 40px) 8px; max-width: 1320px; margin: 0 auto; }
+.charts-grid {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(12, 1fr);
+}
+.chart-card {
+  grid-column: span 6;
+  background: var(--surface-container-low);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--r-lg); padding: 18px 18px 14px;
+  display: flex; flex-direction: column; min-width: 0;
+}
+.chart-card--third { grid-column: span 4; }
+.chart-card--wide { grid-column: span 8; }
+.chart-card--full { grid-column: span 12; }
+@media (max-width: 900px) {
+  .chart-card, .chart-card--third, .chart-card--wide { grid-column: span 12; }
+}
+.chart-card figcaption, .chart-card__cap {
+  font-family: var(--font-brand); font-weight: 500; font-size: .98rem;
+  margin: 0 0 4px; display: flex; align-items: center; gap: 8px;
+}
+.chart-card__cap .material-symbols-rounded { font-size: 18px; color: var(--primary); }
+.chart-card__sub { font-size: .76rem; color: var(--on-surface-variant); margin: 0 0 12px; line-height: 1.4; }
+.chart-box { position: relative; height: 280px; width: 100%; }
+.chart-box--tall { height: 420px; }
+.chart-box--xtall { height: 600px; }
+
+/* custom heatmap (companies × dimensions) */
+.dim-heatmap { width: 100%; overflow-x: auto; }
+.dim-heatmap table { border-collapse: collapse; width: 100%; font-size: .74rem; }
+.dim-heatmap th, .dim-heatmap td { padding: 0; }
+.dim-heatmap thead th {
+  font-weight: 600; color: var(--on-surface-variant); padding: 4px 6px;
+  text-align: center; white-space: nowrap; font-size: .72rem;
+}
+.dim-heatmap thead th:first-child, .dim-heatmap tbody th { text-align: left; }
+.dim-heatmap tbody th {
+  font-weight: 500; color: var(--on-surface); padding: 3px 10px 3px 4px;
+  white-space: nowrap; position: sticky; left: 0; background: var(--surface-container-low);
+}
+.dim-heatmap .hcell {
+  height: 30px; text-align: center; color: #fff; font-weight: 600;
+  border: 2px solid var(--surface-container-low); border-radius: 6px;
+  font-variant-numeric: tabular-nums;
+}
+.dim-heatmap .hcell.lo { color: var(--on-surface); }
 
 /* ---------- Footer ---------- */
 .footer {

@@ -51,7 +51,8 @@
       heroTitle: 'AW#32 這 19 家，<span class="grad">AppWorks 會投誰？</span>',
       heroDesc: 'AppWorks 加速器不收股權；真正出手的是 AppWorks Funds。本頁對 AW#32 Demo Day 全部 19 家新創做真實資料盡職調查，逐家評估「Funds 後續 follow-on 投資」的機率與理由。',
       statTotal: '受評新創', statHigh: '領先標的', statCats: '產業類別', statTier1: '最高投資分',
-      navMethod: '方法論', navThesis: 'AppWorks 打法', navRadar: '投資雷達排名', navCompanies: '逐家檔案', navSynthesis: '綜合觀察',
+      navMethod: '方法論', navThesis: 'AppWorks 打法', navRadar: '投資雷達排名', navCharts: '數據圖表', navCompanies: '逐家檔案', navSynthesis: '綜合觀察',
+      chartsTitle: '數據圖表儀表板', chartsSub: '把 19 家的真實盡職調查資料,從 13 個角度視覺化。所有圖表隨深淺色與語言切換即時重繪。',
       methodTitle: '怎麼判斷「AppWorks 會不會投」', methodSub: '先把關鍵前提講清楚，再說評分方法。',
       thesisTitle: 'AppWorks Funds 現在的打法', thesisSub: '用真實資料還原基金規模、主軸與「從加速器校友裡挑誰投」的邏輯。',
       thesisOverview: '基金概況', thesisPillars: '投資主軸', thesisFollowOn: 'Follow-on 邏輯', thesisDeals: '近期出手',
@@ -76,7 +77,8 @@
       heroTitle: 'Of these 19 AW#32 startups, <span class="grad">which will AppWorks back?</span>',
       heroDesc: "AppWorks' accelerator is equity-free; the checks come from AppWorks Funds. This page runs real-data due diligence on all 19 AW#32 Demo Day startups and scores each one's likelihood of a Funds follow-on investment.",
       statTotal: 'Startups assessed', statHigh: 'Leading picks', statCats: 'Categories', statTier1: 'Top score',
-      navMethod: 'Method', navThesis: 'AppWorks playbook', navRadar: 'Radar ranking', navCompanies: 'Dossiers', navSynthesis: 'Synthesis',
+      navMethod: 'Method', navThesis: 'AppWorks playbook', navRadar: 'Radar ranking', navCharts: 'Charts', navCompanies: 'Dossiers', navSynthesis: 'Synthesis',
+      chartsTitle: 'Charts dashboard', chartsSub: 'The real due-diligence data on all 19 startups, visualized 13 ways. Every chart re-renders on theme and language change.',
       methodTitle: 'How we judge "would AppWorks invest"', methodSub: 'The key premises first, then the scoring method.',
       thesisTitle: "AppWorks Funds' current playbook", thesisSub: "Real-data reconstruction of fund size, focus, and how they pick which alumni to back.",
       thesisOverview: 'Fund overview', thesisPillars: 'Thesis pillars', thesisFollowOn: 'Follow-on logic', thesisDeals: 'Recent deals',
@@ -117,6 +119,7 @@
     state.theme = state.theme === 'dark' ? 'light' : 'dark';
     localStorage.setItem('aw.theme', state.theme);
     applyTheme();
+    renderCharts();
   });
   function applyI18n() {
     document.documentElement.lang = state.lang === 'zh' ? 'zh-Hant' : 'en';
@@ -439,6 +442,204 @@
       </div>` : ''}`;
   }
 
+  /* ---------- Charts dashboard ---------- */
+  const CHART_META = {
+    leaderboard: { zh: ['投資分數排行榜', '19 家依 follow-on 投資機率綜合分排序;顏色＝信心等級。'], en: ['Investment-score leaderboard', 'All 19 ranked by follow-on likelihood; color = conviction.'] },
+    cat:      { zh: ['產業分布', '六大類各有幾家。'], en: ['Category mix', 'How the 19 split across six categories.'] },
+    conv:     { zh: ['信心分布', 'high / medium / low 各幾家。'], en: ['Conviction split', 'Count by high / medium / low.'] },
+    moat:     { zh: ['護城河強度', 'strong / medium / weak 各幾家。'], en: ['Moat strength', 'Count by strong / medium / weak.'] },
+    catscore: { zh: ['各產業平均投資分', '哪一類整體最可投。'], en: ['Avg score by category', 'Which category is most fundable overall.'] },
+    dimavg:   { zh: ['各維度平均分', '這屆在七個維度上的集體強弱。'], en: ['Average by dimension', "The batch's collective strengths and weaknesses."] },
+    cohort:   { zh: ['這屆七維平均輪廓', '19 家平均的能力雷達。'], en: ['Cohort 7-dimension profile', 'The average capability radar of all 19.'] },
+    top5:     { zh: ['Top 5 七維比較', '分數最高 5 家的逐維對照。'], en: ['Top-5 dimension overlay', 'The five highest-scoring startups, dimension by dimension.'] },
+    fit:      { zh: ['GSEA 契合 × 主軸契合', '泡泡大小＝綜合分,顏色＝產業。'], en: ['GSEA fit × thesis fit', 'Bubble size = score, color = category.'] },
+    moattr:   { zh: ['護城河 × 牽引力', '「真實度」兩軸:護城河強度 vs 牽引力。'], en: ['Moat × traction', 'The two "realness" axes — moat vs traction.'] },
+    teammkt:  { zh: ['團隊 × 市場', '團隊強度 vs 市場吸引力。'], en: ['Team × market', 'Team strength vs market attractiveness.'] },
+    tier:     { zh: ['團隊 Tier 分布', '創辦人履歷可信度分級家數。'], en: ['Founder tier split', 'Companies by founder-credibility tier.'] },
+    heat:     { zh: ['公司 × 七維熱力圖', '19 家 × 7 維;顏色越深＝分數越高。'], en: ['Company × dimension heatmap', '19 startups × 7 dimensions; darker = higher.'] },
+  };
+
+  let charts = {};
+  const cssVar = (n) => getComputedStyle(document.documentElement).getPropertyValue(n).trim() || '#888';
+  const convColor = (c) => cssVar(`--conv-${c}`);
+  const dimAvg = (key) => COMPANIES.reduce((s, c) => s + (c.fit.scores[key] || 0), 0) / COMPANIES.length;
+
+  function heatColor(v) { // v 0..10
+    const t = Math.max(0, Math.min(1, v / 10));
+    const l = 92 - t * 52, s = 32 + t * 46;
+    return { bg: `hsl(168, ${s}%, ${l}%)`, lo: l > 64 };
+  }
+
+  function renderHeatmap() {
+    const host = $('#dim-heatmap'); if (!host) return;
+    const rows = sortedByScore();
+    const head = `<th>${state.lang === 'zh' ? '公司' : 'Company'}</th>` + DIMS.map((d) => `<th>${esc(d[state.lang])}</th>`).join('') + `<th>${state.lang === 'zh' ? '總分' : 'Score'}</th>`;
+    const body = rows.map((c) => {
+      const cells = DIMS.map((d) => {
+        const v = c.fit.scores[d.key] || 0; const hc = heatColor(v);
+        return `<td><div class="hcell ${hc.lo ? 'lo' : ''}" style="background:${hc.bg}">${v}</div></td>`;
+      }).join('');
+      return `<tr><th>${esc(c.name)}</th>${cells}<td><div class="hcell" style="background:${catColor(c.cat)};">${c.fit.score}</div></td></tr>`;
+    }).join('');
+    host.innerHTML = `<table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
+  }
+
+  function renderCharts() {
+    if (typeof Chart === 'undefined') return;
+    Object.values(charts).forEach((c) => c && c.destroy());
+    charts = {};
+
+    // localize captions
+    $$('[data-cap]').forEach((el) => { const m = CHART_META[el.getAttribute('data-cap')]; if (m) el.textContent = m[state.lang][0]; });
+    $$('[data-sub]').forEach((el) => { const m = CHART_META[el.getAttribute('data-sub')]; if (m) el.textContent = m[state.lang][1]; });
+
+    const ink = cssVar('--on-surface'), inkVar = cssVar('--on-surface-variant'), grid = cssVar('--outline-variant');
+    const fontFamily = "'Roboto Flex','Noto Sans TC',sans-serif";
+    Chart.defaults.font.family = fontFamily;
+    Chart.defaults.color = inkVar;
+
+    const tip = (lines) => ({ callbacks: lines });
+    const noLegend = { legend: { display: false } };
+    const axis = (max) => ({
+      ticks: { color: inkVar, font: { size: 11 } },
+      grid: { color: grid }, ...(max ? { max, min: 0 } : {}),
+    });
+
+    const ranked = sortedByScore();
+
+    // 1. Leaderboard (horizontal bar)
+    charts.leaderboard = new Chart($('#ch-leaderboard'), {
+      type: 'bar',
+      data: { labels: ranked.map((c) => c.name), datasets: [{
+        data: ranked.map((c) => c.fit.score),
+        backgroundColor: ranked.map((c) => convColor(c.fit.conviction)),
+        borderRadius: 5, barThickness: 16,
+      }] },
+      options: {
+        indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+        plugins: { ...noLegend, tooltip: tip({ label: (x) => `${x.parsed.x}/100 · ${CONV[ranked[x.dataIndex].fit.conviction][state.lang]}` }) },
+        scales: { x: axis(100), y: { ticks: { color: ink, font: { size: 11 }, autoSkip: false }, grid: { display: false } } },
+      },
+    });
+
+    // 2. Category doughnut
+    const catKeys = ['saas', 'edge', 'deep', 'vert', 'cons', 'sec'].filter((k) => COMPANIES.some((c) => c.cat === k));
+    const donutOpts = { responsive: true, maintainAspectRatio: false, cutout: '58%',
+      plugins: { legend: { position: 'bottom', labels: { color: ink, font: { size: 10 }, boxWidth: 10, padding: 7 } } } };
+    charts.cat = new Chart($('#ch-cat'), {
+      type: 'doughnut',
+      data: { labels: catKeys.map((k) => catLabel(k)), datasets: [{
+        data: catKeys.map((k) => COMPANIES.filter((c) => c.cat === k).length),
+        backgroundColor: catKeys.map((k) => catColor(k)), borderWidth: 0,
+      }] }, options: donutOpts,
+    });
+
+    // 3. Conviction doughnut
+    const convKeys = ['high', 'medium', 'low'];
+    charts.conv = new Chart($('#ch-conv'), {
+      type: 'doughnut',
+      data: { labels: convKeys.map((k) => CONV[k][state.lang]), datasets: [{
+        data: convKeys.map((k) => COMPANIES.filter((c) => c.fit.conviction === k).length),
+        backgroundColor: convKeys.map((k) => convColor(k)), borderWidth: 0,
+      }] }, options: donutOpts,
+    });
+
+    // 4. Moat strength doughnut
+    const moatKeys = ['strong', 'medium', 'weak'];
+    const moatLbl = { strong: [t('moatStrong'), 'var(--conv-high)'], medium: [t('moatMedium'), 'var(--conv-medium)'], weak: [t('moatWeak'), 'var(--error)'] };
+    charts.moat = new Chart($('#ch-moat'), {
+      type: 'doughnut',
+      data: { labels: moatKeys.map((k) => moatLbl[k][0]), datasets: [{
+        data: moatKeys.map((k) => COMPANIES.filter((c) => c.moat.strength === k).length),
+        backgroundColor: [cssVar('--conv-high'), cssVar('--conv-medium'), cssVar('--error')], borderWidth: 0,
+      }] }, options: donutOpts,
+    });
+
+    // 5. Avg score by category (bar)
+    const catAvg = catKeys.map((k) => {
+      const arr = COMPANIES.filter((c) => c.cat === k);
+      return { k, v: Math.round(arr.reduce((s, c) => s + c.fit.score, 0) / arr.length) };
+    }).sort((a, b) => b.v - a.v);
+    charts.catscore = new Chart($('#ch-catscore'), {
+      type: 'bar',
+      data: { labels: catAvg.map((x) => catLabel(x.k)), datasets: [{
+        data: catAvg.map((x) => x.v), backgroundColor: catAvg.map((x) => catColor(x.k)), borderRadius: 6,
+      }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { ...noLegend, tooltip: tip({ label: (x) => `${x.parsed.y}/100` }) },
+        scales: { x: { ticks: { color: inkVar, font: { size: 10 } }, grid: { display: false } }, y: axis(100) } },
+    });
+
+    // 6. Avg by dimension (bar)
+    const dimSorted = DIMS.map((d) => ({ d, v: +dimAvg(d.key).toFixed(1) })).sort((a, b) => b.v - a.v);
+    charts.dimavg = new Chart($('#ch-dimavg'), {
+      type: 'bar',
+      data: { labels: dimSorted.map((x) => x.d[state.lang]), datasets: [{
+        data: dimSorted.map((x) => x.v), backgroundColor: cssVar('--primary'), borderRadius: 6,
+      }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: { ...noLegend, tooltip: tip({ label: (x) => `${x.parsed.y}/10` }) },
+        scales: { x: { ticks: { color: inkVar, font: { size: 10 } }, grid: { display: false } }, y: axis(10) } },
+    });
+
+    // 7. Cohort radar (avg 7 dims)
+    const radarScale = { r: { min: 0, max: 10, ticks: { stepSize: 2, color: inkVar, backdropColor: 'transparent', font: { size: 9 } }, grid: { color: grid }, angleLines: { color: grid }, pointLabels: { color: ink, font: { size: 11 } } } };
+    charts.cohort = new Chart($('#ch-cohort'), {
+      type: 'radar',
+      data: { labels: DIMS.map((d) => d[state.lang]), datasets: [{
+        label: state.lang === 'zh' ? '全體平均' : 'Cohort avg',
+        data: DIMS.map((d) => +dimAvg(d.key).toFixed(2)),
+        borderColor: cssVar('--primary'), backgroundColor: 'rgba(11,87,208,.18)', borderWidth: 2, pointBackgroundColor: cssVar('--primary'),
+      }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: noLegend, scales: radarScale },
+    });
+
+    // 8. Top-5 radar overlay
+    const palette = ['#1a73e8', '#12a150', '#e8710a', '#8430ce', '#c2185b'];
+    charts.top5 = new Chart($('#ch-top5'), {
+      type: 'radar',
+      data: { labels: DIMS.map((d) => d[state.lang]), datasets: ranked.slice(0, 5).map((c, i) => ({
+        label: c.name, data: DIMS.map((d) => c.fit.scores[d.key] || 0),
+        borderColor: palette[i], backgroundColor: 'transparent', borderWidth: 2, pointBackgroundColor: palette[i], pointRadius: 2,
+      })) },
+      options: { responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { position: 'bottom', labels: { color: ink, font: { size: 10 }, boxWidth: 10, padding: 6 } } }, scales: radarScale },
+    });
+
+    // bubble helper
+    const bubble = (canvas, xKey, yKey, xLabel, yLabel) => {
+      const byCat = {};
+      COMPANIES.forEach((c) => { (byCat[c.cat] = byCat[c.cat] || []).push({ x: c.fit.scores[xKey], y: c.fit.scores[yKey], r: 5 + c.fit.score / 12, name: c.name, score: c.fit.score }); });
+      return new Chart($(canvas), {
+        type: 'bubble',
+        data: { datasets: Object.keys(byCat).map((k) => ({ label: catLabel(k), data: byCat[k], backgroundColor: catColor(k) + 'cc', borderColor: catColor(k) })) },
+        options: { responsive: true, maintainAspectRatio: false,
+          plugins: { legend: { display: false }, tooltip: tip({ label: (x) => `${x.raw.name} · ${xLabel} ${x.raw.x}/10, ${yLabel} ${x.raw.y}/10 · ${x.raw.score}/100` }) },
+          scales: {
+            x: { title: { display: true, text: xLabel, color: inkVar, font: { size: 11 } }, ...axis(10) },
+            y: { title: { display: true, text: yLabel, color: inkVar, font: { size: 11 } }, ...axis(10) },
+          } },
+      });
+    };
+    const dl = (k) => DIMS.find((d) => d.key === k)[state.lang];
+    charts.fit = bubble('#ch-fit', 'gseaFit', 'thesisFit', dl('gseaFit'), dl('thesisFit'));
+    charts.moattr = bubble('#ch-moattr', 'moat', 'traction', dl('moat'), dl('traction'));
+    charts.teammkt = bubble('#ch-teammkt', 'team', 'market', dl('team'), dl('market'));
+
+    // 12. Tier distribution (bar)
+    const tierKeys = [1, 2, 3, 4];
+    charts.tier = new Chart($('#ch-tier'), {
+      type: 'bar',
+      data: { labels: tierKeys.map((n) => `Tier ${n}`), datasets: [{
+        data: tierKeys.map((n) => COMPANIES.filter((c) => c.founderVerification.tier === n).length),
+        backgroundColor: ['#12a150', '#1a73e8', '#e8910a', '#9aa0a6'], borderRadius: 6,
+      }] },
+      options: { responsive: true, maintainAspectRatio: false, plugins: noLegend,
+        scales: { x: { ticks: { color: inkVar }, grid: { display: false } }, y: { ticks: { color: inkVar, stepSize: 1 }, grid: { color: grid }, min: 0 } } },
+    });
+
+    // 13. heatmap
+    renderHeatmap();
+  }
+
   /* ---------- To top ---------- */
   const toTop = $('#to-top');
   addEventListener('scroll', () => { toTop.classList.toggle('show', scrollY > 600); }, { passive: true });
@@ -448,7 +649,7 @@
   function renderAll() {
     applyI18n(); applyTheme();
     renderStats(); renderMethod(); renderThesis();
-    renderRadar(); renderFilter(); renderCards(); renderSynthesis();
+    renderRadar(); renderCharts(); renderFilter(); renderCards(); renderSynthesis();
     if (dlgName) openDialog(dlgName);
   }
 
