@@ -143,7 +143,7 @@
   const urlParams = new URLSearchParams(location.search);
   const fromUrl = (k, fallback) => urlParams.has(k) ? urlParams.get(k) : fallback;
   const state = {
-    lang: fromUrl('lang', localStorage.getItem('aw.lang') || 'zh'),
+    lang: fromUrl('lang', localStorage.getItem('aw.lang') || 'en'),
     theme: localStorage.getItem('aw.theme') ||
       (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
     industry: fromUrl('industry', 'all'),
