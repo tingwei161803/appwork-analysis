@@ -1,10 +1,15 @@
 /* AppWorks Portfolio Atlas — service worker.
    Cache-first for static assets, network-first for HTML to pick up updates. */
-const CACHE = 'aw-atlas-v3';
+const CACHE = 'aw-atlas-v4';
 const PRECACHE = [
   './',
   './index.html',
+  './portfolio.html',
+  './analysis.html',
+  './insights.html',
+  './ecosystem.html',
   './assets/styles.css',
+  './assets/pages.css',
   './assets/app.js',
   './data/portfolio.js',
   './data/portfolio-details.js',
@@ -13,6 +18,7 @@ const PRECACHE = [
   './data/why-we-invested.js',
   './data/competitors.js',
   './data/jamie-quotes.js',
+  './data/phases.js',
   './site.webmanifest',
 ];
 
