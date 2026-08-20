@@ -69,12 +69,334 @@
     </div>
   </nav>
 
+  <main>
+
   <section class="chapters" id="chapters" aria-labelledby="chapters-heading">
     <header class="section-head">
       <h2 id="chapters-heading" data-i18n="chaptersTitle">10 面向深度分析</h2>
       <p data-i18n="chaptersSub">從基金、團隊到主題演進，把 AppWorks 拆成可閱讀的章節。每章包含事實 + Claude 的觀察。</p>
     </header>
-    <div class="chapter-list" id="chapter-list"></div>
+    <div class="chapter-list" id="chapter-list">
+        <article class="chapter" data-id="company-profile" aria-expanded="false" style="--cat:var(--c-fintech)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-company-profile">
+            <span class="chapter__icon"><span class="material-symbols-rounded">apartment</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 01</span>
+              <h3>公司全景</h3>
+              <p>由創業者打造、為創業者服務的大東南亞區域型創投平台。</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-company-profile">
+            
+        <div class="chapter__section">
+          <h4>創辦人 Jamie Lin 的轉身</h4>
+          <p>林之晨 (Jamie Lin) 在紐約完成 MBA、握有美國綠卡之際，選擇於 2009 年回到台灣。他的判斷是：行動網路即將重塑亞洲，而台灣需要一個真正理解創業者的資本平台。</p><p>十五年後，他不只主導累計 US$386M 規模的四支基金，更於 2023 年接任台灣大哥大總經理，把創投人對科技週期的判斷帶進電信業。一人雙軌，既是基金 GP、也是上市公司經理人。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>"by founders, for founders" 的組織信仰</h4>
+          <p>AppWorks 於 2010 年啟動 Accelerator，定調自己不是傳統 VC，而是「創業者社群 + 基金」的雙層結構。團隊成員多半有過自己的創業經歷，與 founder 之間是同儕而非審批者。</p><p>這套哲學落在實務上，就是 Accelerator 不收 equity、不收 token、不收費用——在全球加速器多半要 5-7% 股權的市場裡，這是極少數的存在。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>總部與覆蓋</h4>
+          <p>總部設於台北，並以新加坡、雅加達、吉隆坡為三大延伸節點，覆蓋大東南亞 (GSEA) 九個市場。台灣作為製造與半導體腹地，與東南亞作為人口紅利市場，被刻意設計為一體兩面。</p>
+        </div>
+      
+            <div class="chapter__observation">在亞洲，創辦人同時擔任上市公司高管的 GP 並不多——多數 VC 是金融背景出身，與被投公司之間的距離天生較遠。Jamie 一邊跑基金、一邊在台灣大營運上萬名員工的組織，這讓 AppWorks 對「規模化的痛點」有第一手的同理心，而不是只從 cap table 的角度看公司。這種雙重身份，也是它與 500 Global、Antler 這類純加速器型機構最關鍵的結構差異。</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="funds-capital" aria-expanded="false" style="--cat:var(--c-ecommerce)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-funds-capital">
+            <span class="chapter__icon"><span class="material-symbols-rounded">savings</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 02</span>
+              <h3>基金與資本</h3>
+              <p>四支基金、累計 US$386M，Fund II 進入 top-quartile DPI。</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-funds-capital">
+            
+        <div class="chapter__section">
+          <h4>四支基金的節奏</h4>
+          <p>Fund I (2012, US$11M) 是試水溫；Fund II (2014, US$52M) 押注行動網路週期，至今交出 1.9x DPI，落在亞洲同期 vintage 的 top-quartile。</p><p>Fund III (2021, US$150M) 規模跳升近三倍，正值市場高峰進場，目前 DPI 0.5x，仍在熟成。Fund IV (2026, US$165M) 於今年完成 final close。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Fund IV 的 shortfall 訊號</h4>
+          <p>Fund IV 原定 target US$360M，最終收在 US$165M，約 46% 達成率。這並非 AppWorks 單一現象，而是 2024-2026 全球 LP 對亞洲 venture 整體收緊的縮影。</p><p>正面解讀是：在 fundraising 冰河期仍能合上 nine-figure 基金，本身就是一張通過 LP 盡調的票。但這也意味著未來四年的 deployment 紀律會被放大檢視。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>LP 結構：主權加企業</h4>
+          <p>LP 名單從 Fund II 起納入 Taiwan NDF、Malaysia Khazanah、Korea KVIC 等主權與政策型基金，建立區域信用背書。</p><p>企業 LP 含 Fubon Life、Cathay Life、Taiwan Mobile、Wistron、Phison、E Ink，跨保險、電信、製造、半導體——這份名單同時也是被投公司的潛在客戶與通路。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>單筆 ticket size</h4>
+          <p>Seed 階段單筆 US$0.5-3M，Series A 至 C 則為 US$2M 起跳，並保留 follow-on 額度。整體屬於早期領投、可陪跑到成長期的 ticket 區間。</p>
+        </div>
+      
+            <div class="chapter__observation">Fund II 的 1.9x DPI 在 2014 vintage 的亞洲基金裡是真實的 top-quartile 成績，但 Fund III 的 0.5x 與 Fund IV 的 shortfall 揭示了一個更普遍的問題：2021 年高峰進場的亞洲 VC 普遍卡在估值修正帶。對比 Sequoia Capital China 拆分、Tiger Global 縮編，AppWorks 仍能以更小規模、更區域聚焦的姿態完成 close，本身是亞洲 VC 板塊「中型機構生存」的代表性樣本。</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="portfolio-overview" aria-expanded="false" style="--cat:var(--c-ai)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-portfolio-overview">
+            <span class="chapter__icon"><span class="material-symbols-rounded">grid_view</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 03</span>
+              <h3>投資組合全景</h3>
+              <p>140 餘家在投公司、6 IPO、1 hectocorn、2 decacorn、8 unicorn。</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-portfolio-overview">
+            
+        <div class="chapter__section">
+          <h4>規模與覆蓋</h4>
+          <p>Accelerator 累計輸出 2,029 位 founder、624 家仍在運營的 startup，分布於 GSEA 九個市場。整體 alumni 年營收合計 US$16.3B、累計估值約 US$30-32B。</p><p>基金直接持股約 140 餘家，覆蓋電商、Fintech、SaaS、AI 基礎建設、區塊鏈、製造科技與國防科技等垂直。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>退出紀錄</h4>
+          <p>截至 2026，共 6 家 IPO（Uber、17LIVE、91APP、Lalamove、Kuobrothers、GameSparcs）、8 件 IEO 案例，以及 1 hectocorn (Uber)、2 decacorns (Animoca Brands、Dapper Labs)、8 unicorns。</p><p>對一支 2010 啟動、AUM 不到 US$400M 的區域型平台而言，這份退出密度在亞洲 VC 中位居前列。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>代表案例</h4>
+          <p>消費與物流：Uber（hectocorn 出場）、Lalamove（unicorn）、Carousell、ShopBack；Web3：Animoca Brands、Dapper Labs (NBA Top Shot)、Pendle Finance；本地化垂直：17LIVE、91APP、Kuobrothers。</p><p>這份名單橫跨 Web2 消費、跨境物流、NFT 基礎建設與 DeFi，反映 AppWorks 在不同週期都有押對主題的紀錄。</p>
+        </div>
+      
+            <div class="chapter__observation">在亞洲 VC 裡，能同時擁有 Uber 早期持股 (Web2 高峰)、Animoca + Dapper Labs (Web3 高峰) 與 Pendle (DeFi 第二波) 的機構屈指可數。多數區域型基金會被綁在某一個垂直，而 AppWorks 的 portfolio 呈現出明顯的「週期切換」能力——這通常是 multi-stage 大型 VC 才有的特徵，出現在一個 US$386M AUM 的平台身上頗為罕見。</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="accelerator" aria-expanded="false" style="--cat:var(--c-web3)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-accelerator">
+            <span class="chapter__icon"><span class="material-symbols-rounded">rocket_launch</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 04</span>
+              <h3>加速器歷程</h3>
+              <p>十六年三十三屆，零股權、零代幣、零費用的亞洲特例。</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-accelerator">
+            
+        <div class="chapter__section">
+          <h4>AW#1 到 AW#33 的主題演進</h4>
+          <p>2010 AW#1 鎖定 Internet 時代；2014 AW#8 起轉向 Mobile；2017 確立 GSEA 區域框架；2018 AW#16-17 由 Jamie 親口宣布全面轉向 AI + Blockchain，是平台史上最大一次主題重定位。</p><p>2019 加入 Southeast Asia 形成 A.B.S. 框架，並沿用至今。2024 起 AW#32 開始納入 Manufacturing AI、Defense Tech、On-Chain Banking 與 PQC（後量子密碼），對應 Fund IV 部署主題。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>不收 equity 的反慣例設計</h4>
+          <p>Y Combinator 收 7%、500 Global 收 6%、Techstars 收 6%，全球加速器普遍以股權換取資源。AppWorks 選擇完全不收 equity、不收 token、不收費用，把 Accelerator 定位為「deal flow 漏斗」而非獨立 P&amp;L。</p><p>換句話說，加速器本身不獲利，獲利來自從 alumni 中挑出最強團隊由基金加碼。這是把短期收入讓給長期深度關係的決策。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Demo Day 與 Alumni 網絡</h4>
+          <p>Demo Day 輪流於 Taipei、Singapore、KL、Jakarta 舉辦，把 founder 直接帶到 GSEA 主要資本與客戶面前。每屆 30-50 個團隊，每年大約 80-100 家新進。</p><p>Alumni 規模累計 2,029 位 founder，是 AppWorks 真正的核心資產：不是基金規模，而是這張十六年累積、跨九個市場的創業者網絡。</p>
+        </div>
+      
+            <div class="chapter__observation">把 Accelerator 當 loss leader 是策略性選擇：放棄掉 6-7% 股權的短期收益，換取的是一個「免費入場、不被股權稀釋」的招牌，使 AppWorks 在 GSEA 的 deal flow 入口端形成壟斷性吸引力。在亞洲，能與其在 founder 心智佔有率上對打的，可能只剩 Antler 與 Iterative，但兩者規模都還小於 AppWorks 的 alumni 基數。長期 compounding 之下，這張網絡的價值會持續超越基金本身的 AUM。</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="investment-thesis" aria-expanded="false" style="--cat:var(--c-hardware)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-investment-thesis">
+            <span class="chapter__icon"><span class="material-symbols-rounded">insights</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 05</span>
+              <h3>投資論點</h3>
+              <p>A.B.S. + GSEA + 台灣作為 launchpad，2026 起加押 physical AI。</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-investment-thesis">
+            
+        <div class="chapter__section">
+          <h4>A.B.S. 框架</h4>
+          <p>A.B.S. = AI + Blockchain + Southeast Asia。Jamie 強調這「不是三個賭注、是一個」——AI 提供生產力、Blockchain 提供金融與所有權基礎建設、SEA 提供尚未被完整數位化的市場深度，三者互為條件。</p><p>在 2018 年宣布這個框架時，AI 與 Blockchain 在亞洲 VC 普遍仍被視為兩條獨立軌道，AppWorks 是早期把兩者綁在同一論點裡的機構之一。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>GSEA 的定義與市場深度</h4>
+          <p>GSEA = ASEAN + Taiwan + 香港 / 澳門 + 東帝汶，涵蓋九個市場、約 7 億人口。光是 e-commerce GMV 就達 US$42B，其中台灣佔約 66%，是區域 launchpad。</p><p>邏輯是：台灣擁有最成熟的支付、物流與消費者行為，可作為產品的第一個量產驗證場；驗證成功後再向 SEA 人口紅利市場擴張。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>選人選題標準</h4>
+          <p>對 founder：obsessed with true PMF（不滿足於假象指標）、長線玩家（十年以上心理準備）、反共識思考者、最好是連續創業者。對題目：可規模化、區域可複製、與 A.B.S. 主題對齊。</p><p>與多數亞洲 VC 偏好 ex-FAANG / ex-McKinsey 履歷不同，AppWorks 的篩選更看重「執著於真實使用者問題」這項軟特質。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>2025-2026 thesis 轉折</h4>
+          <p>最新論點：AI 正從 digital assistants 轉向 physical labor forces，意味著機器人、自動化、製造 AI 將吃下下一波價值。同時 AI 加速 underdigitized industries 的數位化進程。</p><p>在 blockchain 側則押注 Solana LSTs（如 Sanctum）與 institutional rails，承接機構資金進入鏈上的下一波結構性需求。</p>
+        </div>
+      
+            <div class="chapter__observation">A.B.S. 框架的真正獨特之處不在三個關鍵字，而在於 AppWorks 願意公開把 thesis 寫死——多數亞洲 VC 對 thesis 保持模糊以保留靈活性，但 AppWorks 用明確主題吸引同類型 founder 自我篩選，本質是一種「品牌即漏斗」操作。對比 a16z 用 thesis essays 主導敘事、Sequoia 偏好低調，AppWorks 介於兩者之間：論點公開但語氣務實。2026 押 physical AI 的轉向，與 NVIDIA、Figure、Physical Intelligence 在美國的方向一致，顯示其節奏並未落後全球前沿。</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="thought-leadership" aria-expanded="false" style="--cat:var(--c-social)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-thought-leadership">
+            <span class="chapter__icon"><span class="material-symbols-rounded">auto_stories</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 06</span>
+              <h3>思想領導</h3>
+              <p>AppWorks 的影響力不靠廣告，靠長達十五年的公開寫作與觀點輸出。</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-thought-leadership">
+            
+        <div class="chapter__section">
+          <h4>Blog 主題的三條主軸</h4>
+          <p>AppWorks 官方 Blog 與 Jamie Lin 個人專欄共同構成大東南亞創投圈最高產的內容資產之一。主題分布大致落在三條主軸：第一是「創業者方法論」，包含募資節奏、PMF 判斷、團隊建構；第二是「主題趨勢解讀」，從早期 Internet、Mobile，一路寫到 Blockchain、AI Agent；第三是「市場結構觀察」，特別針對台灣與東南亞的科技資本流向提出長期視角。</p><p>與多數 VC 把 Blog 當作 deal sourcing 漏斗不同，AppWorks 的內容更像是創業者教材庫。文章長度、引用框架、結構鋪陳都明顯帶有教學意圖，這也呼應其 Accelerator 內定位——先教育，再投資。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Jamie Lin 的五個核心思想</h4>
+          <p>解構 Jamie Lin 過去十五年的公開言論，可以歸納出五個反覆出現的核心信念：(1)「By Founders, For Founders」——VC 的合法性來自曾經創業的同理心；(2)「A.B.S. 統一框架」——AI、Blockchain、SEA 不是三個賽道，而是同一個結構性機會的三個切面；(3)「長線下注 vs cycle chasing」——主題確定後給予多支基金的時間複利，而非追逐熱點；(4)「Taiwan as Mission」——把台灣科技資本的能見度提升當作個人志業；(5)「Operator &gt; Investor」——身分認同是 operator，VC 只是工具。</p><p>這五個信念也解釋了一些外界容易誤讀的決策，例如為何在 Web3 寒冬仍堅守 146 個 portfolio、為何同時兼任 Taiwan Mobile 總經理、為何 Fund IV 即使募資不如預期仍維持原本節奏。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>必讀文章與外溢效應</h4>
+          <p>若僅選三至五篇代表作，多數熟悉 AppWorks 的讀者會指向：早期關於「Taiwan needs more startup capital」的呼籲文、A.B.S. 框架正式宣告文、以及近年將 AI Agent 定位為「下一個 mobile」的多篇延伸論述。這些文章不僅在台灣轉發，也固定被新加坡、馬來西亞、印尼的科技媒體引用，形成跨境的話語權。</p>
+        </div>
+      
+            <div class="chapter__observation">相較於 Peak XV、East Ventures 偏好以 deal announcement 為主的訊息策略，AppWorks 更像 a16z 早期的內容打法——以長文教育市場、塑造詞彙、再以詞彙吸引 founder。差別在於 a16z 的對象是矽谷讀者，AppWorks 對應的是大東南亞讀者。這種「教材式內容」的累積效應在熱潮退去後反而會放大，是 Tier 2 AUM 能換取 Tier 1 community 的關鍵槓桿。</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="team" aria-expanded="false" style="--cat:var(--c-saas)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-team">
+            <span class="chapter__icon"><span class="material-symbols-rounded">groups</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 07</span>
+              <h3>團隊</h3>
+              <p>26 人編制、6 位 Partner、強內部晉升文化，但所有目光仍集中在創辦人身上。</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-team">
+            
+        <div class="chapter__section">
+          <h4>Partner 陣容</h4>
+          <p>除了 Founding Partner Jamie Lin 之外，AppWorks 目前有五位 Partner：Joseph Chan 與 Andy Tsai 皆來自 CID Group，後者於 2018 年加入；Jessica Liu 於 2014 年從 Standard Chartered 轉入，主導 SEA 與 Web3 投資；Nice Cheng 負責營運與資金端關係。Principal 層則有 Alyssa Chen、Ching Tseng（NCCU BBA，2015 實習進場、2022 升任 Principal，目前帶 Web3 業務）、Sophie Chiu 三人。</p><p>較資淺的 Venture Principal / Associate / Analyst 共五位，包含負責日本橋接的 Jun Wakabayashi、Michelle Lin、Nathan Alexander、Bill Hsu、Johnny Chuang。投資團隊之外，Operations 八人撐起 Accelerator、Demo Day、社群活動。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>內部晉升文化</h4>
+          <p>Ching Tseng 從大學實習生一路升到 Principal、進而帶 Web3 業務，是 AppWorks 內部晉升文化的典型範例。對比多數新加坡 VC 偏好從投行、Big Tech 高薪挖角，AppWorks 更傾向從 Accelerator 營運端、Analyst 端培養。</p><p>這種文化的優點是團隊對 GSEA 主題與 community 細節有極高的內隱知識，缺點則是當主題切換（例如從 Mobile 切到 AI Agent）時，外部專業血液補充速度可能慢於 Peak XV、East Ventures 這類大型團隊。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Jamie Lin 的雙重身分</h4>
+          <p>Jamie Lin 同時擔任 AppWorks Founding Partner 與 Taiwan Mobile 總經理，是團隊治理上最值得觀察的變數。一方面，Taiwan Mobile 提供了難以複製的 corporate LP 與電信基礎設施視角，對 AI、5G、Edge Computing 相關 portfolio 有直接的戰略增值；另一方面，注意力分配與潛在利益衝突是真實存在的問題。</p>
+        </div>
+      
+            <div class="chapter__observation">以 26 人撐起 Accelerator + VC + Demo Day 區域化 + Aiworks 顧問業務，AppWorks 的人均產出在亞洲 VC 中屬於高密度配置。但團隊結構是「金字塔」而非「合夥制」——Jamie Lin 的個人品牌仍佔據絕大多數對外能見度。對比 Peak XV、East Ventures 採用多個 Partner 各自帶聲量的策略，AppWorks 若要進入下一個十年，分散品牌（讓 Jessica Liu、Joseph Chan 等 Partner 獲得獨立論述空間）會是值得觀察的訊號。</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="ecosystem" aria-expanded="false" style="--cat:var(--c-edtech)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-ecosystem">
+            <span class="chapter__icon"><span class="material-symbols-rounded">hub</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 08</span>
+              <h3>生態系統</h3>
+              <p>Alumni 網絡、Demo Day 巡迴、Aiworks pivot、政府連結，四股力量共同編織 AppWorks 的護城河。</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-ecosystem">
+            
+        <div class="chapter__section">
+          <h4>Aiworks：從 Bootcamp 到 AI 顧問</h4>
+          <p>AppWorks School 已正式 rebrand 為 Aiworks，定位從培訓 iOS／Android／Front-End／Back-End 工程師（累計超過 1,300 位畢業生）轉為「AI 企業顧問」，協助企業導入 ChatGPT Enterprise 與 AI Agent automation。目前已成為 OpenAI Services Partner，並與 UiPath、台灣大哥大企業服務（TWMES）建立合作。</p><p>這次 pivot 在策略上有兩層意義：第一，將 bootcamp 過去累積的工程師網絡轉化為「企業導入 AI 的最後一哩」服務商；第二，與母公司 Taiwan Mobile 的企業客戶基礎產生槓桿，形成 VC + 顧問 + 電信通路 的鐵三角。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Alumni 網絡作為 Moat</h4>
+          <p>AppWorks 累計 2,029 位 founders、624 家 active startups、創造 27,202 個工作機會。這個數字級別在大東南亞 VC 中沒有對手——500 Global 雖然 portfolio 數量類似，但分散在全球；Peak XV 則沒有 accelerator，alumni 屬性截然不同。</p><p>Alumni 不只是 deal flow 來源，更是 portfolio company 的客戶、人才、跨境合作對象。當一家 AW#28 的 AI startup 想進入印尼，AW#13 的 ShopBack alumni 是現成的諮詢與客戶網絡。這種跨期、跨地、跨主題的網絡效應，才是 AppWorks 真正的 moat。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Demo Day 區域化與政府連結</h4>
+          <p>Demo Day 每年舉辦兩次，採取 Taipei、Singapore、Kuala Lumpur、Jakarta 四地巡迴模式，是 AppWorks 將「GSEA 是一個市場」具體化的儀式。對比多數 VC 的 Demo Day 仍集中於單一城市，AppWorks 此舉強化了區域品牌、也分散了 LP 與 corporate partner 風險。</p><p>在資金端，AppWorks 與台灣國發基金 (NDF)、韓國 KVIC、馬來西亞 Khazanah 等政府／主權基金建立 LP 關係，這在亞洲 VC 中屬於少見的政府背書深度。</p>
+        </div>
+      
+            <div class="chapter__observation">AppWorks 的生態系統不是「投了一家公司之後幫忙」，而是「公司還沒誕生之前先建好土壤」。Aiworks 提供企業 AI 落地、Accelerator 提供方法論、Demo Day 提供跨境曝光、Alumni 提供客戶與人才、政府 LP 提供資金與政策訊號——這五層構造是其他 SEA VC 短期內難以複製的。但這也意味著 AppWorks 的營運複雜度遠高於純 VC，任何一層斷裂都會放大成系統性風險。</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="market-positioning" aria-expanded="false" style="--cat:var(--c-mobility)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-market-positioning">
+            <span class="chapter__icon"><span class="material-symbols-rounded">leaderboard</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 09</span>
+              <h3>市場定位</h3>
+              <p>AUM 排名中段，社群規模 Tier 1，AppWorks 的位置在所有 SEA VC 中最特殊。</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-market-positioning">
+            
+        <div class="chapter__section">
+          <h4>SEA VC 對比快照</h4>
+          <p>把 AppWorks 放回大東南亞 VC 同業中比較，可以快速看出其 AUM 屬於中段、但 community 與 accelerator 屬性獨樹一格：</p><p>- AppWorks：AUM 約 $386M，總部 Taipei，覆蓋 GSEA，有 Accelerator</p><p>- 500 Global SEA：累計約 $500M，據點 SF／Bangkok／KL，有 Accelerator</p><p>- Peak XV（前 Sequoia SEA）：AUM 約 $9B，據點 Singapore＋Bangalore，無 Accelerator</p><p>- East Ventures：AUM 約 $1.7B，據點 Jakarta＋Singapore，無 Accelerator，印尼重壓</p><p>- Monk's Hill Ventures：AUM $200M＋，據點 Singapore，無 Accelerator，單筆 $3-7M</p><p>- Vertex Ventures SEA：Fund V 約 $541M，據點 Singapore，Temasek 背書</p><p>- Golden Gate Ventures：AUM 約 $250M，據點 Singapore</p><p>- Openspace Ventures：AUM 約 $135M，據點 Singapore</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>三大差異化關鍵字</h4>
+          <p>AppWorks 的差異化可以用三組關鍵字概括：(1) By Founders, For Founders——community 不只是行銷詞，而是 deal flow、人才、客戶的真實來源；(2) Accelerator + VC 雙引擎——這個模式在 SEA 唯一可比者只有 500 Global SEA，但後者更靠近 SF 體系；(3) GSEA 框架——把 Taiwan 與 ASEAN 視為單一市場，是區域內目前唯一從 Taipei 出發、卻把資源實質配置到東南亞的玩家。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Tier 評估</h4>
+          <p>若以 AUM 為單一指標，AppWorks 屬於 SEA VC 的 Tier 2（落在 Monk's Hill、Golden Gate、Openspace 之上，但與 Peak XV、East Ventures、Vertex 有量級差距）。若以 community 規模、founder 觸達、跨主題持續力為指標，AppWorks 進入 Tier 1。</p>
+        </div>
+      
+            <div class="chapter__observation">當 Peak XV 與 Vertex 開始下沉到 seed stage，AppWorks 在傳統 Accelerator 價值會受到擠壓，但「GSEA 視為一個市場」的框架反而成為差異點——新加坡系 VC 大多視 Taiwan 為 secondary market，而 AppWorks 是唯一以 Taipei 為 HQ 卻有實質 SEA deployment 的玩家。長期來看，這個位置可能比 AUM 排名更重要。</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="evolution" aria-expanded="false" style="--cat:var(--c-hardware)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-evolution">
+            <span class="chapter__icon"><span class="material-symbols-rounded">timeline</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 10</span>
+              <h3>主題演進史</h3>
+              <p>六個 Phase、十五年，AppWorks 用主題切換的節奏定義了大東南亞早期生態。</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-evolution">
+            
+        <div class="chapter__section">
+          <h4>六個 Phase 演進</h4>
+          <p>AppWorks 自 2010 年成立以來，主題演進可清楚切成六個階段：</p><p>- Phase 1（2010-2013）Internet：EZTABLE、CHOCO TV 等代表案，奠基台灣 Internet 創業生態。</p><p>- Phase 2（2014-2017）Mobile + SEA 擴張：Lalamove（2015）、KKday（2016）開始外擴。</p><p>- Phase 3（2017-2018）GSEA 框架成形：Carousell Series C、ShopBack 加入 AW#13，論述正式區域化。</p><p>- Phase 4（2018-2020）A.B.S. 確立：AW#17 起公開招收 AI／Blockchain 團隊，Animoca、Pendle 進入 portfolio。</p><p>- Phase 5（2021-2023）Web3 加倍下注 + Demo Day 區域化：累計 146 個 Web3 portfolio，Demo Day 開始巡迴四地。</p><p>- Phase 6（2024-2026）Agentic AI + 戰略收斂：主題回到 AI Agent 應用層，Fund IV target $360M、實際 $165M，進入聚焦期。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>地理擴張與 AW#32-33 硬科技轉向</h4>
+          <p>地理軸上，AppWorks 從 Taipei 起家，逐步將 community footprint 擴張至 Singapore、Kuala Lumpur、Jakarta，Demo Day 巡迴是最具象的展現。日本則透過 Jun Wakabayashi 進行 bridging，尚未形成穩定 deal flow。</p><p>主題軸上，最值得注意的是 AW#32-33 的硬科技大轉向：從以軟體與 Web3 為主的招收結構，明顯增加 Manufacturing AI、Defense Tech、Robotics 等硬科技團隊比例。</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>SWOT 戰略觀察</h4>
+          <p>Strengths：2,029 人 founder community、台灣 corporate LP 生態、跨主題的持續輸出力、早期賭注命中率（Lalamove、Carousell、Animoca、Pendle）。</p><p>Weaknesses：AUM 屬 Tier 2、Fund IV 募資不如預期、SEA 本地品牌能見度仍弱於 East Ventures／Peak XV、Exit 集中於少數 mega-winners。</p><p>Opportunities：台灣製造業 AI hub、Defense Tech、Korea-Taiwan-SEA 走廊、AI Agent 應用層的早期窗口。</p><p>Risks：Web3 寒冬延續造成 146 portfolio mark-down、Peak XV／Vertex 下沉到 seed 擠壓 Accelerator 價值、GSEA 框架不被 LP 接受、Jamie Lin successor risk。</p>
+        </div>
+      
+            <div class="chapter__observation">AppWorks 過去十五年最被低估的能力，是「主題切換的節奏感」——既不像短線 VC 追熱點，也不像深科技 VC 困在單一賽道。從 Internet 到 Mobile、從 Mobile 到 A.B.S.、再到 Agentic AI 與硬科技，每次切換都比市場早約 18-24 個月。這個節奏感如果在 Phase 6 後仍能延續，AppWorks 的長期定位會更接近「亞洲版 Benchmark + YC 混合體」而非單純的 SEA VC。</div>
+          </div>
+        </article>
+      </div>
   </section>
 
   <section class="phases" id="phases" aria-labelledby="phases-heading">
@@ -82,9 +404,142 @@
       <h2 id="phases-heading" data-i18n="phasesTitle">主題演進時間軸</h2>
       <p data-i18n="phasesSub">2010 ~ 2026 的 6 個 Phase：從 Internet → Mobile → GSEA → A.B.S. → Web3 → Agentic AI + 硬科技。</p>
     </header>
-    <div class="phase-timeline" id="phase-timeline"></div>
+    <div class="phase-timeline" id="phase-timeline">
+      <article class="phase-card" style="--cat:#e8710a">
+        <div class="phase-card__head">
+          <span class="phase-card__num">1</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">language</span>網路</div>
+            <span class="phase-card__years">2010-2013</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">從零打造台灣網路加速器原型</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>關鍵轉折</h5>
+            <ul><li><b>2010</b> AppWorks 創立，首屆加速器啟動</li><li><b>2012</b> 建立 Demo Day 與創投基金 I</li><li><b>2013</b> 台灣電商 / 內容服務全面起飛</li></ul>
+          </div>
+          <div>
+            <h5>代表投資</h5>
+            <ul><li><b>Tagtoo</b> AW#1，廣告科技開路先鋒</li><li><b>CHOCO TV</b> AW#2，影音內容平台先行者</li><li><b>EZTABLE</b> 線上訂位翻轉本地餐飲</li><li><b>Pinkoi</b> 亞洲設計商品電商代表</li></ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">聚焦台灣網路本土戰場，奠定社群與方法論。</div>
+      </article>
+    
+      <article class="phase-card" style="--cat:#1a73e8">
+        <div class="phase-card__head">
+          <span class="phase-card__num">2</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">smartphone</span>行動 + 東南亞擴張</div>
+            <span class="phase-card__years">2014-2017</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">行動浪潮推動 AppWorks 走向東南亞</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>關鍵轉折</h5>
+            <ul><li><b>2014</b> 行動 App 成為新創主流型態</li><li><b>2015</b> 首批跨境投資投向 Lalamove、17LIVE</li><li><b>2016</b> KKday Series A，AW 加速器吸引區域團隊</li></ul>
+          </div>
+          <div>
+            <h5>代表投資</h5>
+            <ul><li><b>Lalamove</b> 2015 投資，押注亞洲城市物流</li><li><b>KKday</b> AW#13，跨境旅遊體驗平台</li><li><b>WeMo Scooter</b> AW#12，台灣共享電動機車先驅</li><li><b>17LIVE</b> 2015 種子輪，直播經濟代表作</li></ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">視野從台灣延伸到大東南亞，押注行動經濟。</div>
+      </article>
+    
+      <article class="phase-card" style="--cat:#12a150">
+        <div class="phase-card__head">
+          <span class="phase-card__num">3</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">public</span>GSEA 框架成形</div>
+            <span class="phase-card__years">2017-2018</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">正式以大東南亞作為投資主戰場</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>關鍵轉折</h5>
+            <ul><li><b>2017</b> 提出 GSEA（Greater Southeast Asia）論述</li><li><b>2018</b> Carousell Series C，跨區域案件成主流</li></ul>
+          </div>
+          <div>
+            <h5>代表投資</h5>
+            <ul><li><b>Carousell</b> Series C 2018，東南亞二手電商龍頭</li><li><b>ShopBack</b> AW#13，現金回饋顛覆東南亞電商</li></ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">從跨境機會升級為區域論述，AppWorks 自我定位 GSEA。</div>
+      </article>
+    
+      <article class="phase-card" style="--cat:#8430ce">
+        <div class="phase-card__head">
+          <span class="phase-card__num">4</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">smart_toy</span>A.B.S. 確立</div>
+            <span class="phase-card__years">2018-2020</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">AI、Blockchain、SEA 三大主題明確宣示</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>關鍵轉折</h5>
+            <ul><li><b>2018</b> AW#17 公開招募 AI/Blockchain 新創</li><li><b>2019</b> Jamie 親口宣布 A.B.S. 策略</li><li><b>2020</b> Web3 portfolio 快速成形</li></ul>
+          </div>
+          <div>
+            <h5>代表投資</h5>
+            <ul><li><b>Animoca Brands</b> 押注區塊鏈遊戲與 IP 巨頭</li><li><b>Dapper Labs / Flow</b> NFT 基礎建設代表案</li><li><b>XREX</b> AW#17，跨境加密金融</li><li><b>Blocto</b> AW#19，Web3 錢包與 UX 入口</li><li><b>Pendle</b> AW#20，DeFi 收益代幣化先驅</li></ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">A.B.S. 成為對外旗幟，Web3 成最積極押注。</div>
+      </article>
+    
+      <article class="phase-card" style="--cat:#f59e0b">
+        <div class="phase-card__head">
+          <span class="phase-card__num">5</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">currency_bitcoin</span>Web3 加倍 + Demo Day 區域化</div>
+            <span class="phase-card__years">2021-2023</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">Web3 全面下注，Demo Day 走向區域舞台</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>關鍵轉折</h5>
+            <ul><li><b>2021</b> NFT/DeFi 牛市，Web3 batch 規模放大</li><li><b>2022</b> Demo Day 走向區域化與線上化</li><li><b>2023</b> Web3 portfolio 累積至 146 家</li></ul>
+          </div>
+          <div>
+            <h5>代表投資</h5>
+            <ul><li><b>StraitsX</b> AW#21，新加坡穩定幣基礎建設</li><li><b>Pendle</b> 進入 DeFi 主流敘事，TVL 高峰</li><li><b>Blocto</b> 錢包用戶規模化，跨鏈生態擴張</li><li><b>XREX</b> 新興市場跨境支付加速</li></ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">Web3 加倍下注帶來能量與爭議，奠定下一階段收斂的伏筆。</div>
+      </article>
+    
+      <article class="phase-card" style="--cat:#d93025">
+        <div class="phase-card__head">
+          <span class="phase-card__num">6</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">precision_manufacturing</span>Agentic AI + 硬科技 + 戰略收斂</div>
+            <span class="phase-card__years">2024-2026</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">從 Web3 廣撒網收斂至 AI 與硬科技主軸</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>關鍵轉折</h5>
+            <ul><li><b>2024</b> AW#32-33 鎖定 Manufacturing AI、Defense Tech、PQC</li><li><b>2025</b> On-Chain Banking 成為 Web3 收斂新主題</li><li><b>2026</b> Fund IV 目標 $360M，實際 $165M close</li></ul>
+          </div>
+          <div>
+            <h5>代表投資</h5>
+            <ul><li><b>Sanctum</b> Solana 流動性質押協議代表</li><li><b>Nitra</b> AI 驅動的醫療金融科技新星</li><li><b>Omo Protocol</b> On-Chain Banking 新世代基礎建設</li></ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">從廣撒網轉向戰略收斂，Fund IV 縮水成為轉折信號。</div>
+      </article>
+    </div>
   </section>
 
+  </main>
   <footer class="site-foot">
     <p data-i18n-html="footer">資料整理自 <a href="https://appworks.tw/investments/" target="_blank" rel="noopener">AppWorks Investments</a>、Crunchbase 與公開新聞。非官方整理，內容僅供研究參考。</p>
     <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
