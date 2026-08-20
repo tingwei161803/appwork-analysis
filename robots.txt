@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://appwork-analysis.peteraim.com/sitemap.xml
