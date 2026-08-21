@@ -70,8 +70,7 @@
   </header>
 
   <main>
-
-  <section class="hero">
+<section class="hero">
     <span class="hero__eyebrow"><span class="dot"></span><span data-i18n="eyebrow">真實資料盡職調查 · 獨立非官方分析</span></span>
     <h1 data-i18n-html="heroTitle">AW#32 這 19 家，<span class="grad">AppWorks 會投誰？</span></h1>
     <p data-i18n="heroDesc">AppWorks 加速器不收股權；真正出手的是 AppWorks Funds。本頁對 AW#32 Demo Day 全部 19 家新創做真實資料盡職調查，逐家評估「Funds 後續 follow-on 投資」的機率與理由。</p>
@@ -406,67 +405,67 @@
       <figure class="chart-card chart-card--full">
         <figcaption class="chart-card__cap"><span class="material-symbols-rounded">leaderboard</span><span data-cap="leaderboard">投資分數排行榜</span></figcaption>
         <p class="chart-card__sub" data-sub="leaderboard">19 家依 follow-on 投資機率綜合分排序;顏色＝信心等級。</p>
-        <div class="chart-box chart-box--xtall"><canvas id="ch-leaderboard"></canvas></div>
+        <div class="chart-box chart-box--xtall"><canvas id="ch-leaderboard" width="1082" height="600" style="display: block; box-sizing: border-box; height: 600px; width: 1082px;"></canvas></div>
       </figure>
 
       <figure class="chart-card chart-card--third">
         <figcaption class="chart-card__cap"><span class="material-symbols-rounded">donut_small</span><span data-cap="cat">產業分布</span></figcaption>
         <p class="chart-card__sub" data-sub="cat">六大類各有幾家。</p>
-        <div class="chart-box"><canvas id="ch-cat"></canvas></div>
+        <div class="chart-box"><canvas id="ch-cat" width="271" height="280" style="display: block; box-sizing: border-box; height: 280px; width: 271px;"></canvas></div>
       </figure>
       <figure class="chart-card chart-card--third">
         <figcaption class="chart-card__cap"><span class="material-symbols-rounded">verified</span><span data-cap="conv">信心分布</span></figcaption>
         <p class="chart-card__sub" data-sub="conv">high / medium / low 各幾家。</p>
-        <div class="chart-box"><canvas id="ch-conv"></canvas></div>
+        <div class="chart-box"><canvas id="ch-conv" width="271" height="280" style="display: block; box-sizing: border-box; height: 280px; width: 271px;"></canvas></div>
       </figure>
       <figure class="chart-card chart-card--third">
         <figcaption class="chart-card__cap"><span class="material-symbols-rounded">shield</span><span data-cap="moat">護城河強度</span></figcaption>
         <p class="chart-card__sub" data-sub="moat">strong / medium / weak 各幾家。</p>
-        <div class="chart-box"><canvas id="ch-moat"></canvas></div>
+        <div class="chart-box"><canvas id="ch-moat" width="271" height="280" style="display: block; box-sizing: border-box; height: 280px; width: 271px;"></canvas></div>
       </figure>
 
       <figure class="chart-card">
         <figcaption class="chart-card__cap"><span class="material-symbols-rounded">stacked_bar_chart</span><span data-cap="catscore">各產業平均投資分</span></figcaption>
         <p class="chart-card__sub" data-sub="catscore">哪一類整體最可投。</p>
-        <div class="chart-box"><canvas id="ch-catscore"></canvas></div>
+        <div class="chart-box"><canvas id="ch-catscore" width="474" height="280" style="display: block; box-sizing: border-box; height: 280px; width: 474px;"></canvas></div>
       </figure>
       <figure class="chart-card">
         <figcaption class="chart-card__cap"><span class="material-symbols-rounded">equalizer</span><span data-cap="dimavg">各維度平均分</span></figcaption>
         <p class="chart-card__sub" data-sub="dimavg">這屆在七個維度上的集體強弱。</p>
-        <div class="chart-box"><canvas id="ch-dimavg"></canvas></div>
+        <div class="chart-box"><canvas id="ch-dimavg" width="474" height="280" style="display: block; box-sizing: border-box; height: 280px; width: 474px;"></canvas></div>
       </figure>
 
       <figure class="chart-card">
         <figcaption class="chart-card__cap"><span class="material-symbols-rounded">radar</span><span data-cap="cohort">這屆七維平均輪廓</span></figcaption>
         <p class="chart-card__sub" data-sub="cohort">19 家平均的能力雷達。</p>
-        <div class="chart-box chart-box--tall"><canvas id="ch-cohort"></canvas></div>
+        <div class="chart-box chart-box--tall"><canvas id="ch-cohort" width="474" height="420" style="display: block; box-sizing: border-box; height: 420px; width: 474px;"></canvas></div>
       </figure>
       <figure class="chart-card">
         <figcaption class="chart-card__cap"><span class="material-symbols-rounded">radar</span><span data-cap="top5">Top 5 七維比較</span></figcaption>
         <p class="chart-card__sub" data-sub="top5">分數最高 5 家的逐維對照。</p>
-        <div class="chart-box chart-box--tall"><canvas id="ch-top5"></canvas></div>
+        <div class="chart-box chart-box--tall"><canvas id="ch-top5" width="474" height="420" style="display: block; box-sizing: border-box; height: 420px; width: 474px;"></canvas></div>
       </figure>
 
       <figure class="chart-card">
         <figcaption class="chart-card__cap"><span class="material-symbols-rounded">scatter_plot</span><span data-cap="fit">GSEA 契合 × 主軸契合</span></figcaption>
         <p class="chart-card__sub" data-sub="fit">泡泡大小＝綜合分,顏色＝產業。</p>
-        <div class="chart-box chart-box--tall"><canvas id="ch-fit"></canvas></div>
+        <div class="chart-box chart-box--tall"><canvas id="ch-fit" width="474" height="420" style="display: block; box-sizing: border-box; height: 420px; width: 474px;"></canvas></div>
       </figure>
       <figure class="chart-card">
         <figcaption class="chart-card__cap"><span class="material-symbols-rounded">scatter_plot</span><span data-cap="moattr">護城河 × 牽引力</span></figcaption>
         <p class="chart-card__sub" data-sub="moattr">「真實度」兩軸:護城河強度 vs 牽引力。</p>
-        <div class="chart-box chart-box--tall"><canvas id="ch-moattr"></canvas></div>
+        <div class="chart-box chart-box--tall"><canvas id="ch-moattr" width="474" height="420" style="display: block; box-sizing: border-box; height: 420px; width: 474px;"></canvas></div>
       </figure>
 
       <figure class="chart-card">
         <figcaption class="chart-card__cap"><span class="material-symbols-rounded">scatter_plot</span><span data-cap="teammkt">團隊 × 市場</span></figcaption>
         <p class="chart-card__sub" data-sub="teammkt">團隊強度 vs 市場吸引力。</p>
-        <div class="chart-box chart-box--tall"><canvas id="ch-teammkt"></canvas></div>
+        <div class="chart-box chart-box--tall"><canvas id="ch-teammkt" width="474" height="420" style="display: block; box-sizing: border-box; height: 420px; width: 474px;"></canvas></div>
       </figure>
       <figure class="chart-card">
         <figcaption class="chart-card__cap"><span class="material-symbols-rounded">workspace_premium</span><span data-cap="tier">團隊 Tier 分布</span></figcaption>
         <p class="chart-card__sub" data-sub="tier">創辦人履歷可信度分級家數。</p>
-        <div class="chart-box chart-box--tall"><canvas id="ch-tier"></canvas></div>
+        <div class="chart-box chart-box--tall"><canvas id="ch-tier" width="474" height="420" style="display: block; box-sizing: border-box; height: 420px; width: 474px;"></canvas></div>
       </figure>
 
       <figure class="chart-card chart-card--full">
@@ -883,8 +882,7 @@
         <p style="font-size:.96rem;color:var(--on-surface)">AW#32 沒有穩贏標的 —— 以「Funds follow-on 投資機率」衡量，沒有任何一家達到高信心領投門檻。但有一群最接近支票的：半導體／製造 deep tech 以 SixSense 為首（最像旗艦），其後 Innowave、CLIKA、LIPS；再加兩家 GSEA 原生企業 AI（Shieldbase、Novo）。其餘多屬「小額策略性投資或先追蹤」，而水平型 AI SaaS 與無牽引力的硬科技則大概率被 pass。一句話：這屆 AppWorks Funds 最可能只開一張旗艦支票（SixSense），其餘維持觀察。</p>
       </div></div>
   </section>
-
-  </main>
+</main>
   <footer class="footer">
     <p id="footer-text" data-i18n-html="footer">本頁新創名單與 Demo Day 資料整理自 <a href="https://mattye.dev/projects/one-more-step/aw32/" target="_blank" rel="noopener">Matt Ye《One More Step》AW#32 整理</a>，盡職調查內容由各公司官網、LinkedIn 與公開報導查證。投資判斷為獨立分析，非 AppWorks 官方立場，亦非投資建議。</p>
   </footer>
