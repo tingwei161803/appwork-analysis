@@ -13,6 +13,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>AW#32 投資雷達 · AppWorks 會投哪幾家？ | AppWorks Atlas</title>
+<link rel="canonical" href="https://appwork-analysis.peteraim.com/aw32.html" />
   <meta name="description" content="對 AppWorks Accelerator AW#32 Demo Day 19 家新創做真實資料盡職調查（due diligence），逐家評估 AppWorks Funds follow-on 投資機率，七維評分 + 護城河 + 團隊查核。獨立非官方分析。" />
   <meta name="keywords" content="AppWorks, AW#32, AW32, Demo Day, 緯創, Wistron, 創投, due diligence, 盡職調查, AppWorks Funds, GSEA, AI startups, Jamie Lin" />
   <meta name="author" content="Unofficial study companion" />
@@ -23,7 +24,7 @@
   <meta property="og:title" content="AW#32 投資雷達 · AppWorks 會投哪幾家？" />
   <meta property="og:description" content="19 家 AW#32 新創的真實資料盡職調查 + AppWorks Funds follow-on 投資機率排名。" />
   <meta property="og:image" content="./og-image.svg" />
-  <meta property="og:url" content="https://appwork-analysis.peteraim.com/aw32" />
+  <meta property="og:url" content="https://appwork-analysis.peteraim.com/aw32.html" />
   <meta property="og:locale" content="zh_TW" />
   <meta property="og:locale:alternate" content="en_US" />
 
@@ -68,15 +69,16 @@
     </button>
   </header>
 
-  <section class="hero">
+  <main>
+<section class="hero">
     <span class="hero__eyebrow"><span class="dot"></span><span data-i18n="eyebrow">真實資料盡職調查 · 獨立非官方分析</span></span>
     <h1 data-i18n-html="heroTitle">AW#32 這 19 家，<span class="grad">AppWorks 會投誰？</span></h1>
     <p data-i18n="heroDesc">AppWorks 加速器不收股權；真正出手的是 AppWorks Funds。本頁對 AW#32 Demo Day 全部 19 家新創做真實資料盡職調查，逐家評估「Funds 後續 follow-on 投資」的機率與理由。</p>
     <div class="hero__stats">
       <div class="hero__stat"><b id="stat-total">19</b><span data-i18n="statTotal">受評新創</span></div>
-      <div class="hero__stat"><b id="stat-high">–</b><span data-i18n="statHigh">領先標的</span></div>
+      <div class="hero__stat"><b id="stat-high">8</b><span data-i18n="statHigh">領先標的</span></div>
       <div class="hero__stat"><b id="stat-cats">6</b><span data-i18n="statCats">產業類別</span></div>
-      <div class="hero__stat"><b id="stat-tier1">–</b><span data-i18n="statTier1">最高投資分</span></div>
+      <div class="hero__stat"><b id="stat-tier1">62</b><span data-i18n="statTier1">最高投資分</span></div>
     </div>
     <nav class="hero__nav" aria-label="Page navigation">
       <a href="#method"><span class="material-symbols-rounded">rule</span><span data-i18n="navMethod">方法論</span></a>
@@ -94,8 +96,24 @@
       <h2 id="method-heading" data-i18n="methodTitle">怎麼判斷「AppWorks 會不會投」</h2>
       <p data-i18n="methodSub">先把關鍵前提講清楚，再說評分方法。</p>
     </header>
-    <div class="method-grid" id="method-grid"></div>
-    <p class="disclaimer" id="disclaimer" data-i18n="disclaimer"></p>
+    <div class="method-grid" id="method-grid">
+      <div class="method-card">
+        <div class="method-card__ic"><span class="material-symbols-rounded">volunteer_activism</span></div>
+        <h3>加速器 ≠ 投資</h3><p>AW#32 是 AppWorks「加速器」第 32 屆，加速器不收股權、不等於 AppWorks 投了錢。真正寫支票的是獨立的 AppWorks Funds（Fund I–IV）。</p>
+      </div>
+      <div class="method-card">
+        <div class="method-card__ic"><span class="material-symbols-rounded">filter_alt</span></div>
+        <h3>基金只精選少數</h3><p>AppWorks Funds 會從每屆加速器校友中，挑出極少數最有潛力的團隊做 follow-on 股權投資。本頁要回答的就是：這 19 家裡，誰最可能進入那份名單。</p>
+      </div>
+      <div class="method-card">
+        <div class="method-card__ic"><span class="material-symbols-rounded">fact_check</span></div>
+        <h3>只用真實資料</h3><p>每家由獨立 agent 查證官網、LinkedIn 與公開報導。Demo Day 上的數字一律視為「宣稱」，查無公開佐證就明講，不捏造數據。</p>
+      </div>
+      <div class="method-card">
+        <div class="method-card__ic"><span class="material-symbols-rounded">scoreboard</span></div>
+        <h3>七維評分</h3><p>團隊、市場、護城河、牽引力、主軸契合、GSEA 契合、階段契合，每維 0–10，加權成 0–100 的 follow-on 投資機率分數與信心等級。</p>
+      </div></div>
+    <p class="disclaimer" id="disclaimer" data-i18n="disclaimer">⚠️ 本頁為獨立、非官方的研究性分析，所有「會不會投」的判斷皆為作者推論，不代表 AppWorks 立場、不保證任何投資結果，亦非投資建議。資料截至 2026 年 6 月。</p>
   </section>
 
   <!-- ===== AppWorks thesis context ===== -->
@@ -104,7 +122,20 @@
       <h2 id="thesis-heading" data-i18n="thesisTitle">AppWorks Funds 現在的打法</h2>
       <p data-i18n="thesisSub">用真實資料還原基金規模、主軸與「從加速器校友裡挑誰投」的邏輯。</p>
     </header>
-    <div class="thesis-wrap" id="thesis-wrap"></div>
+    <div class="thesis-wrap" id="thesis-wrap">
+      <div class="thesis-card">
+        <h3><span class="material-symbols-rounded">account_balance</span>基金概況</h3>
+        <p>AppWorks Funds 是 AppWorks(總部位於台北,由 Jamie Lin／林之晨於 2009 年創立)的股權投資創投部門。截至 2026 年 1 月宣布 Fund IV 最終關閉(final close)為止,旗下已募集四檔旗艦基金,管理資產規模(AUM)合計約 US$386M:Fund I 約 US$11M(2012 年份)、Fund II 約 US$50M(2014 年;據報導 DPI 約 1.9x,位居全球前四分之一)、Fund III 約 US$150M(2021 年關閉)、Fund IV 約 US$165M(2022 年底啟動募資,2026 年 1 月最終關閉;原訂目標約 US$360M,但在 2022 年後升息收緊引發的創投回檔潮中下修規模)。Fund IV 的 LP 中,特別包含三家主權投資者——台灣國發基金(National Development Fund)、馬來西亞的 Jelawang Capital(Khazanah Nasional 旗下的母基金)、以及韓國的 Korea Venture Investment Corporation(KVIC)——另有富邦人壽、台灣大哥大、緯創、群聯與 E Ink 等企業 LP。這些基金的投資橫跨大東南亞(Greater Southeast Asia,台灣加上 ASEAN),涵蓋從種子到成長階段。根據 AppWorks 自家的投資頁面,其投資範疇為每筆交易約 US$200K 至 US$15M,橫跨 Series Seed 到 Series C,目標每輪稀釋約 10-20%;以 Fund III 而言,典型模式是約 40 家投資組合公司,分為約 US$50K-200K 的種子支票與起跳約 US$2M 的 Series A-C 支票。AppWorks 在 16 年間累積約 123 筆投資,過去十年平均每年約 6 筆新交易(2025 年為 10 筆)。</p>
+        <h3 style="margin-top:18px"><span class="material-symbols-rounded">route</span>Follow-on 邏輯</h3>
+        <p>AppWorks 經營兩件截然不同的事:一個是不收股權、不收費用、每年兩次的加速器(自 AW#1 起;例如 AW#32 的產業夥伴為緯創),完全不收取股權／代幣／費用;另一個是獨立運作、進行股權投資的 AppWorks Funds。加速器扮演著這些基金的「專屬案源管道(proprietary deal-flow pipeline)」角色——加入某一梯次本身並不等同於一筆投資。這些基金僅有選擇性地對少數校友開出後續(follow-on)支票:也就是那些展現出真正產品市場契合(product-market fit)、成長動能、跨大東南亞(GSEA)的可擴展性,以及有募資需求以加速成長的團隊。AppWorks 並未公布單一的官方轉換百分比,但從數字推算,比例僅占一小部分:16 年間總計約 123 筆基金投資(且近期每年僅約 6-10 筆新交易),相對於一個擁有 650 多家活躍加速器新創、且每年新增數百家的生態系——換言之,大約只有約 5-15% 的校友曾經拿到基金直接開出的支票(以單一梯次而言,往往遠低於此)。舉例來說,Fund III 在整個基金存續期間的目標僅約 40 家投資組合公司。獲投的校友範例包括 WeMo Scooter、Omnichat、Pickone、XREX、Blocto 與 Docosan。</p>
+        <div class="src-row"><a class="src-chip" href="https://appworks.tw/appworks-closes-fund-iv-to-lift-total-funds-raised-to-us386m-uniting-pan-asian-sovereign-and-corporate-limited-partners-to-accelerate-regional-startups/" target="_blank" rel="noopener">AppWorks Closes Fund IV to Lift Total Funds Raised to US$386M (official announcement)</a><a class="src-chip" href="https://technode.global/2026/01/07/appworks-closes-fund-iv-to-lift-total-funds-raised-to-386m/" target="_blank" rel="noopener">AppWorks closes Fund IV to lift total funds raised to $386M — TNGlobal</a><a class="src-chip" href="https://asiatechdaily.com/appworks-closes-165m-fund-iv-with-a-sharper-focus-on-web3-and-ai-in-asia/" target="_blank" rel="noopener">AppWorks Closes $165M Fund IV With a Sharper Focus on Web3 and AI in Asia — AsiaTechDaily</a><a class="src-chip" href="https://techcrunch.com/2021/08/11/appworks-closes-third-fund-with-150m-for-taiwan-and-southeast-asia-startups/" target="_blank" rel="noopener">AppWorks closes third fund with $150M for Taiwan and Southeast Asia startups — TechCrunch</a><a class="src-chip" href="https://appworks.tw/investments/" target="_blank" rel="noopener">AppWorks Investments (portfolio &amp; deal terms: $200K–$15M, Seed–Series C, 10–20% dilution)</a><a class="src-chip" href="https://appworks.tw/accelerator-faq/" target="_blank" rel="noopener">AppWorks Accelerator FAQ (equity-free / no-fee model)</a></div>
+      </div>
+      <div class="thesis-card">
+        <h3><span class="material-symbols-rounded">bolt</span>投資主軸</h3>
+        <div class="thesis-pillars"><span class="pillar-chip"><span class="material-symbols-rounded" style="font-size:16px">bolt</span>AI——現為首要焦點;AppWorks 表示其生態系中有 128 家活躍的 AI 新創,且 Fund IV 明確以 AI 為首</span><span class="pillar-chip"><span class="material-symbols-rounded" style="font-size:16px">bolt</span>Web3／區塊鏈——自約 2017 年起即為長期並列的支柱;生態系中有 146 個活躍的 Web3 新創／專案,橫跨 DeFi、基礎設施、staking 與 DAO 工具</span><span class="pillar-chip"><span class="material-symbols-rounded" style="font-size:16px">bolt</span>更廣義的數位經濟／網路與軟體——橫跨全區域的 B2B SaaS、線上市集與平台</span><span class="pillar-chip"><span class="material-symbols-rounded" style="font-size:16px">bolt</span>大東南亞地理範疇——台灣加上 ASEAN(約 7 億人);近期加速器梯次中約 70% 的創辦人現已來自台灣以外</span><span class="pillar-chip"><span class="material-symbols-rounded" style="font-size:16px">bolt</span>強調及早投資的品類領導者,並重視資本效率與區域可擴展性</span></div>
+        <h3 style="margin-top:18px"><span class="material-symbols-rounded">trending_up</span>近期出手</h3>
+        <ul class="deal-list"><li>Nitra — 為醫療診所打造的 AI 原生財務／營運平台(AI／HealthTech,美國),Series B,2026</li><li>Sanctum — Solana 上的流動性質押(liquid staking)協議(Web3／DeFi 基礎設施),Series A,2025-2026</li><li>JTCG / Raccoon AI — AI 客戶體驗／售後支援代理(AI SaaS,台灣),Pre-A,2025</li><li>Tally — DAO／鏈上治理平台(Web3 治理,美國),領投 Series A,2025</li><li>Rekosistem — 廢棄物管理與回收自動化(ClimaTech,印尼),Series A,2025</li><li>Bythen — AI 虛擬人像(avatar)創作平台(AI／Gaming,印尼),Pre-seed,2025</li><li>AMODA — 模組化營建技術(ConstructTech,印尼),Pre-Series A,2025</li><li>AI Hay — AI 知識探索平台(AI,越南),Series Pre-A,2024</li><li>SignalPlus — 加密貨幣衍生品／選擇權基礎設施(Web3 交易),領投 Series B,2024</li><li>Botsync — 物流與製造自動化機器人(RoboTech,新加坡),Series A,2024</li><li>TechCoop — 農產出口供應鏈平台(AgriTech／B2B,越南),Series A,2024</li><li>TransTRACK — 車隊管理／物流 SaaS(B2B SaaS,印尼),Series A,2024</li><li>DotDot — 餐飲(F&amp;B)支付解決方案(FinTech／SaaS,台灣),Series A,2024</li><li>Stanly — 創作者／粉絲互動平台(創作者經濟,菲律賓),Series Pre-A,2024</li><li>GRVT — 混合式(鏈上／鏈下)衍生品交易所(Web3／DeFi),2023</li></ul>
+      </div></div>
   </section>
 
   <!-- ===== Investment radar leaderboard ===== -->
@@ -113,8 +144,255 @@
       <h2 id="radar-heading" data-i18n="radarTitle">投資雷達：19 家排名</h2>
       <p data-i18n="radarSub">依「Funds follow-on 投資機率」綜合分數排序。點任一列看完整盡職調查。</p>
     </header>
-    <div class="radar-legend" id="radar-legend"></div>
-    <div class="radar-list" id="radar-list"></div>
+    <div class="radar-legend" id="radar-legend"><span class="lg"><span class="sw" style="background:var(--conv-high)"></span>高信心</span><span class="lg"><span class="sw" style="background:var(--conv-medium)"></span>中信心</span><span class="lg"><span class="sw" style="background:var(--conv-low)"></span>低信心</span><span class="lg" style="opacity:.7">左色條＝產業</span></div>
+    <div class="radar-list" id="radar-list"><button class="radar-row" data-name="Innowave Tech" style="--cat:#e8710a">
+        <span class="radar-row__rank top">1</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">Innowave Tech
+            <span class="tier-tag">Tier 2</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">硬科技：製造／國防</span> · 總部位於新加坡的深科技新創（成立於 2019 年），打造一個專為半導體與先進製造設計的領域型「agentic AI」平台（iWAVE）——涵蓋自主化晶圓廠營運、AI 視覺瑕疵檢測，以及良率／OEE 最佳化。在 AppWorks Demo Day 上以「OEE 的工業 LLM」來定位是一種簡化說法：真正的產品是一套模組化的 agentic-AI ＋邊緣硬體＋電腦視覺技術堆疊，鎖定一線（Tier-1）晶圓廠，而非單一的 LLM 產品。</span>
+          <div class="dimbars"><span class="db" title="團隊: 8/10"><i style="height:80%"></i></span><span class="db" title="市場: 8/10"><i style="height:80%"></i></span><span class="db" title="護城河: 6/10"><i style="height:60%"></i></span><span class="db" title="牽引力: 6/10"><i style="height:60%"></i></span><span class="db" title="主軸契合: 7/10"><i style="height:70%"></i></span><span class="db" title="GSEA 契合: 6/10"><i style="height:60%"></i></span><span class="db" title="階段契合: 5/10"><i style="height:50%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">62<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="SixSense" style="--cat:#e8710a">
+        <span class="radar-row__rank top">2</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">SixSense
+            <span class="tier-tag">Tier 2</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">硬科技：製造／國防</span> · 無程式碼（no-code）深度學習／電腦視覺平台，為半導體晶圓廠與 OSAT（封裝測試廠）自動化執行視覺缺陷分類（AI-ADC）、批貨處置（lot disposition）以及根因／預測分析，取代產線上緩慢的人工檢測。</span>
+          <div class="dimbars"><span class="db" title="團隊: 8/10"><i style="height:80%"></i></span><span class="db" title="市場: 6/10"><i style="height:60%"></i></span><span class="db" title="護城河: 5/10"><i style="height:50%"></i></span><span class="db" title="牽引力: 8/10"><i style="height:80%"></i></span><span class="db" title="主軸契合: 7/10"><i style="height:70%"></i></span><span class="db" title="GSEA 契合: 8/10"><i style="height:80%"></i></span><span class="db" title="階段契合: 3/10"><i style="height:30%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">62<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="Novo AI" style="--cat:#00897b">
+        <span class="radar-row__rank top">3</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">Novo AI
+            <span class="tier-tag">Tier 2</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">AI SaaS／自動化</span> · Novo AI (heynovo.ai) 打造生成式／代理式（agentic）AI，能夠擷取 50 多種語言的非結構化保險文件（醫療報告、維修報價、理賠表單），用以自動化理賠審查、加速處理流程、偵測詐欺／滲漏（leakage），並為保險公司及其營運團隊提供定價洞察。</span>
+          <div class="dimbars"><span class="db" title="團隊: 7/10"><i style="height:70%"></i></span><span class="db" title="市場: 8/10"><i style="height:80%"></i></span><span class="db" title="護城河: 4/10"><i style="height:40%"></i></span><span class="db" title="牽引力: 5/10"><i style="height:50%"></i></span><span class="db" title="主軸契合: 8/10"><i style="height:80%"></i></span><span class="db" title="GSEA 契合: 6/10"><i style="height:60%"></i></span><span class="db" title="階段契合: 7/10"><i style="height:70%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">58<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="CLIKA" style="--cat:#1a73e8">
+        <span class="radar-row__rank ">4</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">CLIKA
+            <span class="tier-tag">Tier 2</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">Edge AI／晶片硬體</span> · CLIKA 打造一套自動化的 AI 模型壓縮／量化平台（即「Automatic Compression Engine」／ACE SDK），能將神經網路——包括參數量達約 15B 的 LLM——縮小並編譯，使其在雲端、地端（on-prem）與邊緣硬體（NVIDIA、Intel、AMD，Qualcomm 即將支援）上跑得更快、更省成本。廠商宣稱：模型體積最多可縮減約 90%、最高加速 18.4 倍、準確度幾乎零損失。該公司另經營「Modelverse」，一個提供預壓縮、可直接部署模型的市集。</span>
+          <div class="dimbars"><span class="db" title="團隊: 8/10"><i style="height:80%"></i></span><span class="db" title="市場: 8/10"><i style="height:80%"></i></span><span class="db" title="護城河: 5/10"><i style="height:50%"></i></span><span class="db" title="牽引力: 7/10"><i style="height:70%"></i></span><span class="db" title="主軸契合: 8/10"><i style="height:80%"></i></span><span class="db" title="GSEA 契合: 4/10"><i style="height:40%"></i></span><span class="db" title="階段契合: 4/10"><i style="height:40%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">58<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="Shieldbase" style="--cat:#546e7a">
+        <span class="radar-row__rank ">5</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">Shieldbase
+            <span class="tier-tag">Tier 3</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">企業安全</span> · 一套「企業 AI 作業系統」（定位為「職場版 Cursor」），可串接 100 多種企業應用程式與舊有資料來源，並在其上疊加安全的企業搜尋、多模態 LLM 路由、AI agent 與工作流程自動化，同時提供地端／私有雲部署，以及治理／隱私防護機制（宣稱具備 SOC 2 Type II、GDPR、HIPAA）。</span>
+          <div class="dimbars"><span class="db" title="團隊: 6/10"><i style="height:60%"></i></span><span class="db" title="市場: 8/10"><i style="height:80%"></i></span><span class="db" title="護城河: 4/10"><i style="height:40%"></i></span><span class="db" title="牽引力: 4/10"><i style="height:40%"></i></span><span class="db" title="主軸契合: 8/10"><i style="height:80%"></i></span><span class="db" title="GSEA 契合: 9/10"><i style="height:90%"></i></span><span class="db" title="階段契合: 7/10"><i style="height:70%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">58<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="GreenBidz" style="--cat:#7b4fd0">
+        <span class="radar-row__rank ">6</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">GreenBidz
+            <span class="tier-tag">Tier 2</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">垂直 SaaS</span> · 一家總部位於台北的 B2B 循環經濟拍賣／競標市集,專門處理閒置工業機械、IT 資產、除役伺服器,以及金屬／電子廢料,讓台灣製造商、資料中心與工廠得以轉售或跨境再部署退役設備,並附帶 ESG／CO2 追蹤。旗下經營 101Lab(實驗室／測試設備)與 101recycle 兩個子品牌,並由新加坡 IT 資產管理公司 Axentel 的老將團隊操盤。</span>
+          <div class="dimbars"><span class="db" title="團隊: 7/10"><i style="height:70%"></i></span><span class="db" title="市場: 7/10"><i style="height:70%"></i></span><span class="db" title="護城河: 4/10"><i style="height:40%"></i></span><span class="db" title="牽引力: 6/10"><i style="height:60%"></i></span><span class="db" title="主軸契合: 5/10"><i style="height:50%"></i></span><span class="db" title="GSEA 契合: 8/10"><i style="height:80%"></i></span><span class="db" title="階段契合: 6/10"><i style="height:60%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">54<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="Pathors" style="--cat:#00897b">
+        <span class="radar-row__rank ">7</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">Pathors
+            <span class="tier-tag">Tier 3</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">AI SaaS／自動化</span> · 一家位於台北的代管型對話／語音 AI 平台，為亞洲中小企業與大型企業自動化處理進線與外撥電話（客服、預約提醒、催收、潛在客戶資格篩選），針對繁體中文優化，並能處理台灣口音／國台語夾雜的 code-switching，符合在地電信法規與 PDPA，可在 7 至 14 天內完成部署。該公司日益將自己定位為賣給系統整合商的語音 AI 基礎設施層，而不僅是面向終端客戶的 SaaS。</span>
+          <div class="dimbars"><span class="db" title="團隊: 6/10"><i style="height:60%"></i></span><span class="db" title="市場: 8/10"><i style="height:80%"></i></span><span class="db" title="護城河: 4/10"><i style="height:40%"></i></span><span class="db" title="牽引力: 4/10"><i style="height:40%"></i></span><span class="db" title="主軸契合: 8/10"><i style="height:80%"></i></span><span class="db" title="GSEA 契合: 6/10"><i style="height:60%"></i></span><span class="db" title="階段契合: 7/10"><i style="height:70%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">52<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="Notifly" style="--cat:#00897b">
+        <span class="radar-row__rank ">8</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">Notifly
+            <span class="tier-tag">Tier 2</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">AI SaaS／自動化</span> · 為行動 App 與電商打造的行為觸發式顧客互動／CRM 行銷自動化工具。最初的產品「Notifly」(notifly.tech) 是一套全通路活動工具（push、web push、in-app、email、SMS、webhook），主打「AI 輔助分眾」；創辦人後來轉型為「Clix」(clix.so)——一款定位更聚焦、開發者優先的推播通知基礎設施產品（「clix install」CLI、Firebase／APNs 設定、投遞分析），由矽谷（StartX S25）推出。</span>
+          <div class="dimbars"><span class="db" title="團隊: 8/10"><i style="height:80%"></i></span><span class="db" title="市場: 7/10"><i style="height:70%"></i></span><span class="db" title="護城河: 3/10"><i style="height:30%"></i></span><span class="db" title="牽引力: 4/10"><i style="height:40%"></i></span><span class="db" title="主軸契合: 6/10"><i style="height:60%"></i></span><span class="db" title="GSEA 契合: 3/10"><i style="height:30%"></i></span><span class="db" title="階段契合: 7/10"><i style="height:70%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">42<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="Hyarks" style="--cat:#e8710a">
+        <span class="radar-row__rank ">9</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">Hyarks
+            <span class="tier-tag">Tier 2</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">硬科技：製造／國防</span> · 總部位於台灣高雄，開發軍民兩用的自主無人水面載具（USV），搭配繫留式無人機，鎖定三大市場——鮪魚捕撈（TF-100「Tuna Finder」，取代耗油的直升機／快艇偵搜）、離岸風電檢測，以及海軍國防（水雷反制、ASW 反潛、海岸監偵）——並在其上疊加一層「海洋數據」題材。</span>
+          <div class="dimbars"><span class="db" title="團隊: 8/10"><i style="height:80%"></i></span><span class="db" title="市場: 6/10"><i style="height:60%"></i></span><span class="db" title="護城河: 4/10"><i style="height:40%"></i></span><span class="db" title="牽引力: 3/10"><i style="height:30%"></i></span><span class="db" title="主軸契合: 4/10"><i style="height:40%"></i></span><span class="db" title="GSEA 契合: 7/10"><i style="height:70%"></i></span><span class="db" title="階段契合: 4/10"><i style="height:40%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">42<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="Rosary Labs" style="--cat:#7b4fd0">
+        <span class="radar-row__rank ">10</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">Rosary Labs
+            <span class="tier-tag">Tier 2</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">垂直 SaaS</span> · 馬來西亞垂直 AI 新創，開發「Rosary Vision」——一款 BIM 外掛，能自動產生工程數量計算書（bills of quantities），並依當地建築法規（例如馬來西亞的 Uniform Building By-Laws 1984）驗證建築模型，背後由自研的領域 RAG 引擎（「Rosary Search」）驅動。儘管 AW#32 的定位將其框定為純粹的 AEC 法規合規，該公司實際上是一個多垂直領域的 AI 工具佈局，同時服務油氣、法律與公用事業。</span>
+          <div class="dimbars"><span class="db" title="團隊: 6/10"><i style="height:60%"></i></span><span class="db" title="市場: 6/10"><i style="height:60%"></i></span><span class="db" title="護城河: 3/10"><i style="height:30%"></i></span><span class="db" title="牽引力: 3/10"><i style="height:30%"></i></span><span class="db" title="主軸契合: 7/10"><i style="height:70%"></i></span><span class="db" title="GSEA 契合: 8/10"><i style="height:80%"></i></span><span class="db" title="階段契合: 5/10"><i style="height:50%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">42<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="Decisions Lab" style="--cat:#00897b">
+        <span class="radar-row__rank ">11</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">Decisions Lab
+            <span class="tier-tag">Tier 3</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">AI SaaS／自動化</span> · 一家香港 AI 新創（成立於 2024 年 6 月），為 B2B go-to-market（GTM）打造「模擬買家研究」：它將公開訊號加上第一方資料，提煉成由 LLM 驅動的合成買家人物誌（synthetic buyer persona），讓團隊在投入 GTM 預算前先預先測試訊息傳達、痛點觸發與分眾優先排序。最初是一個「給政策制定者用的模擬城市（SimCity for policymakers）」式社會影響力模擬器，後來經由 D2C 行銷轉型至 B2B GTM。</span>
+          <div class="dimbars"><span class="db" title="團隊: 6/10"><i style="height:60%"></i></span><span class="db" title="市場: 7/10"><i style="height:70%"></i></span><span class="db" title="護城河: 3/10"><i style="height:30%"></i></span><span class="db" title="牽引力: 3/10"><i style="height:30%"></i></span><span class="db" title="主軸契合: 6/10"><i style="height:60%"></i></span><span class="db" title="GSEA 契合: 3/10"><i style="height:30%"></i></span><span class="db" title="階段契合: 7/10"><i style="height:70%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">38<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="Arrivl" style="--cat:#00897b">
+        <span class="radar-row__rank ">12</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">Arrivl
+            <span class="tier-tag">Tier 3</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">AI SaaS／自動化</span> · Arrivl 是一個 AI agent 流量分析與 AEO／GEO 就緒度平台：你只要加上一行 JavaScript，它就能偵測並分類造訪你網站的 AI 爬蟲與 agentic bot（ChatGPT、Claude、Perplexity、Gemini 等），為你的「AI 可讀性」評分，並將 agent 造訪與真人轉介／轉換串連起來——本質上就是「給 AI agent 用的 Google Analytics」加上一套 answer-engine-optimization 稽核。目前在 beta 期間免費。</span>
+          <div class="dimbars"><span class="db" title="團隊: 5/10"><i style="height:50%"></i></span><span class="db" title="市場: 7/10"><i style="height:70%"></i></span><span class="db" title="護城河: 3/10"><i style="height:30%"></i></span><span class="db" title="牽引力: 2/10"><i style="height:20%"></i></span><span class="db" title="主軸契合: 6/10"><i style="height:60%"></i></span><span class="db" title="GSEA 契合: 4/10"><i style="height:40%"></i></span><span class="db" title="階段契合: 6/10"><i style="height:60%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">34<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="CloudStation" style="--cat:#00897b">
+        <span class="radar-row__rank ">13</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">CloudStation
+            <span class="tier-tag">Tier 3</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">AI SaaS／自動化</span> · CloudStation 推出「Charlie」，一個 AI 多代理（multi-agent）協調平台，能在隔離的沙箱（sandbox）中啟動專門化的代理（開發、研究、內容、維運），端到端地完成任務，並採用自帶 API key（bring-your-own-API-key）模式（約每月 US$24.99），疊加在 CloudStation 較早期的類 Heroku 應用部署／PaaS 產品之上。Demo Day 上以「私有、零資料外洩的 AI 代理沙箱 OS」為框架，正是這套代理執行環境（runtime）在資安／自架（self-host）面向上的切角。</span>
+          <div class="dimbars"><span class="db" title="團隊: 4/10"><i style="height:40%"></i></span><span class="db" title="市場: 7/10"><i style="height:70%"></i></span><span class="db" title="護城河: 2/10"><i style="height:20%"></i></span><span class="db" title="牽引力: 2/10"><i style="height:20%"></i></span><span class="db" title="主軸契合: 6/10"><i style="height:60%"></i></span><span class="db" title="GSEA 契合: 2/10"><i style="height:20%"></i></span><span class="db" title="階段契合: 5/10"><i style="height:50%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">34<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="NOTAG KOREA" style="--cat:#00897b">
+        <span class="radar-row__rank ">14</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">NOTAG KOREA
+            <span class="tier-tag">Tier 3</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">AI SaaS／自動化</span> · 一家韓國跨境電商「貿易商即平台（trading-company-as-a-platform）」業者，透過自有的多國／多通路營運自動化系統（NTMS），協助 K-fashion、K-beauty 與生活風格品牌打進東南亞與台灣，端到端處理物流、報關、金流、在地化與電商平台上架。所謂「AI 自主營運引擎」的定位，其實是既有貿易自動化／SaaS 賦能型經銷業務近期的重新包裝。</span>
+          <div class="dimbars"><span class="db" title="團隊: 6/10"><i style="height:60%"></i></span><span class="db" title="市場: 7/10"><i style="height:70%"></i></span><span class="db" title="護城河: 3/10"><i style="height:30%"></i></span><span class="db" title="牽引力: 5/10"><i style="height:50%"></i></span><span class="db" title="主軸契合: 3/10"><i style="height:30%"></i></span><span class="db" title="GSEA 契合: 6/10"><i style="height:60%"></i></span><span class="db" title="階段契合: 5/10"><i style="height:50%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">34<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="LIPS" style="--cat:#1a73e8">
+        <span class="radar-row__rank ">15</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">LIPS
+            <span class="tier-tag">Tier 2</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">Edge AI／晶片硬體</span> · 一家位於台北的 3D 機器視覺公司（創立於 2013 年），設計並製造工業級 3D 深度相機（ToF、主動式立體視覺、結構光），以及邊緣 AI 加速器與感知中介軟體（perception middleware），應用於機器人、工廠自動化與物流——並非一家全新的 AW#32 新創，而是一家成熟、接近 IPO 的硬體供應商，其相機獲 BMW 選用於 NVIDIA Isaac 物流機器人。</span>
+          <div class="dimbars"><span class="db" title="團隊: 6/10"><i style="height:60%"></i></span><span class="db" title="市場: 7/10"><i style="height:70%"></i></span><span class="db" title="護城河: 5/10"><i style="height:50%"></i></span><span class="db" title="牽引力: 6/10"><i style="height:60%"></i></span><span class="db" title="主軸契合: 4/10"><i style="height:40%"></i></span><span class="db" title="GSEA 契合: 6/10"><i style="height:60%"></i></span><span class="db" title="階段契合: 2/10"><i style="height:20%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">34<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="Phasetrum" style="--cat:#1a73e8">
+        <span class="radar-row__rank ">16</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">Phasetrum
+            <span class="tier-tag">Tier 2</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">Edge AI／晶片硬體</span> · 位於新竹的無晶圓廠 RF IC 設計公司，由 NYCU 教授技轉衍生而成，開發相位陣列波束成形／相位調諧晶片與封裝天線（AIP）模組（涵蓋 X-band 到 Ka／sub-THz），鎖定 LEO 衛星通訊終端、5G NTN、UAV 通訊與 AESA 雷達——並宣稱擁有專利的「相位差」架構，可降低約 50% 功耗、並大幅削減陣列校正變數與校正時間。</span>
+          <div class="dimbars"><span class="db" title="團隊: 7/10"><i style="height:70%"></i></span><span class="db" title="市場: 8/10"><i style="height:80%"></i></span><span class="db" title="護城河: 6/10"><i style="height:60%"></i></span><span class="db" title="牽引力: 4/10"><i style="height:40%"></i></span><span class="db" title="主軸契合: 3/10"><i style="height:30%"></i></span><span class="db" title="GSEA 契合: 3/10"><i style="height:30%"></i></span><span class="db" title="階段契合: 3/10"><i style="height:30%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">34<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="OmniEase AI" style="--cat:#00897b">
+        <span class="radar-row__rank ">17</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">OmniEase AI
+            <span class="tier-tag">Tier 3</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">AI SaaS／自動化</span> · 儘管 AW#32 Demo Day 的簡報內容為「無程式碼多通路客服機器人」，omniease.ai 上實際上線的產品卻完全是另一回事：一個面向全球海關與貿易合規的代理式（agentic）AI 平台——提供 HS-code 分類（一套 9-agent 系統）、依國家對計算關稅／稅率、貿易協定與排除清單追蹤、進口限制檢查，以及即時海關狀態監控，並以「由持牌美國報關行（US Customs Broker）申報」為賣點。情報引擎訂閱方案起價 US$499／月，並可選購逐筆貨件的通關申報服務。</span>
+          <div class="dimbars"><span class="db" title="團隊: 6/10"><i style="height:60%"></i></span><span class="db" title="市場: 7/10"><i style="height:70%"></i></span><span class="db" title="護城河: 3/10"><i style="height:30%"></i></span><span class="db" title="牽引力: 2/10"><i style="height:20%"></i></span><span class="db" title="主軸契合: 4/10"><i style="height:40%"></i></span><span class="db" title="GSEA 契合: 3/10"><i style="height:30%"></i></span><span class="db" title="階段契合: 5/10"><i style="height:50%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">31<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="Ruomei 若湄" style="--cat:#1a73e8">
+        <span class="radar-row__rank ">18</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">Ruomei 若湄
+            <span class="tier-tag">Tier 4</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">Edge AI／晶片硬體</span> · 台灣深科技材料新創，開發一種電氣絕緣、以富勒烯（fullerene／又稱「巴克球 buckyball」）為基礎的散熱材料（一種熱介面／散熱片材料），鎖定 AI/HPC 晶片的冷卻需求；自我定位為「先進材料 × AI」。曾於 AppWorks #32 × Wistron #10 聯合 Demo Day（2026 年 6 月 17 日）發表。</span>
+          <div class="dimbars"><span class="db" title="團隊: 2/10"><i style="height:20%"></i></span><span class="db" title="市場: 8/10"><i style="height:80%"></i></span><span class="db" title="護城河: 3/10"><i style="height:30%"></i></span><span class="db" title="牽引力: 1/10"><i style="height:10%"></i></span><span class="db" title="主軸契合: 5/10"><i style="height:50%"></i></span><span class="db" title="GSEA 契合: 6/10"><i style="height:60%"></i></span><span class="db" title="階段契合: 3/10"><i style="height:30%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">31<small>/100</small></span>
+        </span>
+      </button><button class="radar-row" data-name="Krush" style="--cat:#c2185b">
+        <span class="radar-row__rank ">19</span>
+        <span class="radar-row__main">
+          <span class="radar-row__name">Krush
+            <span class="tier-tag">Tier 3</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </span>
+          <span class="radar-row__line"><span class="radar-row__cat">消費／社群</span> · 一款鎖定亞洲離散族群（diaspora，主要在美國城市——紐約、洛杉磯、舊金山——並擴張至加拿大／英國／澳洲）的行動約會＋社交 App，結合配對與文化功能（人臉辨識配對、算命、興趣／星座契合度、好友背書，以及線下社群活動）。由韓國公司 Curelation, Co. 營運。</span>
+          <div class="dimbars"><span class="db" title="團隊: 5/10"><i style="height:50%"></i></span><span class="db" title="市場: 4/10"><i style="height:40%"></i></span><span class="db" title="護城河: 3/10"><i style="height:30%"></i></span><span class="db" title="牽引力: 3/10"><i style="height:30%"></i></span><span class="db" title="主軸契合: 2/10"><i style="height:20%"></i></span><span class="db" title="GSEA 契合: 2/10"><i style="height:20%"></i></span><span class="db" title="階段契合: 4/10"><i style="height:40%"></i></span></div>
+        </span>
+        <span class="radar-row__right">
+          <span class="radar-row__score">24<small>/100</small></span>
+        </span>
+      </button></div>
   </section>
 
   <!-- ===== Charts dashboard ===== -->
@@ -125,75 +403,75 @@
     </header>
     <div class="charts-grid">
       <figure class="chart-card chart-card--full">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">leaderboard</span><span data-cap="leaderboard"></span></figcaption>
-        <p class="chart-card__sub" data-sub="leaderboard"></p>
-        <div class="chart-box chart-box--xtall"><canvas id="ch-leaderboard"></canvas></div>
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">leaderboard</span><span data-cap="leaderboard">投資分數排行榜</span></figcaption>
+        <p class="chart-card__sub" data-sub="leaderboard">19 家依 follow-on 投資機率綜合分排序;顏色＝信心等級。</p>
+        <div class="chart-box chart-box--xtall"><canvas id="ch-leaderboard" width="1082" height="600" style="display: block; box-sizing: border-box; height: 600px; width: 1082px;"></canvas></div>
       </figure>
 
       <figure class="chart-card chart-card--third">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">donut_small</span><span data-cap="cat"></span></figcaption>
-        <p class="chart-card__sub" data-sub="cat"></p>
-        <div class="chart-box"><canvas id="ch-cat"></canvas></div>
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">donut_small</span><span data-cap="cat">產業分布</span></figcaption>
+        <p class="chart-card__sub" data-sub="cat">六大類各有幾家。</p>
+        <div class="chart-box"><canvas id="ch-cat" width="271" height="280" style="display: block; box-sizing: border-box; height: 280px; width: 271px;"></canvas></div>
       </figure>
       <figure class="chart-card chart-card--third">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">verified</span><span data-cap="conv"></span></figcaption>
-        <p class="chart-card__sub" data-sub="conv"></p>
-        <div class="chart-box"><canvas id="ch-conv"></canvas></div>
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">verified</span><span data-cap="conv">信心分布</span></figcaption>
+        <p class="chart-card__sub" data-sub="conv">high / medium / low 各幾家。</p>
+        <div class="chart-box"><canvas id="ch-conv" width="271" height="280" style="display: block; box-sizing: border-box; height: 280px; width: 271px;"></canvas></div>
       </figure>
       <figure class="chart-card chart-card--third">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">shield</span><span data-cap="moat"></span></figcaption>
-        <p class="chart-card__sub" data-sub="moat"></p>
-        <div class="chart-box"><canvas id="ch-moat"></canvas></div>
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">shield</span><span data-cap="moat">護城河強度</span></figcaption>
+        <p class="chart-card__sub" data-sub="moat">strong / medium / weak 各幾家。</p>
+        <div class="chart-box"><canvas id="ch-moat" width="271" height="280" style="display: block; box-sizing: border-box; height: 280px; width: 271px;"></canvas></div>
       </figure>
 
       <figure class="chart-card">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">stacked_bar_chart</span><span data-cap="catscore"></span></figcaption>
-        <p class="chart-card__sub" data-sub="catscore"></p>
-        <div class="chart-box"><canvas id="ch-catscore"></canvas></div>
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">stacked_bar_chart</span><span data-cap="catscore">各產業平均投資分</span></figcaption>
+        <p class="chart-card__sub" data-sub="catscore">哪一類整體最可投。</p>
+        <div class="chart-box"><canvas id="ch-catscore" width="474" height="280" style="display: block; box-sizing: border-box; height: 280px; width: 474px;"></canvas></div>
       </figure>
       <figure class="chart-card">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">equalizer</span><span data-cap="dimavg"></span></figcaption>
-        <p class="chart-card__sub" data-sub="dimavg"></p>
-        <div class="chart-box"><canvas id="ch-dimavg"></canvas></div>
-      </figure>
-
-      <figure class="chart-card">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">radar</span><span data-cap="cohort"></span></figcaption>
-        <p class="chart-card__sub" data-sub="cohort"></p>
-        <div class="chart-box chart-box--tall"><canvas id="ch-cohort"></canvas></div>
-      </figure>
-      <figure class="chart-card">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">radar</span><span data-cap="top5"></span></figcaption>
-        <p class="chart-card__sub" data-sub="top5"></p>
-        <div class="chart-box chart-box--tall"><canvas id="ch-top5"></canvas></div>
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">equalizer</span><span data-cap="dimavg">各維度平均分</span></figcaption>
+        <p class="chart-card__sub" data-sub="dimavg">這屆在七個維度上的集體強弱。</p>
+        <div class="chart-box"><canvas id="ch-dimavg" width="474" height="280" style="display: block; box-sizing: border-box; height: 280px; width: 474px;"></canvas></div>
       </figure>
 
       <figure class="chart-card">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">scatter_plot</span><span data-cap="fit"></span></figcaption>
-        <p class="chart-card__sub" data-sub="fit"></p>
-        <div class="chart-box chart-box--tall"><canvas id="ch-fit"></canvas></div>
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">radar</span><span data-cap="cohort">這屆七維平均輪廓</span></figcaption>
+        <p class="chart-card__sub" data-sub="cohort">19 家平均的能力雷達。</p>
+        <div class="chart-box chart-box--tall"><canvas id="ch-cohort" width="474" height="420" style="display: block; box-sizing: border-box; height: 420px; width: 474px;"></canvas></div>
       </figure>
       <figure class="chart-card">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">scatter_plot</span><span data-cap="moattr"></span></figcaption>
-        <p class="chart-card__sub" data-sub="moattr"></p>
-        <div class="chart-box chart-box--tall"><canvas id="ch-moattr"></canvas></div>
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">radar</span><span data-cap="top5">Top 5 七維比較</span></figcaption>
+        <p class="chart-card__sub" data-sub="top5">分數最高 5 家的逐維對照。</p>
+        <div class="chart-box chart-box--tall"><canvas id="ch-top5" width="474" height="420" style="display: block; box-sizing: border-box; height: 420px; width: 474px;"></canvas></div>
       </figure>
 
       <figure class="chart-card">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">scatter_plot</span><span data-cap="teammkt"></span></figcaption>
-        <p class="chart-card__sub" data-sub="teammkt"></p>
-        <div class="chart-box chart-box--tall"><canvas id="ch-teammkt"></canvas></div>
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">scatter_plot</span><span data-cap="fit">GSEA 契合 × 主軸契合</span></figcaption>
+        <p class="chart-card__sub" data-sub="fit">泡泡大小＝綜合分,顏色＝產業。</p>
+        <div class="chart-box chart-box--tall"><canvas id="ch-fit" width="474" height="420" style="display: block; box-sizing: border-box; height: 420px; width: 474px;"></canvas></div>
       </figure>
       <figure class="chart-card">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">workspace_premium</span><span data-cap="tier"></span></figcaption>
-        <p class="chart-card__sub" data-sub="tier"></p>
-        <div class="chart-box chart-box--tall"><canvas id="ch-tier"></canvas></div>
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">scatter_plot</span><span data-cap="moattr">護城河 × 牽引力</span></figcaption>
+        <p class="chart-card__sub" data-sub="moattr">「真實度」兩軸:護城河強度 vs 牽引力。</p>
+        <div class="chart-box chart-box--tall"><canvas id="ch-moattr" width="474" height="420" style="display: block; box-sizing: border-box; height: 420px; width: 474px;"></canvas></div>
+      </figure>
+
+      <figure class="chart-card">
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">scatter_plot</span><span data-cap="teammkt">團隊 × 市場</span></figcaption>
+        <p class="chart-card__sub" data-sub="teammkt">團隊強度 vs 市場吸引力。</p>
+        <div class="chart-box chart-box--tall"><canvas id="ch-teammkt" width="474" height="420" style="display: block; box-sizing: border-box; height: 420px; width: 474px;"></canvas></div>
+      </figure>
+      <figure class="chart-card">
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">workspace_premium</span><span data-cap="tier">團隊 Tier 分布</span></figcaption>
+        <p class="chart-card__sub" data-sub="tier">創辦人履歷可信度分級家數。</p>
+        <div class="chart-box chart-box--tall"><canvas id="ch-tier" width="474" height="420" style="display: block; box-sizing: border-box; height: 420px; width: 474px;"></canvas></div>
       </figure>
 
       <figure class="chart-card chart-card--full">
-        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">grid_on</span><span data-cap="heat"></span></figcaption>
-        <p class="chart-card__sub" data-sub="heat"></p>
-        <div class="dim-heatmap" id="dim-heatmap"></div>
+        <figcaption class="chart-card__cap"><span class="material-symbols-rounded">grid_on</span><span data-cap="heat">公司 × 七維熱力圖</span></figcaption>
+        <p class="chart-card__sub" data-sub="heat">19 家 × 7 維;顏色越深＝分數越高。</p>
+        <div class="dim-heatmap" id="dim-heatmap"><table><thead><tr><th>公司</th><th>團隊</th><th>市場</th><th>護城河</th><th>牽引力</th><th>主軸契合</th><th>GSEA 契合</th><th>階段契合</th><th>總分</th></tr></thead><tbody><tr><th>Innowave Tech</th><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell" style="background:#e8710a;">62</div></td></tr><tr><th>SixSense</th><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell" style="background:#e8710a;">62</div></td></tr><tr><th>Novo AI</th><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell" style="background:#00897b;">58</div></td></tr><tr><th>CLIKA</th><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell" style="background:#1a73e8;">58</div></td></tr><tr><th>Shieldbase</th><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell " style="background:hsl(168, 73.4%, 45.199999999999996%)">9</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell" style="background:#546e7a;">58</div></td></tr><tr><th>GreenBidz</th><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell" style="background:#7b4fd0;">54</div></td></tr><tr><th>Pathors</th><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell" style="background:#00897b;">52</div></td></tr><tr><th>Notifly</th><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell" style="background:#00897b;">42</div></td></tr><tr><th>Hyarks</th><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell" style="background:#e8710a;">42</div></td></tr><tr><th>Rosary Labs</th><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell" style="background:#7b4fd0;">42</div></td></tr><tr><th>Decisions Lab</th><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell" style="background:#00897b;">38</div></td></tr><tr><th>Arrivl</th><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 41.2%, 81.6%)">2</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell" style="background:#00897b;">34</div></td></tr><tr><th>CloudStation</th><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell lo" style="background:hsl(168, 41.2%, 81.6%)">2</div></td><td><div class="hcell lo" style="background:hsl(168, 41.2%, 81.6%)">2</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 41.2%, 81.6%)">2</div></td><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell" style="background:#00897b;">34</div></td></tr><tr><th>NOTAG KOREA</th><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell" style="background:#00897b;">34</div></td></tr><tr><th>LIPS</th><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 41.2%, 81.6%)">2</div></td><td><div class="hcell" style="background:#1a73e8;">34</div></td></tr><tr><th>Phasetrum</th><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell" style="background:#1a73e8;">34</div></td></tr><tr><th>OmniEase AI</th><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell " style="background:hsl(168, 64.19999999999999%, 55.6%)">7</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 41.2%, 81.6%)">2</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell" style="background:#00897b;">31</div></td></tr><tr><th>Ruomei 若湄</th><td><div class="hcell lo" style="background:hsl(168, 41.2%, 81.6%)">2</div></td><td><div class="hcell " style="background:hsl(168, 68.80000000000001%, 50.4%)">8</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 36.6%, 86.8%)">1</div></td><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell " style="background:hsl(168, 59.599999999999994%, 60.8%)">6</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell" style="background:#1a73e8;">31</div></td></tr><tr><th>Krush</th><td><div class="hcell lo" style="background:hsl(168, 55%, 66%)">5</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 45.8%, 76.4%)">3</div></td><td><div class="hcell lo" style="background:hsl(168, 41.2%, 81.6%)">2</div></td><td><div class="hcell lo" style="background:hsl(168, 41.2%, 81.6%)">2</div></td><td><div class="hcell lo" style="background:hsl(168, 50.400000000000006%, 71.2%)">4</div></td><td><div class="hcell" style="background:#c2185b;">24</div></td></tr></tbody></table></div>
       </figure>
     </div>
   </section>
@@ -204,8 +482,352 @@
       <h2 id="companies-heading" data-i18n="companiesTitle">逐家盡職調查檔案</h2>
       <p data-i18n="companiesSub">依產業分類；每張卡片可開啟完整 DD 報告（團隊查核、牽引力、護城河、風險、七維評分、資料來源）。</p>
     </header>
-    <div class="cat-filter" id="cat-filter"></div>
-    <div class="grid" id="company-grid"></div>
+    <div class="cat-filter" id="cat-filter"><button class="chip" data-cat="all" aria-pressed="true">
+        全部
+        <span class="count">19</span>
+      </button><button class="chip" data-cat="saas" aria-pressed="false" style="--cat:#00897b">
+        <span class="material-symbols-rounded" style="color:#00897b">smart_toy</span>AI SaaS／自動化
+        <span class="count">8</span>
+      </button><button class="chip" data-cat="edge" aria-pressed="false" style="--cat:#1a73e8">
+        <span class="material-symbols-rounded" style="color:#1a73e8">memory</span>Edge AI／晶片硬體
+        <span class="count">4</span>
+      </button><button class="chip" data-cat="deep" aria-pressed="false" style="--cat:#e8710a">
+        <span class="material-symbols-rounded" style="color:#e8710a">precision_manufacturing</span>硬科技：製造／國防
+        <span class="count">3</span>
+      </button><button class="chip" data-cat="vert" aria-pressed="false" style="--cat:#7b4fd0">
+        <span class="material-symbols-rounded" style="color:#7b4fd0">domain</span>垂直 SaaS
+        <span class="count">2</span>
+      </button><button class="chip" data-cat="cons" aria-pressed="false" style="--cat:#c2185b">
+        <span class="material-symbols-rounded" style="color:#c2185b">groups</span>消費／社群
+        <span class="count">1</span>
+      </button><button class="chip" data-cat="sec" aria-pressed="false" style="--cat:#546e7a">
+        <span class="material-symbols-rounded" style="color:#546e7a">security</span>企業安全
+        <span class="count">1</span>
+      </button></div>
+    <div class="grid" id="company-grid"><div class="card" style="--cat:#e8710a">
+        <button class="card__body" data-name="Innowave Tech">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>硬科技：製造／國防</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </div>
+          <h3>Innowave Tech</h3>
+          <p>總部位於新加坡的深科技新創（成立於 2019 年），打造一個專為半導體與先進製造設計的領域型「agentic AI」平台（iWAVE）——涵蓋自主化晶圓廠營運、AI 視覺瑕疵檢測，以及良率／OEE 最佳化。在 AppWorks Demo Day 上以「OEE 的工業 LLM」來定位是一種簡化說法：真正的產品是一套模組化的 agentic-AI ＋邊緣硬體＋電腦視覺技術堆疊，鎖定一線（Tier-1）晶圓廠，而非單一的 LLM 產品。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Jinsong Xu</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 2</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#e8710a">62<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#e8710a">
+        <button class="card__body" data-name="SixSense">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>硬科技：製造／國防</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </div>
+          <h3>SixSense</h3>
+          <p>無程式碼（no-code）深度學習／電腦視覺平台，為半導體晶圓廠與 OSAT（封裝測試廠）自動化執行視覺缺陷分類（AI-ADC）、批貨處置（lot disposition）以及根因／預測分析，取代產線上緩慢的人工檢測。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Akanksha Jagwani</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 2</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#e8710a">62<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#00897b">
+        <button class="card__body" data-name="Novo AI">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>AI SaaS／自動化</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </div>
+          <h3>Novo AI</h3>
+          <p>Novo AI (heynovo.ai) 打造生成式／代理式（agentic）AI，能夠擷取 50 多種語言的非結構化保險文件（醫療報告、維修報價、理賠表單），用以自動化理賠審查、加速處理流程、偵測詐欺／滲漏（leakage），並為保險公司及其營運團隊提供定價洞察。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Julien Condamines</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 2</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#00897b">58<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#1a73e8">
+        <button class="card__body" data-name="CLIKA">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>Edge AI／晶片硬體</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </div>
+          <h3>CLIKA</h3>
+          <p>CLIKA 打造一套自動化的 AI 模型壓縮／量化平台（即「Automatic Compression Engine」／ACE SDK），能將神經網路——包括參數量達約 15B 的 LLM——縮小並編譯，使其在雲端、地端（on-prem）與邊緣硬體（NVIDIA、Intel、AMD，Qualcomm 即將支援）上跑得更快、更省成本。廠商宣稱：模型體積最多可縮減約 90%、最高加速 18.4 倍、準確度幾乎零損失。該公司另經營「Modelverse」，一個提供預壓縮、可直接部署模型的市集。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Nayul Kim</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 2</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#1a73e8">58<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#546e7a">
+        <button class="card__body" data-name="Shieldbase">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>企業安全</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </div>
+          <h3>Shieldbase</h3>
+          <p>一套「企業 AI 作業系統」（定位為「職場版 Cursor」），可串接 100 多種企業應用程式與舊有資料來源，並在其上疊加安全的企業搜尋、多模態 LLM 路由、AI agent 與工作流程自動化，同時提供地端／私有雲部署，以及治理／隱私防護機制（宣稱具備 SOC 2 Type II、GDPR、HIPAA）。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Diego Rojas</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 3</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#546e7a">58<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#7b4fd0">
+        <button class="card__body" data-name="GreenBidz">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>垂直 SaaS</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </div>
+          <h3>GreenBidz</h3>
+          <p>一家總部位於台北的 B2B 循環經濟拍賣／競標市集,專門處理閒置工業機械、IT 資產、除役伺服器,以及金屬／電子廢料,讓台灣製造商、資料中心與工廠得以轉售或跨境再部署退役設備,並附帶 ESG／CO2 追蹤。旗下經營 101Lab(實驗室／測試設備)與 101recycle 兩個子品牌,並由新加坡 IT 資產管理公司 Axentel 的老將團隊操盤。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Jerry Yiu</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 2</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#7b4fd0">54<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#00897b">
+        <button class="card__body" data-name="Pathors">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>AI SaaS／自動化</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </div>
+          <h3>Pathors</h3>
+          <p>一家位於台北的代管型對話／語音 AI 平台，為亞洲中小企業與大型企業自動化處理進線與外撥電話（客服、預約提醒、催收、潛在客戶資格篩選），針對繁體中文優化，並能處理台灣口音／國台語夾雜的 code-switching，符合在地電信法規與 PDPA，可在 7 至 14 天內完成部署。該公司日益將自己定位為賣給系統整合商的語音 AI 基礎設施層，而不僅是面向終端客戶的 SaaS。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Brandon Lu</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 3</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#00897b">52<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#00897b">
+        <button class="card__body" data-name="Notifly">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>AI SaaS／自動化</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </div>
+          <h3>Notifly</h3>
+          <p>為行動 App 與電商打造的行為觸發式顧客互動／CRM 行銷自動化工具。最初的產品「Notifly」(notifly.tech) 是一套全通路活動工具（push、web push、in-app、email、SMS、webhook），主打「AI 輔助分眾」；創辦人後來轉型為「Clix」(clix.so)——一款定位更聚焦、開發者優先的推播通知基礎設施產品（「clix install」CLI、Firebase／APNs 設定、投遞分析），由矽谷（StartX S25）推出。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Minyong Lee</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 2</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#00897b">42<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#e8710a">
+        <button class="card__body" data-name="Hyarks">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>硬科技：製造／國防</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </div>
+          <h3>Hyarks</h3>
+          <p>總部位於台灣高雄，開發軍民兩用的自主無人水面載具（USV），搭配繫留式無人機，鎖定三大市場——鮪魚捕撈（TF-100「Tuna Finder」，取代耗油的直升機／快艇偵搜）、離岸風電檢測，以及海軍國防（水雷反制、ASW 反潛、海岸監偵）——並在其上疊加一層「海洋數據」題材。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Juan Herrero Valero</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 2</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#e8710a">42<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#7b4fd0">
+        <button class="card__body" data-name="Rosary Labs">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>垂直 SaaS</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </div>
+          <h3>Rosary Labs</h3>
+          <p>馬來西亞垂直 AI 新創，開發「Rosary Vision」——一款 BIM 外掛，能自動產生工程數量計算書（bills of quantities），並依當地建築法規（例如馬來西亞的 Uniform Building By-Laws 1984）驗證建築模型，背後由自研的領域 RAG 引擎（「Rosary Search」）驅動。儘管 AW#32 的定位將其框定為純粹的 AEC 法規合規，該公司實際上是一個多垂直領域的 AI 工具佈局，同時服務油氣、法律與公用事業。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>May Law</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 2</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#7b4fd0">42<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#00897b">
+        <button class="card__body" data-name="Decisions Lab">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>AI SaaS／自動化</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </div>
+          <h3>Decisions Lab</h3>
+          <p>一家香港 AI 新創（成立於 2024 年 6 月），為 B2B go-to-market（GTM）打造「模擬買家研究」：它將公開訊號加上第一方資料，提煉成由 LLM 驅動的合成買家人物誌（synthetic buyer persona），讓團隊在投入 GTM 預算前先預先測試訊息傳達、痛點觸發與分眾優先排序。最初是一個「給政策制定者用的模擬城市（SimCity for policymakers）」式社會影響力模擬器，後來經由 D2C 行銷轉型至 B2B GTM。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Louis Cheung</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 3</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#00897b">38<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#00897b">
+        <button class="card__body" data-name="Arrivl">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>AI SaaS／自動化</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </div>
+          <h3>Arrivl</h3>
+          <p>Arrivl 是一個 AI agent 流量分析與 AEO／GEO 就緒度平台：你只要加上一行 JavaScript，它就能偵測並分類造訪你網站的 AI 爬蟲與 agentic bot（ChatGPT、Claude、Perplexity、Gemini 等），為你的「AI 可讀性」評分，並將 agent 造訪與真人轉介／轉換串連起來——本質上就是「給 AI agent 用的 Google Analytics」加上一套 answer-engine-optimization 稽核。目前在 beta 期間免費。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Ryan Chen</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 3</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#00897b">34<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#00897b">
+        <button class="card__body" data-name="CloudStation">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>AI SaaS／自動化</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </div>
+          <h3>CloudStation</h3>
+          <p>CloudStation 推出「Charlie」，一個 AI 多代理（multi-agent）協調平台，能在隔離的沙箱（sandbox）中啟動專門化的代理（開發、研究、內容、維運），端到端地完成任務，並採用自帶 API key（bring-your-own-API-key）模式（約每月 US$24.99），疊加在 CloudStation 較早期的類 Heroku 應用部署／PaaS 產品之上。Demo Day 上以「私有、零資料外洩的 AI 代理沙箱 OS」為框架，正是這套代理執行環境（runtime）在資安／自架（self-host）面向上的切角。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Oumnya Benhassou</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 3</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#00897b">34<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#00897b">
+        <button class="card__body" data-name="NOTAG KOREA">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>AI SaaS／自動化</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </div>
+          <h3>NOTAG KOREA</h3>
+          <p>一家韓國跨境電商「貿易商即平台（trading-company-as-a-platform）」業者，透過自有的多國／多通路營運自動化系統（NTMS），協助 K-fashion、K-beauty 與生活風格品牌打進東南亞與台灣，端到端處理物流、報關、金流、在地化與電商平台上架。所謂「AI 自主營運引擎」的定位，其實是既有貿易自動化／SaaS 賦能型經銷業務近期的重新包裝。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Aiden Ung Choi</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 3</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#00897b">34<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#1a73e8">
+        <button class="card__body" data-name="LIPS">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>Edge AI／晶片硬體</span>
+            <span class="conv-badge conv-medium">中信心</span>
+          </div>
+          <h3>LIPS</h3>
+          <p>一家位於台北的 3D 機器視覺公司（創立於 2013 年），設計並製造工業級 3D 深度相機（ToF、主動式立體視覺、結構光），以及邊緣 AI 加速器與感知中介軟體（perception middleware），應用於機器人、工廠自動化與物流——並非一家全新的 AW#32 新創，而是一家成熟、接近 IPO 的硬體供應商，其相機獲 BMW 選用於 NVIDIA Isaac 物流機器人。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Luke Liu</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 2</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#1a73e8">34<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#1a73e8">
+        <button class="card__body" data-name="Phasetrum">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>Edge AI／晶片硬體</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </div>
+          <h3>Phasetrum</h3>
+          <p>位於新竹的無晶圓廠 RF IC 設計公司，由 NYCU 教授技轉衍生而成，開發相位陣列波束成形／相位調諧晶片與封裝天線（AIP）模組（涵蓋 X-band 到 Ka／sub-THz），鎖定 LEO 衛星通訊終端、5G NTN、UAV 通訊與 AESA 雷達——並宣稱擁有專利的「相位差」架構，可降低約 50% 功耗、並大幅削減陣列校正變數與校正時間。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Wayne Tsai</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 2</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#1a73e8">34<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#00897b">
+        <button class="card__body" data-name="OmniEase AI">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>AI SaaS／自動化</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </div>
+          <h3>OmniEase AI</h3>
+          <p>儘管 AW#32 Demo Day 的簡報內容為「無程式碼多通路客服機器人」，omniease.ai 上實際上線的產品卻完全是另一回事：一個面向全球海關與貿易合規的代理式（agentic）AI 平台——提供 HS-code 分類（一套 9-agent 系統）、依國家對計算關稅／稅率、貿易協定與排除清單追蹤、進口限制檢查，以及即時海關狀態監控，並以「由持牌美國報關行（US Customs Broker）申報」為賣點。情報引擎訂閱方案起價 US$499／月，並可選購逐筆貨件的通關申報服務。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Sebastian Wijaya</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 3</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#00897b">31<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#1a73e8">
+        <button class="card__body" data-name="Ruomei 若湄">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>Edge AI／晶片硬體</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </div>
+          <h3>Ruomei 若湄</h3>
+          <p>台灣深科技材料新創，開發一種電氣絕緣、以富勒烯（fullerene／又稱「巴克球 buckyball」）為基礎的散熱材料（一種熱介面／散熱片材料），鎖定 AI/HPC 晶片的冷卻需求；自我定位為「先進材料 × AI」。曾於 AppWorks #32 × Wistron #10 聯合 Demo Day（2026 年 6 月 17 日）發表。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Owen Lee</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 4</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#1a73e8">31<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div><div class="card" style="--cat:#c2185b">
+        <button class="card__body" data-name="Krush">
+          <div class="card__top">
+            <span class="cat-pill"><span class="ic"></span>消費／社群</span>
+            <span class="conv-badge conv-low">低信心</span>
+          </div>
+          <h3>Krush</h3>
+          <p>一款鎖定亞洲離散族群（diaspora，主要在美國城市——紐約、洛杉磯、舊金山——並擴張至加拿大／英國／澳洲）的行動約會＋社交 App，結合配對與文化功能（人臉辨識配對、算命、興趣／星座契合度、好友背書，以及線下社群活動）。由韓國公司 Curelation, Co. 營運。</p>
+          <div class="card__meta">
+            <span><span class="material-symbols-rounded">person</span>Stephen Moon</span>
+            <span><span class="material-symbols-rounded">workspace_premium</span>Tier 3</span>
+          </div>
+          <div class="card__score-row">
+            <span class="card__score" style="color:#c2185b">24<small>/100</small></span>
+            <span class="card__cta">看完整 DD<span class="material-symbols-rounded">arrow_forward</span></span>
+          </div>
+        </button>
+      </div></div>
   </section>
 
   <!-- ===== Synthesis ===== -->
@@ -214,11 +836,55 @@
       <h2 id="synthesis-heading" data-i18n="synthesisTitle">綜合觀察</h2>
       <p data-i18n="synthesisSub">把 19 家放在一起看：誰最可能被投、為什麼，以及這一屆透露的方向。</p>
     </header>
-    <div class="synthesis-wrap" id="synthesis-wrap"></div>
+    <div class="synthesis-wrap" id="synthesis-wrap">
+      <div class="syn-card">
+        <h3><span class="material-symbols-rounded">emoji_events</span>最可能拿到 AppWorks Funds 支票</h3>
+        <ol><li><b>SixSense</b> <span style="color:var(--on-surface-variant)">(62)</span> — 本屆最強：已查證募資約 US$12M、Peak XV／Surge 領投、客戶含 GlobalFoundries 與 JCET、WEF 2026 Technology Pioneer，AI＋GSEA＋B2B 三點全中，且台灣牽引力正好接上緯創的世界。若 AppWorks 想從這屆挑一張旗艦支票，就是它。</li><li><b>Innowave Tech</b> <span style="color:var(--on-surface-variant)">(62)</span> — GlobalFoundries 25 年品質老將打造 agentic 晶圓廠維運，已募約 US$4M（Enterprise Singapore Slingshot 等）、新加坡在地＝GSEA 原生。主軸極契合，但更可能是「小額／策略性投資或先追蹤」而非領投。</li><li><b>CLIKA</b> <span style="color:var(--on-surface-variant)">(58)</span> — 正對主軸的 AI 基礎設施（邊緣模型量化壓縮），Mobileye 履歷技術共同創辦人，Accenture 策略投資＋IQT 國安管道＋Golden Gate 佈局東南亞，時機正熱。</li><li><b>Shieldbase</b> <span style="color:var(--on-surface-variant)">(58)</span> — 主軸與地緣的完美樣板：賣主權／地端企業 AI 給東南亞企業與政府，團隊 GSEA 原生，Tenity／GenAI Fund 等機構背書 —— 全球巨頭忽略的縫隙。</li><li><b>Novo AI</b> <span style="color:var(--on-surface-variant)">(58)</span> — 前 Google ML 主管做保險理賠 agentic AI，First Round Capital 種子輪，乾淨的 B2B AI SaaS 形狀正合 AppWorks 核心主軸與階段（seed→A）。</li></ol>
+      </div>
+      <div class="syn-card">
+        <h3><span class="material-symbols-rounded">donut_small</span>信心分布</h3>
+        <div class="conv-bars">
+      <div class="conv-bar">
+        <span>高信心</span>
+        <span class="conv-bar__track"><span class="conv-bar__fill" style="width:0%;background:var(--conv-high)"></span></span>
+        <span style="text-align:right;font-weight:600">0</span>
+      </div>
+      <div class="conv-bar">
+        <span>中信心</span>
+        <span class="conv-bar__track"><span class="conv-bar__fill" style="width:42.10526315789473%;background:var(--conv-medium)"></span></span>
+        <span style="text-align:right;font-weight:600">8</span>
+      </div>
+      <div class="conv-bar">
+        <span>低信心</span>
+        <span class="conv-bar__track"><span class="conv-bar__fill" style="width:57.89473684210527%;background:var(--conv-low)"></span></span>
+        <span style="text-align:right;font-weight:600">11</span>
+      </div></div>
+      </div>
+      
+      <div class="syn-card">
+        <h3><span class="material-symbols-rounded">insights</span>可投性集中在台／星「半導體 × 製造」deep tech</h3>
+        <p>最強的護城河與最真實的牽引力都落在製造／晶圓賽道（SixSense、Innowave、LIPS、CLIKA）。這正好接上 AW#32 的產業夥伴緯創、也呼應 AppWorks「台灣＝物理 AI 試驗場」的論點 —— 這屆若有支票，最可能從這裡開出。</p>
+      </div>
+      <div class="syn-card">
+        <h3><span class="material-symbols-rounded">insights</span>水平型 AI SaaS 是這屆的弱區</h3>
+        <p>OmniEase、CloudStation、Arrivl —— 賽道擁擠、查無公開牽引力、護城河薄弱，部分還出現「簡報與實況不符」的誠信落差。以 follow-on 投資的標準看，AppWorks 多半會 pass。</p>
+      </div>
+      <div class="syn-card">
+        <h3><span class="material-symbols-rounded">insights</span>頂級履歷 ≠ 可投性</h3>
+        <p>Phasetrum、LIPS、Hyarks 都有世界級技術創辦人（NYCU RF 教授、BMW design-win、USV 連續創業者），但 follow-on 分數不高 —— 零公開牽引力、資本密集、長週期，對偏軟體與區域擴張的基金而言階段契合度低。</p>
+      </div>
+      <div class="syn-card">
+        <h3><span class="material-symbols-rounded">insights</span>GSEA 在地性是真正的加分項</h3>
+        <p>Shieldbase、GreenBidz、Rosary、Innowave 靠「東南亞在地」拿分；偏韓國／美國市場的 Notifly、Krush、NOTAG 則在 GSEA 契合上失分。真實 DD 也抓出多筆站不住腳的宣稱（OmniEase 定位錯置、CloudStation 履歷灌水、Ruomei 全無佐證、NOTAG 名為 AI SaaS 實為低毛利代營運）。</p>
+      </div>
+      <div class="syn-card" style="grid-column:1/-1">
+        <h3><span class="material-symbols-rounded">flag</span>一句話總結</h3>
+        <p style="font-size:.96rem;color:var(--on-surface)">AW#32 沒有穩贏標的 —— 以「Funds follow-on 投資機率」衡量，沒有任何一家達到高信心領投門檻。但有一群最接近支票的：半導體／製造 deep tech 以 SixSense 為首（最像旗艦），其後 Innowave、CLIKA、LIPS；再加兩家 GSEA 原生企業 AI（Shieldbase、Novo）。其餘多屬「小額策略性投資或先追蹤」，而水平型 AI SaaS 與無牽引力的硬科技則大概率被 pass。一句話：這屆 AppWorks Funds 最可能只開一張旗艦支票（SixSense），其餘維持觀察。</p>
+      </div></div>
   </section>
-
+</main>
   <footer class="footer">
-    <p id="footer-text" data-i18n-html="footer"></p>
+    <p id="footer-text" data-i18n-html="footer">本頁新創名單與 Demo Day 資料整理自 <a href="https://mattye.dev/projects/one-more-step/aw32/" target="_blank" rel="noopener">Matt Ye《One More Step》AW#32 整理</a>，盡職調查內容由各公司官網、LinkedIn 與公開報導查證。投資判斷為獨立分析，非 AppWorks 官方立場，亦非投資建議。</p>
   </footer>
 
   <!-- Dialog -->
