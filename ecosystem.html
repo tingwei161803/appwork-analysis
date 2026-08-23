@@ -19,10 +19,13 @@
   <meta property="og:type" content="article" />
   <meta property="og:title" content="生態系 · AppWorks Portfolio Atlas" />
   <meta property="og:description" content="Demo Day chronicle · 22 Why-We-Invested · 5 SEA-VC competitors · Jamie Lin quotes." />
-  <meta property="og:image" content="./og-image.svg" />
+  <meta property="og:image" content="https://appwork-analysis.peteraim.com/og-image.svg" />
   <meta property="og:url" content="https://appwork-analysis.peteraim.com/ecosystem.html" />
 
   <link rel="canonical" href="https://appwork-analysis.peteraim.com/ecosystem.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://appwork-analysis.peteraim.com/ecosystem.html" />
+  <link rel="alternate" hreflang="en" href="https://appwork-analysis.peteraim.com/en/ecosystem.html" />
+  <link rel="alternate" hreflang="x-default" href="https://appwork-analysis.peteraim.com/ecosystem.html" />
   <link rel="manifest" href="./site.webmanifest" />
   <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%230b57d0'/><text x='90' y='122' font-size='84' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>AW</text></svg>" />
 
@@ -1046,9 +1049,10 @@
   <script>
     if ('serviceWorker' in navigator && location.protocol !== 'file:') {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js').catch(() => {});
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
       });
     }
   </script>
+<p class="lang-alt-link" style="text-align:center;padding:12px;"><a href="/en/ecosystem.html" hreflang="en" rel="alternate" lang="en">English version</a></p>
 </body>
 </html>
