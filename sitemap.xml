@@ -5,6 +5,9 @@
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://appwork-analysis.peteraim.com/</loc>
+  </url>
+  <url>
     <loc>https://appwork-analysis.peteraim.com/analysis.html</loc>
   </url>
   <url>
@@ -14,7 +17,22 @@
     <loc>https://appwork-analysis.peteraim.com/ecosystem.html</loc>
   </url>
   <url>
-    <loc>https://appwork-analysis.peteraim.com/</loc>
+    <loc>https://appwork-analysis.peteraim.com/en/</loc>
+  </url>
+  <url>
+    <loc>https://appwork-analysis.peteraim.com/en/analysis.html</loc>
+  </url>
+  <url>
+    <loc>https://appwork-analysis.peteraim.com/en/aw32.html</loc>
+  </url>
+  <url>
+    <loc>https://appwork-analysis.peteraim.com/en/ecosystem.html</loc>
+  </url>
+  <url>
+    <loc>https://appwork-analysis.peteraim.com/en/insights.html</loc>
+  </url>
+  <url>
+    <loc>https://appwork-analysis.peteraim.com/en/portfolio.html</loc>
   </url>
   <url>
     <loc>https://appwork-analysis.peteraim.com/insights.html</loc>

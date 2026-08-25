@@ -156,8 +156,30 @@
   /* ===== State (init from URL > localStorage > defaults) ===== */
   const urlParams = new URLSearchParams(location.search);
   const fromUrl = (k, fallback) => urlParams.has(k) ? urlParams.get(k) : fallback;
+
+  /* The path decides the language: each language has its own page and declares
+     it in <html lang>. Never read it back from storage — someone landing on
+     /en/ must get English even if they once picked 中文, and crawlers have no
+     storage at all. */
+  const pageLang = (document.documentElement.getAttribute('lang') || 'en')
+    .toLowerCase().startsWith('zh') ? 'zh' : 'en';
+  const otherLangPath = () => (pageLang === 'zh'
+    ? location.pathname.replace(/^\//, '/en/')
+    : location.pathname.replace(/^\/en\//, '/'));
+
+  /* Links made before the split carried the language as ?lang=; hand those
+     visitors to the page that is actually in that language, filters and all. */
+  if (urlParams.has('lang')) {
+    const want = urlParams.get('lang') === 'zh' ? 'zh' : 'en';
+    urlParams.delete('lang');
+    const qs = urlParams.toString();
+    const rest = (qs ? '?' + qs : '') + location.hash;
+    if (want !== pageLang) { location.replace(otherLangPath() + rest); return; }
+    history.replaceState(null, '', location.pathname + rest);
+  }
+
   const state = {
-    lang: fromUrl('lang', localStorage.getItem('aw.lang') || 'en'),
+    lang: pageLang,
     theme: localStorage.getItem('aw.theme') ||
       (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
     industry: fromUrl('industry', 'all'),
@@ -169,7 +191,6 @@
   };
   function syncURL() {
     const p = new URLSearchParams();
-    if (state.lang !== 'zh') p.set('lang', state.lang);
     if (state.industry !== 'all') p.set('industry', state.industry);
     if (state.country !== 'all') p.set('country', state.country);
     if (state.status !== 'all') p.set('status', state.status);
@@ -214,27 +235,13 @@
   });
 
   function applyStaticI18n() {
-    document.documentElement.lang = state.lang === 'zh' ? 'zh-Hant' : 'en';
     $$('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
     $$('[data-i18n-html]').forEach((el) => { el.innerHTML = t(el.dataset.i18nHtml); });
     const _se = $('#search'); if (_se) _se.placeholder = t('searchPlaceholder');
-    $('#lang-zh').setAttribute('aria-pressed', String(state.lang === 'zh'));
-    $('#lang-en').setAttribute('aria-pressed', String(state.lang === 'en'));
+    $('#lang-zh').setAttribute('aria-current', state.lang === 'zh' ? 'page' : 'false');
+    $('#lang-en').setAttribute('aria-current', state.lang === 'en' ? 'page' : 'false');
     applyTheme();
   }
-  function setLang(lang) {
-    if (lang === state.lang) return;
-    state.lang = lang;
-    localStorage.setItem('aw.lang', lang);
-    applyStaticI18n();
-    renderChips();
-    renderActiveFilters();
-    renderCards();
-    syncURL();
-    if (openIndex >= 0) renderDialog();
-  }
-  $('#lang-zh').addEventListener('click', () => setLang('zh'));
-  $('#lang-en').addEventListener('click', () => setLang('en'));
 
   function fillChips(wrap, items, active, onPick) {
     if (!wrap) return;
@@ -1155,7 +1162,7 @@
     } else if (e.key === 'd') {
       $('#theme-toggle')?.click();
     } else if (e.key === 'l') {
-      setLang(state.lang === 'zh' ? 'en' : 'zh');
+      location.href = otherLangPath() + location.search + location.hash;
     } else if (e.key === 'f') {
       $('#filters-toggle')?.click();
     } else if (e.key === 'r') {
@@ -1199,9 +1206,8 @@
   const csvBtn = $('#export-csv');
   if (csvBtn) csvBtn.addEventListener('click', downloadCSV);
 
-  /* Re-render chapters + charts when language or theme changes (charts depend on CSS vars). */
-  const origSetLang = setLang;
-  // Note: setLang already calls renderChips/renderCards; hook chapters + charts via observer on attributes.
+  /* Re-render chapters + charts when the theme changes (charts depend on CSS vars).
+     Language no longer changes in place — it comes with the page. */
   new MutationObserver(() => {
     renderChapters();
     renderCharts();
@@ -1215,7 +1221,7 @@
     renderHeatmap();
     renderFunnel();
     renderCompareBar();
-  }).observe(document.documentElement, { attributes: true, attributeFilter: ['lang', 'data-theme'] });
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
   function openFromHash() {
     let id;

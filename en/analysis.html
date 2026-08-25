@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WN17V7GL48"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-WN17V7GL48');
+  </script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Analysis · AppWorks Portfolio Atlas</title>
+  <meta name="description" content="10-dimension deep dive (with Claude observations) + a 6-phase evolution timeline." />
+  <meta name="author" content="Unofficial study companion" />
+  <meta name="theme-color" content="#0b57d0" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Analysis · AppWorks Portfolio Atlas" />
+  <meta property="og:description" content="10-dimension deep dive (with Claude observations) + a 6-phase evolution timeline." />
+  <meta property="og:image" content="https://appwork-analysis.peteraim.com/og-image.svg" />
+  <meta property="og:url" content="https://appwork-analysis.peteraim.com/en/analysis.html" />
+
+  <link rel="canonical" href="https://appwork-analysis.peteraim.com/en/analysis.html" />
+  <link rel="alternate" hreflang="zh-Hant" href="https://appwork-analysis.peteraim.com/analysis.html" />
+  <link rel="alternate" hreflang="en" href="https://appwork-analysis.peteraim.com/en/analysis.html" />
+  <link rel="alternate" hreflang="x-default" href="https://appwork-analysis.peteraim.com/analysis.html" />
+  <link rel="manifest" href="../site.webmanifest" />
+  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'><rect width='180' height='180' rx='40' fill='%230b57d0'/><text x='90' y='122' font-size='84' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>AW</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Flex:opsz,wght@8..144,400..700&family=Roboto+Mono:wght@400;500&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../assets/styles.css" />
+  <link rel="stylesheet" href="../assets/pages.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%230b57d0'/><text x='50' y='70' font-size='52' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='700'>AW</text></svg>" />
+</head>
+<body>
+  <header class="appbar">
+    <div class="appbar__brand">
+      <span class="brand-mark">AW</span>
+      <span>
+        <span data-i18n="brand">AppWorks 投資組合圖鑑</span><br />
+        <span class="brand-sub" data-i18n="brandSub">台灣 × 大東南亞 創投與加速器</span>
+      </span>
+    </div>
+    <a class="ghstar ripple-host" href="https://github.com/tingwei161803/appwork-analysis" target="_blank" rel="noopener" aria-label="Star this project on GitHub">
+      <svg class="ghstar__logo" viewBox="0 0 16 16" aria-hidden="true" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+      <span class="ghstar__star" aria-hidden="true">★</span>
+      <span class="ghstar__text">Star</span>
+      <span class="ghstar__count" id="gh-count" hidden></span>
+    </a>
+    <div class="seg" role="group" aria-label="Language">
+      <a id="lang-zh" data-lang="zh" href="/analysis.html" hreflang="zh-Hant" lang="zh-Hant" rel="alternate" aria-current="false" aria-label="中文"><span class="lbl">中文</span></a>
+      <a id="lang-en" data-lang="en" href="/en/analysis.html" hreflang="en" lang="en" rel="alternate" aria-current="page" aria-label="English"><span class="lbl">EN</span></a>
+    </div>
+    <button class="icon-btn ripple-host" id="theme-toggle" aria-label="Toggle theme" title="切換深淺色">
+      <span class="material-symbols-rounded" id="theme-icon">dark_mode</span>
+    </button>
+  </header>
+
+  <nav class="appnav" aria-label="Sections">
+    <div class="appnav__inner">
+      <a href="index.html"><span class="material-symbols-rounded">home</span><span data-i18n="pgHome">首頁</span></a>
+      <a href="portfolio.html"><span class="material-symbols-rounded">grid_view</span><span data-i18n="pgPortfolio">投資組合</span></a>
+      <a href="analysis.html" aria-current="page"><span class="material-symbols-rounded">menu_book</span><span data-i18n="pgAnalysis">深度分析</span></a>
+      <a href="insights.html"><span class="material-symbols-rounded">monitoring</span><span data-i18n="pgInsights">數據地圖</span></a>
+      <a href="ecosystem.html"><span class="material-symbols-rounded">hub</span><span data-i18n="pgEcosystem">生態系</span></a>
+    </div>
+  </nav>
+
+  <main>
+<section class="chapters" id="chapters" aria-labelledby="chapters-heading">
+    <header class="section-head">
+      <h2 id="chapters-heading" data-i18n="chaptersTitle">Ten-chapter deep dive</h2>
+      <p data-i18n="chaptersSub">Funds, team, thesis evolution—AppWorks broken down into readable chapters. Facts plus Claude's observations.</p>
+    </header>
+    <div class="chapter-list" id="chapter-list">
+        <article class="chapter" data-id="company-profile" aria-expanded="false" style="--cat:var(--c-fintech)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-company-profile">
+            <span class="chapter__icon"><span class="material-symbols-rounded">apartment</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 01</span>
+              <h3>Company Profile</h3>
+              <p>A Greater Southeast Asia venture platform built by founders, for founders.</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-company-profile">
+            
+        <div class="chapter__section">
+          <h4>Jamie Lin's Pivot Home</h4>
+          <p>Jamie Lin gave up his US green card and returned to Taipei in 2009. His thesis was simple: mobile internet would reshape Asia, and the region needed a capital platform built by people who had actually started companies.</p><p>Fifteen years later he runs four funds totaling US$386M AUM, and since 2023 also serves as President of Taiwan Mobile—rare dual track as both GP and listed-company operator.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>"By Founders, For Founders"</h4>
+          <p>AppWorks launched its Accelerator in 2010, positioning itself as a "founder community plus fund" rather than a conventional VC. Most partners have themselves started companies, framing peer-to-peer rather than top-down relationships.</p><p>Operationally this shows up most clearly in the Accelerator: no equity, no tokens, no fees—an outlier in a global market where 5-7% equity programs are the norm.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Headquarters and Coverage</h4>
+          <p>Headquartered in Taipei with operational nodes in Singapore, Jakarta and Kuala Lumpur, AppWorks covers nine markets across Greater Southeast Asia. Taiwan as a manufacturing and semiconductor base is deliberately paired with ASEAN as a demand market.</p>
+        </div>
+      
+            <div class="chapter__observation">Few Asian GPs simultaneously run a listed operating company. Most VC partners come from finance, leaving a structural gap between investor and operator. Jamie running both a fund and Taiwan Mobile gives AppWorks first-hand empathy for scaling pain, a structural differentiator versus pure-play accelerators like 500 Global or Antler.</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="funds-capital" aria-expanded="false" style="--cat:var(--c-ecommerce)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-funds-capital">
+            <span class="chapter__icon"><span class="material-symbols-rounded">savings</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 02</span>
+              <h3>Funds &amp; Capital</h3>
+              <p>Four funds, US$386M AUM, with Fund II hitting top-quartile DPI.</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-funds-capital">
+            
+        <div class="chapter__section">
+          <h4>Four Funds, Four Vintages</h4>
+          <p>Fund I (2012, US$11M) was a pilot. Fund II (2014, US$52M) caught the mobile cycle and now sits at 1.9x DPI—top-quartile among its Asian vintage peers.</p><p>Fund III (2021, US$150M) tripled in size at the market peak and currently shows 0.5x DPI, still maturing. Fund IV (2026, US$165M) just held its final close this year.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Reading the Fund IV Shortfall</h4>
+          <p>Fund IV closed at US$165M against an original target of US$360M—roughly 46% of target. This mirrors the broader 2024-2026 LP retrenchment from Asian venture rather than an AppWorks-specific issue.</p><p>Closing a nine-figure fund in a fundraising winter is itself an LP-validation signal, but it also means deployment discipline will be scrutinized harder over the next four years.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>LP Mix: Sovereign Plus Corporate</h4>
+          <p>Since Fund II the LP base has included Taiwan NDF, Malaysia Khazanah and Korea KVIC—sovereign and policy capital providing regional credibility.</p><p>Corporate LPs span Fubon Life, Cathay Life, Taiwan Mobile, Wistron, Phison and E Ink, covering insurance, telecom, manufacturing and semiconductors. The list doubles as a customer and channel roster for portfolio companies.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Check Sizes</h4>
+          <p>Seed checks range US$0.5-3M, with Series A through C starting at US$2M plus follow-on reserves. The structure supports lead positions at seed with capacity to ride into growth rounds.</p>
+        </div>
+      
+            <div class="chapter__observation">Fund II's 1.9x DPI is genuinely top-quartile for 2014 Asian vintages, but Fund III at 0.5x and the Fund IV shortfall reflect a broader pattern: 2021-peak Asian VCs stuck in valuation reset. Versus Sequoia China splitting and Tiger Global downsizing, AppWorks closing a smaller, regionally focused fund is a case study in how mid-sized Asian VCs survive the cycle.</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="portfolio-overview" aria-expanded="false" style="--cat:var(--c-ai)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-portfolio-overview">
+            <span class="chapter__icon"><span class="material-symbols-rounded">grid_view</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 03</span>
+              <h3>Portfolio at a Glance</h3>
+              <p>140+ active portfolio, 6 IPOs, 1 hectocorn, 2 decacorns and 8 unicorns.</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-portfolio-overview">
+            
+        <div class="chapter__section">
+          <h4>Scale and Coverage</h4>
+          <p>The Accelerator has produced 2,029 founders and 624 active startups across nine GSEA markets, with cumulative alumni revenue of US$16.3B and combined valuation of US$30-32B.</p><p>The funds hold direct positions in roughly 140 companies, spanning e-commerce, fintech, SaaS, AI infrastructure, blockchain, manufacturing tech and defense tech.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Exit Track Record</h4>
+          <p>Through 2026: 6 IPOs (Uber, 17LIVE, 91APP, Lalamove, Kuobrothers, GameSparcs), 8 IEO outcomes, 1 hectocorn (Uber), 2 decacorns (Animoca Brands, Dapper Labs) and 8 unicorns.</p><p>For a regional platform launched in 2010 with sub-US$400M AUM, this exit density sits at the top tier of Asian VC outcomes.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Marquee Names</h4>
+          <p>Consumer and logistics: Uber (hectocorn exit), Lalamove (unicorn), Carousell, ShopBack. Web3: Animoca Brands, Dapper Labs (NBA Top Shot), Pendle Finance. Local verticals: 17LIVE, 91APP, Kuobrothers.</p><p>The lineup cuts across Web2 consumer, cross-border logistics, NFT infrastructure and DeFi, indicating thematic correctness across multiple cycles.</p>
+        </div>
+      
+            <div class="chapter__observation">Few Asian VCs hold early positions across Uber (peak Web2), Animoca and Dapper Labs (peak Web3) and Pendle (second-wave DeFi). Most regional funds get pinned to a single vertical; AppWorks shows cycle-switching ability typically associated with multi-stage megafunds—unusual for a US$386M AUM platform.</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="accelerator" aria-expanded="false" style="--cat:var(--c-web3)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-accelerator">
+            <span class="chapter__icon"><span class="material-symbols-rounded">rocket_launch</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 04</span>
+              <h3>The Accelerator</h3>
+              <p>Sixteen years, 33 batches, zero equity, zero tokens, zero fees.</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-accelerator">
+            
+        <div class="chapter__section">
+          <h4>From AW#1 to AW#33</h4>
+          <p>AW#1 (2010) focused on internet. AW#8 (2014) pivoted to mobile. 2017 codified the GSEA regional frame. AW#16-17 (2018) was the largest reset, with Jamie publicly declaring a shift to AI plus Blockchain.</p><p>2019 added Southeast Asia, forming the A.B.S. framework still in use. From AW#32 (2024) the program added Manufacturing AI, Defense Tech, On-Chain Banking and Post-Quantum Cryptography, aligned with Fund IV deployment themes.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>The No-Equity Anomaly</h4>
+          <p>Y Combinator takes 7%, 500 Global 6%, Techstars 6%—global accelerators monetize via equity. AppWorks takes none, framing the Accelerator as a deal-flow funnel rather than a standalone P&amp;L.</p><p>The program itself is unprofitable by design; returns come from the fund investing into the strongest alumni later. Short-term revenue is traded for long-term relationship depth.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Demo Days and the Alumni Network</h4>
+          <p>Demo Days rotate across Taipei, Singapore, KL and Jakarta, putting founders in front of GSEA capital and customers directly. Each batch admits 30-50 teams, yielding 80-100 new companies per year.</p><p>Cumulative alumni: 2,029 founders. This network—not fund size—is the real core asset, compounded over sixteen years across nine markets.</p>
+        </div>
+      
+            <div class="chapter__observation">Running the Accelerator as a loss leader is strategic: foregoing 6-7% equity buys an "equity-free entry" brand that compounds into a near-monopoly on GSEA early-stage deal flow. Only Antler and Iterative compete meaningfully for founder mindshare in Asia, both still smaller in alumni base. Over time this network likely outweighs the fund AUM in strategic value.</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="investment-thesis" aria-expanded="false" style="--cat:var(--c-hardware)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-investment-thesis">
+            <span class="chapter__icon"><span class="material-symbols-rounded">insights</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 05</span>
+              <h3>Investment Thesis</h3>
+              <p>A.B.S. plus GSEA with Taiwan as launchpad, now doubling down on physical AI.</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-investment-thesis">
+            
+        <div class="chapter__section">
+          <h4>The A.B.S. Framework</h4>
+          <p>A.B.S. stands for AI plus Blockchain plus Southeast Asia. Jamie frames it as "not three bets but one"—AI as productivity, blockchain as financial and ownership rails, SEA as the underdigitized market depth, each conditional on the others.</p><p>When announced in 2018, AI and blockchain were still treated as separate tracks by most Asian VCs. AppWorks was among the earliest to fuse them into a single thesis.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Defining GSEA</h4>
+          <p>GSEA = ASEAN plus Taiwan plus HK/Macau plus East Timor—nine markets, roughly 700M people. E-commerce GMV alone reaches US$42B, with Taiwan accounting for about 66% and serving as regional launchpad.</p><p>The logic: Taiwan has the most mature payment, logistics and consumer behavior layer for first-market validation, before scaling into the demographic depth of SEA.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Selection Criteria</h4>
+          <p>On founders: obsessed with true PMF (not vanity metrics), long-horizon, contrarian thinkers, ideally repeat founders. On problems: scalable, regionally replicable, aligned with A.B.S.</p><p>Unlike many Asian VCs that filter on ex-FAANG or ex-McKinsey resumes, AppWorks weights the softer trait of obsession with real user problems more heavily.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>2025-2026 Thesis Pivot</h4>
+          <p>Latest thesis: AI is shifting from digital assistants to physical labor forces—robotics, automation and manufacturing AI capture the next value wave. AI also accelerates digitization of underdigitized industries.</p><p>On the blockchain side, the bets are on Solana LSTs (e.g. Sanctum) and institutional rails, riding the next structural wave of institutional capital moving on-chain.</p>
+        </div>
+      
+            <div class="chapter__observation">The real distinction of A.B.S. is not the three keywords but the willingness to commit to a public thesis—most Asian VCs stay vague to preserve flexibility, while AppWorks uses explicit themes to self-select aligned founders, effectively turning brand into funnel. Versus a16z driving narrative via thesis essays and Sequoia preferring quiet, AppWorks sits in between: public yet pragmatic. The 2026 pivot to physical AI tracks NVIDIA, Figure and Physical Intelligence, suggesting the cadence remains on the global frontier.</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="thought-leadership" aria-expanded="false" style="--cat:var(--c-social)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-thought-leadership">
+            <span class="chapter__icon"><span class="material-symbols-rounded">auto_stories</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 06</span>
+              <h3>Thought Leadership</h3>
+              <p>AppWorks built influence not through ads, but through fifteen years of public writing and conviction.</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-thought-leadership">
+            
+        <div class="chapter__section">
+          <h4>Three Editorial Pillars</h4>
+          <p>The AppWorks blog and Jamie Lin's personal column together form one of the most prolific content libraries in Greater Southeast Asia venture. The output clusters into three pillars: founder methodology (fundraising cadence, PMF judgement, team building), thesis interpretation (Internet to Mobile to Blockchain to AI Agents), and structural commentary on Taiwan and ASEAN capital flows.</p><p>Unlike most VCs who treat blogs as a sourcing funnel, AppWorks writes as if compiling a founder textbook. The length, frameworks, and pedagogical tone mirror its accelerator stance: educate first, invest second.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Jamie Lin's Five Core Ideas</h4>
+          <p>Across fifteen years of writing, five recurring convictions define Jamie Lin: (1) By Founders, For Founders—VC legitimacy stems from founder empathy; (2) The A.B.S. unifying frame—AI, Blockchain, and SEA are three faces of one structural shift; (3) Long bets over cycle chasing—once a thesis is set, give it multi-fund compounding; (4) Taiwan as Mission—elevating Taiwan tech visibility is a personal calling; (5) Operator over Investor—identity sits with the operator, VC is just a vehicle.</p><p>These beliefs decode otherwise puzzling moves: holding 146 Web3 portfolio names through the winter, taking the Taiwan Mobile CEO role, and keeping Fund IV deployment cadence despite shortfall.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Must-Read Pieces and Spillover</h4>
+          <p>A canonical reading list usually includes Jamie's early "Taiwan needs more startup capital" essay, the formal A.B.S. thesis declaration, and recent pieces framing AI Agents as "the next mobile." These posts circulate not only in Taiwan but are reliably cited by tech media in Singapore, Malaysia, and Indonesia, generating cross-border narrative power.</p>
+        </div>
+      
+            <div class="chapter__observation">Where Peak XV and East Ventures lean on deal announcements, AppWorks resembles early a16z—educating the market with long-form essays, minting vocabulary, then using that vocabulary to attract founders. The difference is audience: a16z spoke to Silicon Valley, AppWorks to GSEA. This textbook-style content compounds especially well after hype cycles fade, and it is the lever that lets a Tier 2 AUM firm sustain a Tier 1 community.</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="team" aria-expanded="false" style="--cat:var(--c-saas)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-team">
+            <span class="chapter__icon"><span class="material-symbols-rounded">groups</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 07</span>
+              <h3>Team</h3>
+              <p>A 26-person firm with six partners and a strong promote-from-within culture—yet attention still centers on the founder.</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-team">
+            
+        <div class="chapter__section">
+          <h4>The Partner Bench</h4>
+          <p>Beyond founding partner Jamie Lin, AppWorks has five partners: Joseph Chan and Andy Tsai (both from CID Group, the latter joining in 2018); Jessica Liu (joined 2014 from Standard Chartered, leading SEA and Web3); and Nice Cheng on operations and capital relationships. The principal layer comprises Alyssa Chen, Ching Tseng (NCCU BBA, intern in 2015, promoted to principal in 2022, currently heading Web3), and Sophie Chiu.</p><p>A further five venture principals, associates, and analysts sit below—including Jun Wakabayashi for the Japan bridge, plus Michelle Lin, Nathan Alexander, Bill Hsu, and Johnny Chuang. An eight-person operations team powers the accelerator, Demo Day, and community programming.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Promote From Within</h4>
+          <p>Ching Tseng's arc—university intern in 2015, principal in 2022, now leading Web3—is the canonical AppWorks promotion story. Where Singapore peers typically poach from investment banks or Big Tech, AppWorks prefers to grow talent from the accelerator floor and analyst bench.</p><p>The upside is deep tacit knowledge of GSEA themes and community mechanics. The downside is slower external infusion when themes pivot—say from Mobile to AI Agents—relative to larger benches at Peak XV or East Ventures.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Jamie Lin's Dual Hat</h4>
+          <p>Jamie Lin's dual role—AppWorks founding partner and Taiwan Mobile CEO—is the most consequential governance variable. The upside is access to a corporate LP and telecom-infrastructure lens that few peers can replicate, with direct strategic value for AI, 5G, and edge-compute portfolio names. The downside is attention split and latent conflict-of-interest risk.</p>
+        </div>
+      
+            <div class="chapter__observation">Running an accelerator, a VC, a regional Demo Day circuit, and the Aiworks consulting arm with 26 people is high output density by Asian VC standards. But the structure is a pyramid rather than a true partnership—Jamie Lin's personal brand still absorbs most external visibility. Peak XV and East Ventures distribute voice across multiple partners; if AppWorks wants a decisive next decade, watch whether figures like Jessica Liu and Joseph Chan are given independent narrative space.</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="ecosystem" aria-expanded="false" style="--cat:var(--c-edtech)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-ecosystem">
+            <span class="chapter__icon"><span class="material-symbols-rounded">hub</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 08</span>
+              <h3>Ecosystem</h3>
+              <p>Alumni networks, a regional Demo Day circuit, the Aiworks pivot, and government ties weave the AppWorks moat.</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-ecosystem">
+            
+        <div class="chapter__section">
+          <h4>Aiworks: From Bootcamp to AI Advisory</h4>
+          <p>AppWorks School has formally rebranded to Aiworks, pivoting from a coding bootcamp (1,300-plus iOS, Android, front-end, and back-end engineers shipped) into an enterprise AI advisory shop—helping companies deploy ChatGPT Enterprise and AI agent automation. It is now an OpenAI Services Partner with active partnerships including UiPath and Taiwan Mobile Enterprise Services (TWMES).</p><p>Strategically, the pivot does two things: it converts the bootcamp's engineer alumni base into a "last-mile AI deployment" workforce, and it leverages Taiwan Mobile's enterprise client base, forming a VC-plus-advisory-plus-telco triangle.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Alumni Network as Moat</h4>
+          <p>AppWorks now counts 2,029 founders, 624 active startups, and 27,202 jobs created. At this scale there is no GSEA peer—500 Global has comparable portfolio counts but spread globally, while Peak XV runs no accelerator and has a fundamentally different alumni profile.</p><p>Alumni are not just deal flow. They are customers, talent pools, and cross-border partners for current portfolio companies. When an AW#28 AI startup looks toward Indonesia, an AW#13 ShopBack alumnus becomes an instant advisor and customer node. This cross-cohort, cross-geography, cross-thesis effect is the real moat.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Regionalized Demo Day and Government Ties</h4>
+          <p>Demo Day runs twice a year on a Taipei–Singapore–Kuala Lumpur–Jakarta circuit, operationalizing the "GSEA is one market" thesis. Most peer VCs still concentrate Demo Day in a single city; AppWorks' rotation reinforces regional brand and diversifies LP and corporate-partner exposure.</p><p>On capital, AppWorks counts Taiwan's NDF, Korea's KVIC, and Malaysia's Khazanah among its LPs—an unusual depth of sovereign endorsement in Asian VC.</p>
+        </div>
+      
+            <div class="chapter__observation">The AppWorks ecosystem is not "help after we invest"—it is "prepare the soil before the company exists." Aiworks delivers enterprise AI deployment, the accelerator delivers methodology, Demo Day delivers regional exposure, alumni deliver customers and talent, sovereign LPs deliver capital and policy signal. These five layers are hard for SEA peers to replicate quickly—but they also raise operational complexity well above a pure VC, where any single layer breaking amplifies into systemic risk.</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="market-positioning" aria-expanded="false" style="--cat:var(--c-mobility)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-market-positioning">
+            <span class="chapter__icon"><span class="material-symbols-rounded">leaderboard</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 09</span>
+              <h3>Market Positioning</h3>
+              <p>Mid-pack on AUM, top-tier on community—AppWorks occupies the most distinctive seat in SEA VC.</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-market-positioning">
+            
+        <div class="chapter__section">
+          <h4>SEA VC Comparison Snapshot</h4>
+          <p>Benchmarking AppWorks against GSEA peers makes the picture clear—mid-pack on AUM, distinctive on community and accelerator design:</p><p>- AppWorks: ~$386M AUM, Taipei HQ, GSEA coverage, accelerator</p><p>- 500 Global SEA: ~$500M cumulative, SF/Bangkok/KL bases, accelerator</p><p>- Peak XV (ex-Sequoia SEA): ~$9B AUM, Singapore+Bangalore, no accelerator</p><p>- East Ventures: ~$1.7B AUM, Jakarta+Singapore, no accelerator, Indonesia-heavy</p><p>- Monk's Hill Ventures: $200M+, Singapore, no accelerator, $3-7M tickets</p><p>- Vertex Ventures SEA: ~$541M Fund V, Singapore, Temasek-backed</p><p>- Golden Gate Ventures: ~$250M, Singapore</p><p>- Openspace Ventures: ~$135M, Singapore</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Three Differentiators</h4>
+          <p>Three keywords capture the differentiation: (1) By Founders, For Founders—community as a true source of deal flow, talent, and customers, not a slogan; (2) Accelerator + VC twin engine—a model whose only real GSEA analogue is 500 Global SEA, which still leans toward the SF system; (3) The GSEA frame—treating Taiwan and ASEAN as one market, with AppWorks as the only player operating from Taipei while materially deploying into Southeast Asia.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Tier Assessment</h4>
+          <p>On AUM alone AppWorks sits in SEA Tier 2—above Monk's Hill, Golden Gate, and Openspace, but an order of magnitude behind Peak XV, East Ventures, and Vertex. On community scale, founder reach, and cross-thesis durability, AppWorks lands in Tier 1.</p>
+        </div>
+      
+            <div class="chapter__observation">As Peak XV and Vertex push down into seed, AppWorks' traditional accelerator value will compress—but the "GSEA as one market" framing actually becomes the differentiator. Singapore-system VCs largely treat Taiwan as secondary; AppWorks remains the only Taipei-headquartered firm with material SEA deployment. Over time, this seat may matter more than the AUM ranking.</div>
+          </div>
+        </article>
+      
+        <article class="chapter" data-id="evolution" aria-expanded="false" style="--cat:var(--c-hardware)">
+          <button class="chapter__head ripple-host" aria-controls="ch-body-evolution">
+            <span class="chapter__icon"><span class="material-symbols-rounded">timeline</span></span>
+            <span class="chapter__title">
+              <span class="chapter__num">CH 10</span>
+              <h3>Thesis Evolution</h3>
+              <p>Six phases, fifteen years—AppWorks set the pace of GSEA early-stage venture by switching themes.</p>
+            </span>
+            <span class="chapter__chev material-symbols-rounded">expand_more</span>
+          </button>
+          <div class="chapter__body" id="ch-body-evolution">
+            
+        <div class="chapter__section">
+          <h4>Six Phases</h4>
+          <p>Since 2010, AppWorks' thesis evolution maps cleanly onto six phases:</p><p>- Phase 1 (2010-2013) Internet: EZTABLE, CHOCO TV anchor the Taiwan Internet era.</p><p>- Phase 2 (2014-2017) Mobile + SEA push: Lalamove (2015), KKday (2016) begin the regional move.</p><p>- Phase 3 (2017-2018) GSEA frame crystallizes: Carousell Series C, ShopBack joins AW#13—the regional narrative becomes formal.</p><p>- Phase 4 (2018-2020) A.B.S. takes hold: AW#17 onward openly recruits AI and Blockchain teams; Animoca and Pendle enter portfolio.</p><p>- Phase 5 (2021-2023) Web3 doubled down + Demo Day regionalized: 146 Web3 portfolio names, Demo Day enters its four-city rotation.</p><p>- Phase 6 (2024-2026) Agentic AI + strategic focus: thesis returns to AI Agent application layer; Fund IV targets $360M, closes at $165M, ushering in a focus era.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>Geographic Expansion and the AW#32-33 Hard-Tech Turn</h4>
+          <p>Geographically, AppWorks grew from Taipei outward, layering community footprint into Singapore, Kuala Lumpur, and Jakarta—most visibly through the Demo Day circuit. Japan is being bridged by Jun Wakabayashi but has not yet matured into stable deal flow.</p><p>On the thesis axis, the AW#32-33 hard-tech turn deserves attention: a clear lift in Manufacturing AI, Defense Tech, and Robotics cohort share alongside the historic software and Web3 mix.</p>
+        </div>
+      
+        <div class="chapter__section">
+          <h4>SWOT Read</h4>
+          <p>Strengths: a 2,029-strong founder community, the Taiwan corporate LP ecosystem, sustained cross-thesis output, and early-bet hit rate (Lalamove, Carousell, Animoca, Pendle).</p><p>Weaknesses: Tier 2 AUM, Fund IV shortfall, weaker local brand in SEA versus East Ventures and Peak XV, and exit concentration in a few mega-winners.</p><p>Opportunities: Taiwan as a manufacturing-AI hub, Defense Tech, the Korea-Taiwan-SEA corridor, and the early window in AI Agent applications.</p><p>Risks: a prolonged Web3 winter forcing markdowns across 146 names, Peak XV and Vertex compressing accelerator value as they move into seed, LP skepticism toward the GSEA frame, and Jamie Lin successor risk.</p>
+        </div>
+      
+            <div class="chapter__observation">AppWorks' most underrated capability over fifteen years is thesis-switching cadence—neither cycle chasing like generalist VCs nor trapped in a single lane like deep-tech specialists. Internet to Mobile, Mobile to A.B.S., now Agentic AI and hard tech—each pivot has led the market by roughly 18 to 24 months. If that cadence holds beyond Phase 6, AppWorks' long-term seat looks closer to an "Asian Benchmark-meets-YC hybrid" than a conventional SEA VC.</div>
+          </div>
+        </article>
+      </div>
+  </section>
+
+  <section class="phases" id="phases" aria-labelledby="phases-heading">
+    <header class="section-head">
+      <h2 id="phases-heading" data-i18n="phasesTitle">Thesis Evolution Timeline</h2>
+      <p data-i18n="phasesSub">Six phases from 2010 to 2026.</p>
+    </header>
+    <div class="phase-timeline" id="phase-timeline">
+      <article class="phase-card" style="--cat:#e8710a">
+        <div class="phase-card__head">
+          <span class="phase-card__num">1</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">language</span>Internet</div>
+            <span class="phase-card__years">2010-2013</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">Building Taiwan's first internet accelerator from scratch</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>Turning points</h5>
+            <ul><li><b>2010</b> AppWorks founded, first accelerator batch launched</li><li><b>2012</b> Demo Day established alongside Fund I</li><li><b>2013</b> Taiwan e-commerce and content services take off</li></ul>
+          </div>
+          <div>
+            <h5>Signature deals</h5>
+            <ul><li><b>Tagtoo</b> AW#1, AdTech pioneer of the cohort</li><li><b>CHOCO TV</b> AW#2, early streaming content platform</li><li><b>EZTABLE</b> Online reservations reshape local dining</li><li><b>Pinkoi</b> Flagship marketplace for Asian design goods</li></ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">Focused on Taiwan internet, laying community and methodology foundations.</div>
+      </article>
+    
+      <article class="phase-card" style="--cat:#1a73e8">
+        <div class="phase-card__head">
+          <span class="phase-card__num">2</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">smartphone</span>Mobile + SEA Expansion</div>
+            <span class="phase-card__years">2014-2017</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">Mobile wave pushes AppWorks into Southeast Asia</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>Turning points</h5>
+            <ul><li><b>2014</b> Mobile apps become the default startup form factor</li><li><b>2015</b> First cross-border bets on Lalamove and 17LIVE</li><li><b>2016</b> KKday Series A; accelerator draws regional founders</li></ul>
+          </div>
+          <div>
+            <h5>Signature deals</h5>
+            <ul><li><b>Lalamove</b> 2015 investment betting on Asian urban logistics</li><li><b>KKday</b> AW#13, cross-border travel experience platform</li><li><b>WeMo Scooter</b> AW#12, Taiwan's shared e-scooter pioneer</li><li><b>17LIVE</b> 2015 seed, flagship of live-streaming economy</li></ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">Vision extended from Taiwan to Greater SEA, betting on mobile economy.</div>
+      </article>
+    
+      <article class="phase-card" style="--cat:#12a150">
+        <div class="phase-card__head">
+          <span class="phase-card__num">3</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">public</span>GSEA Framework Takes Shape</div>
+            <span class="phase-card__years">2017-2018</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">Greater Southeast Asia formalized as core investment thesis</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>Turning points</h5>
+            <ul><li><b>2017</b> GSEA (Greater Southeast Asia) thesis articulated</li><li><b>2018</b> Carousell Series C marks cross-regional deals as mainstream</li></ul>
+          </div>
+          <div>
+            <h5>Signature deals</h5>
+            <ul><li><b>Carousell</b> Series C 2018, SEA C2C marketplace leader</li><li><b>ShopBack</b> AW#13, cashback model disrupts SEA e-commerce</li></ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">Upgraded from cross-border bets to a regional thesis, branding AppWorks as the GSEA platform.</div>
+      </article>
+    
+      <article class="phase-card" style="--cat:#8430ce">
+        <div class="phase-card__head">
+          <span class="phase-card__num">4</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">smart_toy</span>A.B.S. Thesis Established</div>
+            <span class="phase-card__years">2018-2020</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">AI, Blockchain, SEA crystallize as three pillars</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>Turning points</h5>
+            <ul><li><b>2018</b> AW#17 openly recruits AI/Blockchain startups</li><li><b>2019</b> Jamie publicly declares the A.B.S. strategy</li><li><b>2020</b> Web3 portfolio scales up rapidly</li></ul>
+          </div>
+          <div>
+            <h5>Signature deals</h5>
+            <ul><li><b>Animoca Brands</b> Bet on blockchain gaming and IP powerhouse</li><li><b>Dapper Labs / Flow</b> Flagship NFT infrastructure investment</li><li><b>XREX</b> AW#17, cross-border crypto finance</li><li><b>Blocto</b> AW#19, Web3 wallet and UX gateway</li><li><b>Pendle</b> AW#20, pioneer of DeFi yield tokenization</li></ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">A.B.S. became the public banner, with Web3 as the most aggressive bet.</div>
+      </article>
+    
+      <article class="phase-card" style="--cat:#f59e0b">
+        <div class="phase-card__head">
+          <span class="phase-card__num">5</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">currency_bitcoin</span>Web3 Doubling Down + Regional Demo Day</div>
+            <span class="phase-card__years">2021-2023</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">All-in on Web3 while Demo Day scales across the region</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>Turning points</h5>
+            <ul><li><b>2021</b> NFT/DeFi bull market expands Web3 batches</li><li><b>2022</b> Demo Day goes regional and hybrid online</li><li><b>2023</b> Web3 portfolio grows to 146 companies</li></ul>
+          </div>
+          <div>
+            <h5>Signature deals</h5>
+            <ul><li><b>StraitsX</b> AW#21, Singapore stablecoin infrastructure</li><li><b>Pendle</b> Enters mainstream DeFi narrative at TVL peak</li><li><b>Blocto</b> Wallet user base scales, multi-chain ecosystem grows</li><li><b>XREX</b> Cross-border payments accelerate in emerging markets</li></ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">Doubling down on Web3 brought momentum and controversy, setting the stage for later consolidation.</div>
+      </article>
+    
+      <article class="phase-card" style="--cat:#d93025">
+        <div class="phase-card__head">
+          <span class="phase-card__num">6</span>
+          <div style="flex:1">
+            <div class="phase-card__title"><span class="material-symbols-rounded">precision_manufacturing</span>Agentic AI + Deep Tech + Strategic Focus</div>
+            <span class="phase-card__years">2024-2026</span>
+          </div>
+        </div>
+        <p class="phase-card__tagline">Converging from broad Web3 bets to AI and deep tech core</p>
+        <div class="phase-card__cols">
+          <div>
+            <h5>Turning points</h5>
+            <ul><li><b>2024</b> AW#32-33 focus on Manufacturing AI, Defense Tech, PQC</li><li><b>2025</b> On-Chain Banking emerges as Web3 consolidation theme</li><li><b>2026</b> Fund IV targets $360M, closes at $165M</li></ul>
+          </div>
+          <div>
+            <h5>Signature deals</h5>
+            <ul><li><b>Sanctum</b> Flagship Solana liquid staking protocol</li><li><b>Nitra</b> AI-driven healthcare fintech rising star</li><li><b>Omo Protocol</b> Next-gen On-Chain Banking infrastructure</li></ul>
+          </div>
+        </div>
+        <div class="phase-card__obs">Shift from breadth to focus; Fund IV shortfall signals the strategic pivot.</div>
+      </article>
+    </div>
+  </section>
+</main>
+  <footer class="site-foot">
+    <p data-i18n-html="footer">資料整理自 <a href="https://appworks.tw/investments/" target="_blank" rel="noopener">AppWorks Investments</a>、Crunchbase 與公開新聞。非官方整理，內容僅供研究參考。</p>
+    <div class="profile-links" style="display:flex;gap:12px;justify-content:center;align-items:center;margin-top:10px">
+      <a class="icon-btn" href="https://www.peteraim.com" target="_blank" rel="noopener" title="Home" aria-label="Back to peteraim.com / 返回首頁"><span class="material-symbols-rounded">home</span></a>
+      <a class="icon-btn" href="https://www.linkedin.com/in/ai-med/" target="_blank" rel="noopener" title="LinkedIn" aria-label="LinkedIn (opens in new tab)"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+    </div>
+  </footer>
+
+  <script src="../data/chapters.js"></script>
+  <script src="../data/phases.js"></script>
+  <script src="../assets/app.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
+      });
+    }
+  </script>
+<p class="lang-alt-link" style="text-align:center;padding:12px;"><a href="/analysis.html" hreflang="zh-Hant" rel="alternate" lang="zh-Hant">中文版</a></p>
+</body>
+</html>
